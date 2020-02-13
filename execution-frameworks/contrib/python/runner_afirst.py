@@ -5,6 +5,9 @@ Author: Olivier Lemelin
 
 modifier : nuno (2020.02.12)
 - added list function
+- added run_operation function
+- changed start number of position from 0 to 1,
+- changed 'position' variable's name to 'testnum'
 
 Script that was built in order to automate the execution of ART.
 """
@@ -92,6 +95,7 @@ def load_techniques():
     # Create a dict to accept the techniques that will be loaded.
     techniques = {}
 
+    # If users choose list option, print a head line.
     if ENABLE_LIST:
         print('attack_technique', "\t", end='')
         print('display_name', "\t", end='')
@@ -221,7 +225,7 @@ def print_non_interactive_command_line(technique_name, executor_number, paramete
     print("In order to run this non-interactively:")
     print("    Python:")
     print("    techniques = runner.AtomicRunner()")
-    print("    techniques.execute(\"{name}\", position={pos}, parameters={params})".format(name=technique_name, pos=executor_number, params=parameters))
+    print("    techniques.execute(\"{name}\", testnum={pos}, parameters={params})".format(name=technique_name, pos=executor_number, params=parameters))
     print("    Shell Script:")
     print("    python3 runner.py run {name} {pos} --args '{params}' \n".format(name=technique_name, pos=executor_number, params=json.dumps(parameters)))
 
@@ -485,7 +489,8 @@ def write_hash_db(hash_db_path, db):
         json.dump(db, f, sort_keys=True, indent=4, separators=(',', ': '))
 
 
-def check_hash_db(hash_db_path, executor_data, technique_name, executor_position):
+def check_hash_db(hash_db_path, executor_data, technique_name, testnum):
+    executor_position = testnum -1
     """Checks the hash DB for a hash, and verifies that it corresponds to the current executor data's
     hash.  Adds the hash to the current database if it does not already exist."""
     hash_db = load_hash_db()
@@ -514,11 +519,13 @@ def check_hash_db(hash_db_path, executor_data, technique_name, executor_position
     # If a previous hash already exists, compare both hashes.
     return old_hash == new_hash
 
-def clear_hash(hash_db_path, technique_to_clear, position_to_clear=-1):
+def clear_hash(hash_db_path, technique_to_clear, testnum=1):
+    position_to_clear = testnum -1
+
     """Clears a hash from the DB, then saves the DB to a file."""
     hash_db = load_hash_db()
 
-    if position_to_clear == -1:
+    if position_to_clear == 0:
         # We clear out the whole technique.
         del hash_db[technique_to_clear]
     else:
@@ -560,13 +567,14 @@ class AtomicRunner():
             i = input("> ").strip()
 
 
-    def execute(self, technique_name, position=0, parameters=None):
+    def execute(self, technique_name, testnum=1, parameters=None):
+        position = testnum-1
         """Runs a technique non-interactively."""
 
         parameters = parameters or {}
 
         print("================================================")
-        print("Executing {}/{}\n".format(technique_name, position))
+        print("Executing {}/{}\n".format(technique_name, testnum))
 
         # Gets the tech.
         tech = self.techniques[technique_name]
@@ -587,10 +595,10 @@ class AtomicRunner():
             return False
 
         # Check that hash matches previous executor hash or that this is a new hash.
-        if not check_hash_db(HASH_DB_RELATIVE_PATH, executor, technique_name, position):
+        if not check_hash_db(HASH_DB_RELATIVE_PATH, executor, technique_name, testnum):
             print("Warning: new executor fingerprint does not match the old one! Skipping this execution.")
             print("To re-enable this test, review this specific executor, test your payload, and clear out this executor's hash from the database.")
-            print("Run this: python runner.py clearhash {} {}.".format(technique_name, position))
+            print("Run this: python runner.py clearhash {} {}.".format(technique_name, testnum))
             return False
 
         # Launch execution.
@@ -662,17 +670,17 @@ def run(args):
     if args.technique[0] != "T":
         args.technique = "T" + args.technique
 
-    runner.execute(args.technique, args.position, json.loads(args.args))
+    runner.execute(args.technique, args.testnum, json.loads(args.args))
 
-def run_set(args):
+def run_operation(args):
     """Launch the runner in non-interactive mode."""
     runner = AtomicRunner()
 
-    print("Set Name : ", args.set)
+    print("Operation Name : ", args.operation)
 
-    if args.set == 'all':
+    if args.operation == 'all_atomics':
         for techid, techbody in runner.techniques.items():
-            test_num = 0
+            test_num = 1
             for test in techbody['atomic_tests']:
                 # temp exempt
                 if int(techid[1:]) < 1180 :
@@ -689,12 +697,15 @@ def run_set(args):
 
 def clear(args):
     """Clears a stale hash from the Hash DB."""
-    clear_hash(HASH_DB_RELATIVE_PATH, args.technique, args.position)
+    clear_hash(HASH_DB_RELATIVE_PATH, args.technique, args.testnum)
 
 def list(args):
     """ list all atomics by nuno"""
+
+    # ENABLE_LIST is a global variable to use in other functions.
     global ENABLE_LIST
     ENABLE_LIST = True
+
     runner = AtomicRunner()
 
 def main():
@@ -705,25 +716,24 @@ def main():
     parser_int = subparsers.add_parser('interactive', help='Runs the techniques interactively.')
     parser_int.set_defaults(func=interactive)
 
-    parser_run = subparsers.add_parser('run', help="Ponctually runs a single technique / executor pair.")
+    parser_run = subparsers.add_parser('run', help="Punctually runs a single technique / executor pair.")
     parser_run.add_argument('technique', type=str, help="Technique to run. ex) T1012")
-    parser_run.add_argument('-position', type=int, default=0, required=False, help="Position of the executor in technique to run.")
+    parser_run.add_argument('-testnum', type=int, default=1, required=False, help="Test number of the executor in technique to run.")
     parser_run.add_argument('--args', type=str, default="{}", help="JSON string representing a dictionary of arguments (eg. '{ \"arg1\": \"val1\", \"arg2\": \"val2\" }' )")
     parser_run.set_defaults(func=run)
 
-    parser_run_set = subparsers.add_parser('run_set', help="Ponctually runs a single technique / executor pair.")
-    parser_run_set.add_argument('set', type=str, help="Technique set to run. (ex: all ) ")
-    parser_run_set.set_defaults(func=run_set)
-
-    parser_clear = subparsers.add_parser('clearhash', help="Clears a hash from the database, allowing the technique to be run once again.")
+    parser_clear = subparsers.add_parser('clearhash',help="Clears a hash from the database, allowing the technique to be run once again.")
     parser_clear.add_argument('technique', type=str, help="Technique to run.")
-    parser_clear.add_argument('--position', '-p', type=int, default=-1, help="Position of the executor in technique to run.")
+    parser_clear.add_argument('--testnum', '-p', type=int, default=-1,help="Test number of the executor in technique to run.")
     parser_clear.set_defaults(func=clear)
 
     """ added by nuno """
     parser_list = subparsers.add_parser('list', help="list all atomics")
-    #parser_list.add_argument('atomic_dir', type=str, help="directory of atomics")
     parser_list.set_defaults(func=list)
+
+    parser_run_operation= subparsers.add_parser('run_operation', help="Runs a technique set.")
+    parser_run_operation.add_argument('operation', type=str, help="Name of set to run (ex: all_atomics, apt3, apt28) ")
+    parser_run_operation.set_defaults(func=run_operation)
 
     try:
         args = parser.parse_args()
