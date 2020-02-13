@@ -27,10 +27,12 @@ import pprint # added by nuno
 import yaml
 import unidecode
 
+
 # pylint: disable=line-too-long, invalid-name
 
 TECHNIQUE_DIRECTORY_PATTERN = 'T*'
 ATOMICS_DIR_RELATIVE_PATH = os.path.join("..", "..", "..", "atomics")
+OPERATION_DIR_RELATIVE_PATH = os.path.join("..", "..", "..", "operations")
 HASH_DB_RELATIVE_PATH = "techniques_hash.db"
 COMMAND_TIMEOUT = 20
 
@@ -79,7 +81,13 @@ def load_technique(path_to_dir):
 
     # Load and parses its content.
     with open(file_entry, 'r', encoding="utf-8") as f:
-        return yaml.load(unidecode.unidecode(f.read()))
+        return yaml.load(unidecode.unidecode(f.read()), Loader=yaml.FullLoader)
+
+
+def load_operation(path_to_operation):
+    path_to_operation= os.path.join(OPERATION_DIR_RELATIVE_PATH, path_to_operation)
+    f = open(path_to_operation,'r', encoding="utf-8")
+    return yaml.load(unidecode.unidecode(f.read()), Loader=yaml.FullLoader)
 
 
 def load_techniques():
@@ -90,7 +98,7 @@ def load_techniques():
                                 ATOMICS_DIR_RELATIVE_PATH)
     normalized_atomics_path = os.path.normpath(atomics_path)
 
-    print("Loading techniques from {}...".format(normalized_atomics_path))
+    print("[+] Loading techniques from {}...".format(normalized_atomics_path))
 
     # Create a dict to accept the techniques that will be loaded.
     techniques = {}
@@ -108,12 +116,13 @@ def load_techniques():
 
 
     # For each tech directory in the main directory.
+    techniques_cnt = 1
     for atomic_entry in os.listdir(normalized_atomics_path):
 
         # Make sure that it matches the current pattern.
         if fnmatch.fnmatch(atomic_entry, TECHNIQUE_DIRECTORY_PATTERN):
-            if not ENABLE_LIST:
-                print("Loading Technique {}...".format(atomic_entry))
+            #if not ENABLE_LIST:
+                #print("Loading Technique {}...".format(atomic_entry))
 
             # Get path to tech dir.
             path_to_dir = os.path.join(normalized_atomics_path, atomic_entry)
@@ -147,9 +156,9 @@ def load_techniques():
 
             # Add path to technique's directory.
             techniques[atomic_entry]["path"] = path_to_dir
-
+            techniques_cnt +=1
+    print("[+] Loaded Techniques : {} ".format(techniques_cnt))
     return techniques
-
 
 ##########################################
 # Executors
@@ -673,7 +682,7 @@ def run(args):
     runner.execute(args.technique, args.testnum, json.loads(args.args))
 
 def run_operation(args):
-    """Launch the runner in non-interactive mode."""
+    """Launch the runner in run_operation mode."""
     runner = AtomicRunner()
 
     print("Operation Name : ", args.operation)
@@ -692,14 +701,24 @@ def run_operation(args):
                 else:
                     runner.execute(techid, test_num, "")
                     test_num += 1
-
-        #runner.execute(technique, position, json.loads(args.args))
+    else:
+        args.operation = args.operation.upper()
+        operation = load_operation(args.operation + ".yaml")
+        print('OPERATION NAME : ', operation['op_name'])
+        print('DESCRIPTION : ', operation['description'])
+        for atomic_test in operation['atomic_tests']:
+            for phase in atomic_test['phase']:
+                #print(phase['techid'])
+                for test_num in phase['testnum']:
+                    techid = phase['techid']
+                    #print(tid, testnum)
+                    runner.execute(techid, test_num, "")
 
 def clear(args):
     """Clears a stale hash from the Hash DB."""
     clear_hash(HASH_DB_RELATIVE_PATH, args.technique, args.testnum)
 
-def list(args):
+def list_technique(args):
     """ list all atomics by nuno"""
 
     # ENABLE_LIST is a global variable to use in other functions.
@@ -707,6 +726,18 @@ def list(args):
     ENABLE_LIST = True
 
     runner = AtomicRunner()
+def list_operation(args):
+    """ list all operations by nuno"""
+    # enumerate operations
+
+    print('[+] OPERATIONS LIST')
+    num = 1
+    for entry in os.listdir(OPERATION_DIR_RELATIVE_PATH):
+        if fnmatch.fnmatch(entry, '*.yaml'):
+            # Found the file!
+            print('\t', num, '\t', os.path.splitext(entry)[0])
+        num+=1
+
 
 def main():
     """Main function, called every time this script is launched rather than imported."""
@@ -728,12 +759,15 @@ def main():
     parser_clear.set_defaults(func=clear)
 
     """ added by nuno """
-    parser_list = subparsers.add_parser('list', help="list all atomics")
-    parser_list.set_defaults(func=list)
+    parser_list_technique = subparsers.add_parser('list_technique', help="list all techniques")
+    parser_list_technique.set_defaults(func=list_technique)
 
     parser_run_operation= subparsers.add_parser('run_operation', help="Runs a technique set.")
     parser_run_operation.add_argument('operation', type=str, help="Name of set to run (ex: all_atomics, apt3, apt28) ")
     parser_run_operation.set_defaults(func=run_operation)
+
+    parser_list_operation = subparsers.add_parser('list_operation', help="list all operations.")
+    parser_list_operation.set_defaults(func=list_operation)
 
     try:
         args = parser.parse_args()
