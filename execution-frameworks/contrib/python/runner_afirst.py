@@ -684,10 +684,8 @@ def run(args):
 def run_operation(args):
     """Launch the runner in run_operation mode."""
     runner = AtomicRunner()
-
-    print("Operation Name : ", args.operation)
-
     if args.operation == 'all_atomics':
+        print("OPERATION NAME : ", args.operation)
         for techid, techbody in runner.techniques.items():
             test_num = 1
             for test in techbody['atomic_tests']:
@@ -701,19 +699,40 @@ def run_operation(args):
                 else:
                     runner.execute(techid, test_num, "")
                     test_num += 1
+
+    # if operation name is chosen
     else:
         args.operation = args.operation.upper()
         operation = load_operation(args.operation + ".yaml")
         print('OPERATION NAME : ', operation['op_name'])
         print('DESCRIPTION : ', operation['description'])
+        # 1st version
+        '''
         for atomic_test in operation['atomic_tests']:
             for phase in atomic_test['phase']:
-                #print(phase['techid'])
                 for test_num in phase['testnum']:
                     techid = phase['techid']
                     #print(tid, testnum)
                     runner.execute(techid, test_num, "")
-
+        '''
+        # 2nd version
+        '''
+        for phase in operation['atomic_tests']:
+            for atomic in phase['phase']:
+                techid = atomic['atomic']['techid']
+                test_num = atomic['atomic']['test_num']
+                args= atomic['atomic']['args']
+                runner.execute(techid, test_num, args)
+        '''
+        # 3nd version
+        for phase in operation['atomic_tests']:
+            print('Running Phase: ', phase['phase'])
+            for atomic in phase['atomics']:
+                techid = atomic['techid']
+                test_num = atomic['test_num']
+                args= atomic['args']
+                print(techid, test_num, args)
+                #runner.execute(techid, test_num, args)
 def clear(args):
     """Clears a stale hash from the Hash DB."""
     clear_hash(HASH_DB_RELATIVE_PATH, args.technique, args.testnum)
@@ -777,3 +796,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

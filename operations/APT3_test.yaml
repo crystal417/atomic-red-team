@@ -6,11 +6,13 @@ description: Scenario based APT3
 atomic_tests:
 - phase:
   - techid: T1060
-    testnum: [1,2]
+    testnum:
+    - [1, asdf]
+    - 2
   - techid: T1072
     testnum:
-      - 3
-      - 4
+    - 3
+    - 4
 
 
 ...

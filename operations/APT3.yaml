@@ -1,16 +1,29 @@
 ---
 # this is the operation file to emulate APT3 based scenario.
 # written by afirst
-op_name: APT3
-description: Scenario based APT3
+op_name: APTtest
+description: Scenario based APTtest
 atomic_tests:
-- phase:
-  - techid: T1060
-    testnum: [1,2]
-  - techid: T1072
-    testnum:
-      - 3
-      - 4
-
-
+- phase: Phase 1st
+  description: aaaa
+  atomics:
+  - atomic:
+    techid: T1060
+    test_num: 2
+    args: ""
+  - atomic:
+    techid: T1060
+    test_num: 4
+    args: ""
+- phase: Phase 2nd
+  description: aaaa
+  atomics:
+  - atomic:
+    techid: T1070
+    test_num: 2
+    args: ""
+  - atomic:
+    techid: T1070
+    test_num: 4
+    args: ""
 ...

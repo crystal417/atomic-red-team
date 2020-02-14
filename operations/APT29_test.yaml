@@ -1,0 +1,25 @@
+---
+# this is the operation file to emulate APT3 based scenario.
+# written by afirst
+op_name: APT29
+description: Scenario based APT29
+atomic_tests:
+- phase: aaa
+    - atomic:
+        techid: T1060
+        test_num: 1
+        args: ""
+    - atomic:
+        techid: T1060
+        test_num: 2
+        args: "{aaa}"
+- phase:
+    - atomic:
+        techid: T1070
+        test_num: 1
+        args: ""
+    - atomic:
+        techid: T1070
+        test_num: 2
+        args: "{aaa}"
+...
