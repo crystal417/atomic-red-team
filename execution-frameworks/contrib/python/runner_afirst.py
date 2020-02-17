@@ -576,7 +576,14 @@ class AtomicRunner():
             i = input("> ").strip()
 
 
-    def execute(self, technique_name, testnum=1, parameters=None):
+    def execute(self, technique_name, testnum, parameters=None):
+
+        #temp
+        if testnum==0:
+            print("passed the execution because of testnum=0")
+            return True
+
+
         position = testnum-1
         """Runs a technique non-interactively."""
 
@@ -726,13 +733,13 @@ def run_operation(args):
         '''
         # 3nd version
         for phase in operation['atomic_tests']:
-            print('Running Phase: ', phase['phase'])
+            print('PHASE: ', phase['phase'])
             for atomic in phase['atomics']:
                 techid = atomic['techid']
                 test_num = atomic['test_num']
                 args= atomic['args']
                 print(techid, test_num, args)
-                #runner.execute(techid, test_num, args)
+                runner.execute(techid, test_num, args)
 def clear(args):
     """Clears a stale hash from the Hash DB."""
     clear_hash(HASH_DB_RELATIVE_PATH, args.technique, args.testnum)

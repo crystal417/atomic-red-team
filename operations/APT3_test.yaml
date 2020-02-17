@@ -4,7 +4,7 @@
 op_name: APT3
 description: Scenario based APT3
 atomic_tests:
-- phase:
+- phase: Step1 - Initial Compromise
   - techid: T1060
     testnum:
     - [1, asdf]

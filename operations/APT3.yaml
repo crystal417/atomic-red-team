@@ -1,29 +1,194 @@
 ---
-# this is the operation file to emulate APT3 based scenario.
-# written by afirst
-op_name: APTtest
-description: Scenario based APTtest
+"""
+MITRE ATT&CK Evaluation Round 1 TID based APT3
+written by afirst
+
+"""
+
+
+op_name: APT3
+description: MITRE ATT&CK Evaluation Round 1 TID based APT3
 atomic_tests:
-- phase: Phase 1st
-  description: aaaa
+- phase: Round 1 Scenario1
+  description:
   atomics:
   - atomic:
-    techid: T1060
-    test_num: 2
-    args: ""
+    description: 확인 필요
+    techid:  T1002 
+    test_num: 0
+    args: ""    
+  
   - atomic:
-    techid: T1060
-    test_num: 4
+    description: 5.A.1, 5.A.2
+    techid:  A1003
+    test_num: 0
     args: ""
-- phase: Phase 2nd
-  description: aaaa
-  atomics:
+
   - atomic:
-    techid: T1070
-    test_num: 2
-    args: ""
+    description: 8.C.1
+    techid:  T1010 
+    test_num: 0
+    args: ""    
+
   - atomic:
-    techid: T1070
-    test_num: 4
-    args: ""
+    description: 2.A.1, 2.E.2
+    techid:  T1016 
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 6.B.1
+    techid:  T1026 
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 9.B.1
+    techid:  T1039 
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 9.B.1
+    techid:  T1041 
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 1.C.1, 6.B.1
+    techid:  T1043 
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 7.C.1
+    techid:  T1053 
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 3.C.1, 5.A.1, 5.A.2, 8.D.1
+    techid:  T1055 
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 8.C.1
+    techid:  T1056 
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 3.B.1, 8.B.1
+    techid:  T1057
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 2.A.1
+    techid:  T1059 
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 1.B.1, 10.A.1
+    techid:  T1060
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 7.A.1
+    techid:  T1061
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 1.A.1
+    techid:  T1064 
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 1.C.1, 6.B.1
+    techid:  T1071
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 10.B.1
+    techid:  T1076
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 10.B.1
+    techid:  T1078
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 2.E.2
+    techid:  T1082
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 9.A.1
+    techid:  T1083
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 1.A.1, 7.C.1
+    techid:  T1085
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 7.A.1
+    techid:  T1087 
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 3.A.1
+    techid:  T1088
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 3.B.1, 8.B.1, 8.C.1, 8.D.1, 9.A.1, 9.B.1
+    techid:  T1106
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 8.D.1
+    techid:  T1113
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 1.C.1
+    techid:  T1132
+    test_num: 0
+    args: ""    
+  
+  - atomic:
+    description: 3.A.1
+    techid:  T1134
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 7.A.1
+    techid:  T1136
+    test_num: 0
+    args: ""    
+
+  - atomic:
+    description: 1.A.1
+    techid:  T1204
+    test_num: 0
+    args: ""    
 ...
