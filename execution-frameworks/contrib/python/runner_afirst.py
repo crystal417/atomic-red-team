@@ -22,21 +22,31 @@ import sys
 import hashlib
 import json
 import argparse
-import pprint # added by nuno
-
 import yaml
 import unidecode
+
+import pprint # added by nuno
+import logging  # added by nuno
 
 
 # pylint: disable=line-too-long, invalid-name
 
-TECHNIQUE_DIRECTORY_PATTERN = 'T*'
+TECHNIQUE_DIRECTORY_PATTERN1 = 'T????'
+TECHNIQUE_DIRECTORY_PATTERN2 = 'A????'
 ATOMICS_DIR_RELATIVE_PATH = os.path.join("..", "..", "..", "atomics")
 OPERATION_DIR_RELATIVE_PATH = os.path.join("..", "..", "..", "operations")
 HASH_DB_RELATIVE_PATH = "techniques_hash.db"
 COMMAND_TIMEOUT = 20
 
 ENABLE_LIST = False
+
+logging.basicConfig(level=logging.DEBUG)
+fileHandler = logging.FileHandler('./runner_afirst.log')
+formatter = logging.Formatter('[%(asctime)s][%(levelname)s|%(filename)s:%(lineno)s] >> %(message)s')
+fileHandler.setFormatter(formatter)
+logger = logging.getLogger(__name__)
+logger.addHandler(fileHandler)
+
 
 ##########################################
 # Filesystem & Helpers
@@ -120,7 +130,7 @@ def load_techniques():
     for atomic_entry in os.listdir(normalized_atomics_path):
 
         # Make sure that it matches the current pattern.
-        if fnmatch.fnmatch(atomic_entry, TECHNIQUE_DIRECTORY_PATTERN):
+        if fnmatch.fnmatch(atomic_entry, TECHNIQUE_DIRECTORY_PATTERN1) or fnmatch.fnmatch(atomic_entry, TECHNIQUE_DIRECTORY_PATTERN2):
             #if not ENABLE_LIST:
                 #print("Loading Technique {}...".format(atomic_entry))
 
@@ -445,6 +455,8 @@ def print_process_output(outs, errs):
 def execute_command(launcher, command, cwd):
     """Executes a command with the given launcher."""
 
+    logger.debug("function - execute_command")
+
     print("\n------------------------------------------------")
 
    # Replace instances of PathToAtomicsFolder
@@ -457,6 +469,7 @@ def execute_command(launcher, command, cwd):
     if "powershell" in launcher:
         outs, errs = execute_subprocess([launcher, '-Command', '-'], command, cwd)
         print_process_output(outs, errs)
+        logger.debug("powershell : {}".format(command))
 
     else:
         for comm in command.split("\n"):
@@ -468,7 +481,7 @@ def execute_command(launcher, command, cwd):
             # # We actually run the command itself.
             outs, errs = execute_subprocess(launcher, comm, cwd)
             print_process_output(outs, errs)
-            
+            logger.debug(comm)
             continue
 
 
@@ -590,7 +603,7 @@ class AtomicRunner():
         parameters = parameters or {}
 
         print("================================================")
-        print("Executing {}/{}\n".format(technique_name, testnum))
+        print("Executing {}/{}\t ARGS : {}\n".format(technique_name, testnum, parameters))
 
         # Gets the tech.
         tech = self.techniques[technique_name]
@@ -683,20 +696,21 @@ def run(args):
     runner = AtomicRunner()
     # canonicalize technique number
     args.technique = args.technique.upper()     # t1012 -> T1012
-    if args.technique[0] != "T":
-        args.technique = "T" + args.technique
 
     runner.execute(args.technique, args.testnum, json.loads(args.args))
 
 def run_operation(args):
     """Launch the runner in run_operation mode."""
+    logger.debug("function - run_operation(args) : " + args.operation)
     runner = AtomicRunner()
+
     if args.operation == 'all_atomics':
         print("OPERATION NAME : ", args.operation)
         for techid, techbody in runner.techniques.items():
             test_num = 1
             for test in techbody['atomic_tests']:
                 # temp exempt
+                """
                 if int(techid[1:]) < 1180 :
                     test_num += 1
                     continue
@@ -706,7 +720,9 @@ def run_operation(args):
                 else:
                     runner.execute(techid, test_num, "")
                     test_num += 1
-
+                """
+                runner.execute(techid, test_num, "")
+                test_num += 1
     # if operation name is chosen
     else:
         args.operation = args.operation.upper()
@@ -739,6 +755,7 @@ def run_operation(args):
                 test_num = atomic['test_num']
                 args= atomic['args']
                 print(techid, test_num, args)
+                logger.debug("technid:{} test_num:{} args={}".format(techid, test_num, args))
                 runner.execute(techid, test_num, args)
 def clear(args):
     """Clears a stale hash from the Hash DB."""
