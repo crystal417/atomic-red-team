@@ -596,7 +596,6 @@ class AtomicRunner():
             print("passed the execution because of testnum=0")
             return True
 
-
         position = testnum-1
         """Runs a technique non-interactively."""
 
@@ -697,7 +696,23 @@ def run(args):
     # canonicalize technique number
     args.technique = args.technique.upper()     # t1012 -> T1012
 
-    runner.execute(args.technique, args.testnum, json.loads(args.args))
+    if args.testnum==0:
+        test_num = 1
+        for atomic in runner.techniques[args.technique]['atomic_tests']:
+            techid = args.technique
+            arg = args.args
+            print("")
+            print("-" * 100)
+            print("Test Atomic : {}/{} args: {}".format(techid, test_num, arg))
+            print("description: {}".format(atomic['description']))
+            logger.debug("Test Atomic : {}/{} args={}".format(techid, test_num, arg))
+            logger.debug("description: {}".format(atomic['description']))
+
+            runner.execute(techid, test_num, json.loads(args.args))
+            test_num+=1
+    else:
+        runner.execute(args.technique, args.testnum, json.loads(args.args))
+
 
 def run_operation(args):
     """Launch the runner in run_operation mode."""
@@ -708,6 +723,10 @@ def run_operation(args):
         print("OPERATION NAME : ", args.operation)
         for techid, techbody in runner.techniques.items():
             test_num = 1
+            # skip shutdown and reboot tests.
+            if techid=='T1180' or techid=='T1529':
+                test_num += 1
+                continue
             for test in techbody['atomic_tests']:
                 # temp exempt
                 """
@@ -721,6 +740,13 @@ def run_operation(args):
                     runner.execute(techid, test_num, "")
                     test_num += 1
                 """
+                print("")
+                print("-" * 100)
+                print("Test Atomic : {}/{}".format(techid, test_num))
+                print("description: {}".format(test['description']))
+                if args.step:
+                    input('>> Press Enter to run this step')
+                logger.debug("Test Atomic : {}/{}".format(techid, test_num))
                 runner.execute(techid, test_num, "")
                 test_num += 1
     # if operation name is chosen
@@ -753,10 +779,17 @@ def run_operation(args):
             for atomic in phase['atomics']:
                 techid = atomic['techid']
                 test_num = atomic['test_num']
-                args= atomic['args']
-                print(techid, test_num, args)
-                logger.debug("technid:{} test_num:{} args={}".format(techid, test_num, args))
-                runner.execute(techid, test_num, args)
+                arg= atomic['args']
+                print("")
+                print("-"*100)
+                print("Test Atomic : {}/{} args: {}".format(techid, test_num, arg))
+                print("description: {}".format(atomic['description']))
+                if args.step:
+                    input('>> Press Enter to run this step')
+                logger.debug("Test Atomic : {}/{} args={}".format(techid, test_num, arg))
+                logger.debug("description: {}".format(atomic['description']))
+
+                runner.execute(techid, test_num, arg)
 def clear(args):
     """Clears a stale hash from the Hash DB."""
     clear_hash(HASH_DB_RELATIVE_PATH, args.technique, args.testnum)
@@ -792,9 +825,14 @@ def main():
 
     parser_run = subparsers.add_parser('run', help="Punctually runs a single technique / executor pair.")
     parser_run.add_argument('technique', type=str, help="Technique to run. ex) T1012")
-    parser_run.add_argument('-testnum', type=int, default=1, required=False, help="Test number of the executor in technique to run.")
+    parser_run.add_argument('-testnum', type=int, default=0, required=False, help="Test number of the executor in technique to run.")
     parser_run.add_argument('--args', type=str, default="{}", help="JSON string representing a dictionary of arguments (eg. '{ \"arg1\": \"val1\", \"arg2\": \"val2\" }' )")
     parser_run.set_defaults(func=run)
+
+    parser_run_operation = subparsers.add_parser('run_operation', help="Runs a technique set.")
+    parser_run_operation.add_argument('operation', type=str, help="Name of set to run (ex: all_atomics, apt3, apt28) ")
+    parser_run_operation.add_argument('-step', '--step', action="store_true", help="run step")
+    parser_run_operation.set_defaults(func=run_operation)
 
     parser_clear = subparsers.add_parser('clearhash',help="Clears a hash from the database, allowing the technique to be run once again.")
     parser_clear.add_argument('technique', type=str, help="Technique to run.")
@@ -802,15 +840,12 @@ def main():
     parser_clear.set_defaults(func=clear)
 
     """ added by nuno """
-    parser_list_technique = subparsers.add_parser('list_technique', help="list all techniques")
+    parser_list_technique = subparsers.add_parser('list_technique', help="Lists all techniques.")
     parser_list_technique.set_defaults(func=list_technique)
 
-    parser_run_operation= subparsers.add_parser('run_operation', help="Runs a technique set.")
-    parser_run_operation.add_argument('operation', type=str, help="Name of set to run (ex: all_atomics, apt3, apt28) ")
-    parser_run_operation.set_defaults(func=run_operation)
-
-    parser_list_operation = subparsers.add_parser('list_operation', help="list all operations.")
+    parser_list_operation = subparsers.add_parser('list_operation', help="Lists all operations.")
     parser_list_operation.set_defaults(func=list_operation)
+
 
     try:
         args = parser.parse_args()
