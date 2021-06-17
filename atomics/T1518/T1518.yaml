@@ -1,27 +1,40 @@
----
 attack_technique: T1518
 display_name: Software Discovery
-
 atomic_tests:
 - name: Find and Display Internet Explorer Browser Version
+  auto_generated_guid: 68981660-6670-47ee-a5fa-7e74806420a4
+  description: |
+    Query the registry to determine the version of internet explorer installed on the system.
+    Upon execution, version information about internet explorer will be displayed.
+  supported_platforms:
+  - windows
+  executor:
+    command: |
+      reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer" /v svcVersion
+    name: command_prompt
+
+- name: Applications Installed
+  auto_generated_guid: c49978f6-bd6e-4221-ad2c-9e3e30cc1e3b
+  description: |
+    Query the registry to determine software and versions installed on the system. Upon execution a table of
+    software name and version information will be displayed.
+  supported_platforms:
+  - windows
+  executor:
+    command: |
+      Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -Autosize
+      Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -Autosize
+    name: powershell
+    
+- name: Find and Display Safari Browser Version
+  auto_generated_guid: 103d6533-fd2a-4d08-976a-4a598565280f
   description: |
     Adversaries may attempt to get a listing of non-security related software that is installed on the system. Adversaries may use the information from Software Discovery during automated discovery to shape follow-on behaviors
   supported_platforms:
-    - windows
+    - macos
   executor:
-    name: command_prompt
-    elevation_required: false # indicates whether command must be run with admin privileges. If the elevation_required attribute is not defined, the value is assumed to be false
-    command: | # these are the actaul attack commands, at least one command must be provided
-      reg query "HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer" /v svcVersion
-
-- name: Applications Installed
-  description: |
-    Adversaries may attempt to get a listing of all software that is installed on the system. Adversaries may use the information from Software Discovery during automated discovery to shape follow-on behaviors
-  supported_platforms:
-    - windows
-  executor:
-    name: powershell
-    elevation_required: false # indicates whether command must be run with admin privileges. If the elevation_required attribute is not defined, the value is assumed to be false
-    command: | # these are the actual attack commands, at least one command must be provided
-      Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -Autosize
-      Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* | Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Format-Table -Autosize
+    name: sh
+    elevation_required: false
+    command: |
+      /usr/libexec/PlistBuddy -c "print :CFBundleShortVersionString" /Applications/Safari.app/Contents/Info.plist
+      /usr/libexec/PlistBuddy -c "print :CFBundleVersion" /Applications/Safari.app/Contents/Info.plist

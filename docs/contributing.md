@@ -3,8 +3,7 @@ layout: default
 ---
 
 # Contributing to Atomic Red Team
-*NOTE: We have sweet stickers for people who contribute; if you’re interested send a message to 
-gear@redcanary.com with your mailing address*
+*NOTE: An updated version of this contributing reference is found over on the Wiki [here](https://github.com/redcanaryco/atomic-red-team/wiki/Contributing) *
 
 - [Atomic Philosophy](#atomic-philosophy)
 - [How to contribute](#how-to-contribute)
@@ -24,7 +23,13 @@ Atomic Red Team welcomes all types of contributions as long as it is mapped to
 - If sourcing from another tool/product (ex. generated command), be sure to cite it in the test's description.
 
 ## How to contribute
-### Fork
+
+### The Quick and Easy Way (GUI based)
+
+For a quick walk through of how to generate a new atomic test and submit a pull request you can [view this walkthrough](https://youtu.be/l1zwudJkev0). This method is the most simple way of doing a pull request using the GitHub web interface. Otherwise, you can go through the more traditional process of using the git command line as follows.
+
+### The Traditional Way (Command Line)
+#### Fork
 [Fork the atomic-red-team repository in Github](https://github.com/redcanaryco/atomic-red-team/fork), then checkout 
 the repository and make a branch for your new test:
 ```bash
@@ -34,7 +39,7 @@ cd atomic-red-team
 git checkout -b t1234-something-describing-your-test
 ```
 
-### Add Atomic Test
+#### Add Atomic Test
 Pick the technique you want to add a test for (ie, T1234) and run the generator. This makes 
 a new test for the technique with a bunch of TODOs you'll fill in and opens up your editor
 so you can get to work.
@@ -47,7 +52,7 @@ bin/new-atomic.rb T1234
 
 Fill in the TODOs with the information for your test. See the [Atomic Test structure](#atomic-test-structure) section below.
 
-### Validate
+#### Validate
 Validate that your Atomic Test is up to spec!
 
 ```bash
@@ -56,7 +61,7 @@ bin/validate-atomics.rb
 
 > Don't have Ruby? The automated build system will validate the techniques on your branch as soon as you commit to your branch and push to your fork.
 
-### Push it
+#### Push it
 Submit a Pull Request once your test is complete and everything validates.
 ```bash
 git add atomics/T1234
