@@ -1,4 +1,4 @@
-attack_technique: T1112
+attack_technique: T1112A
 display_name: Modify Registry
 atomic_tests:
 - name: Change Powershell Execution Policy to Bypass

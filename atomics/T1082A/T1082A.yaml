@@ -1,4 +1,4 @@
-attack_technique: T1082
+attack_technique: T1082A
 display_name: System Information Discovery
 atomic_tests:
 - name: Griffon Recon

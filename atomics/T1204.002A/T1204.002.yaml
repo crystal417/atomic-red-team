@@ -1,4 +1,4 @@
-attack_technique: T1204.002
+attack_technique: T1204.002A
 display_name: 'User Execution: Malicious File'
 atomic_tests:
 - name: OSTap Payload Download

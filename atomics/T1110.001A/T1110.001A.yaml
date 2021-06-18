@@ -1,4 +1,4 @@
-attack_technique: T1110.001
+attack_technique: T1110.001A
 display_name: 'Brute Force: Password Guessing'
 atomic_tests:
 - name: Brute Force Credentials of all domain users via SMB

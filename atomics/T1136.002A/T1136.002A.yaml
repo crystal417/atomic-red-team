@@ -1,4 +1,4 @@
-attack_technique: T1136.002
+attack_technique: T1136.002A
 display_name: 'Create Account: Domain Account'
 atomic_tests:
 - name: Create a new account similar to ANONYMOUS LOGON
