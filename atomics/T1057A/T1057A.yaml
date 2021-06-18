@@ -1,0 +1,42 @@
+attack_technique: T1057A
+display_name: Process Discovery
+atomic_tests:
+- name: Process Discovery - Get-Process
+  auto_generated_guid: 1dd4ee1e-cda0-11eb-b8bc-0242ac130003
+  description: |
+    Utilize tasklist to identify processes.
+    
+    Upon successful execution, powershell will execute Get-Process to list processes. Output will be via stdout.
+  supported_platforms:
+  - windows
+  executor:
+    command: |
+      Get-Process
+    name: PowerShell
+
+- name: Process Discovery - ps
+  auto_generated_guid: 53860052-cda0-11eb-b8bc-0242ac130003
+  description: |
+    
+  supported_platforms:
+  - windows
+  executor:
+    command: |
+      ps
+    name: PowerShell
+
+- name: Process Discovery - pslist(sysinternal)
+  auto_generated_guid: 706b0cda-cda0-11eb-b8bc-0242ac130003
+  description: |
+    
+  supported_platforms:
+  - windows
+  input_arguments:
+    pslist:
+      description: Path to sample script
+      type: String
+      default: PathToAtomicsFolder\A1057\src\pslist.exe
+  executor:
+    command: |
+      #{pslist}
+    name: command_prompt

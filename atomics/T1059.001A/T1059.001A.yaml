@@ -1,0 +1,34 @@
+attack_technique: T1059.001A
+display_name: 'Command and Scripting Interpreter: PowerShell'
+atomic_tests:
+
+- name: Powershell Invoke-DownloadCradle
+  auto_generated_guid: 271b4ecc-ce46-11eb-b8bc-0242ac130003
+  description: |
+    Provided by https://github.com/mgreen27/mgreen27.github.io
+    Invoke-DownloadCradle is used to generate Network and Endpoint artifacts.
+  supported_platforms:
+  - windows
+  executor:    
+    command: |
+      powershell "$PathToAtomicsFolder\T1059.001A\src\Invoke-DownloadCradle_afirst.ps1"
+    name: powershell
+- name: PowerShell Downgrade Attack
+  auto_generated_guid: 29f665e6-ce46-11eb-b8bc-0242ac130003
+  description: |
+    This test requires the manual installation of PowerShell V2.
+
+    Attempts to run powershell commands in version 2.0 https://www.leeholmes.com/blog/2017/03/17/detecting-and-preventing-powershell-downgrade-attacks/
+  supported_platforms:
+  - windows
+  dependencies:
+  - description: |
+      PowerShell version 2 must be installed
+    prereq_command: |
+      if(Get-ItemProperty "HKLM\Software\Microsoft\NET Framework Setup\NDP\v2.0.50727") {exit 0} else {exit 1}
+    get_prereq_command: |
+      Write-Host  Automated installer not implemented yet, please install PowerShell v2 manually
+  executor:
+    command: |
+      powershell.exe -version 2 -Command Get-Host
+    name: powershell

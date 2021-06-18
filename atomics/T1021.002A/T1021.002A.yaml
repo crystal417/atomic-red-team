@@ -1,0 +1,31 @@
+attack_technique: T1021.002A
+display_name: 'Remote Services: SMB/Windows Admin Shares'
+atomic_tests:
+- name: Map admin share
+  auto_generated_guid: f568b93c-ce63-11eb-b8bc-0242ac130003
+  description: |
+    Connecting To Remote Shares
+  supported_platforms:
+  - windows
+  input_arguments:
+    user_name:
+      description: Username
+      type: String
+      default: DOMAIN\Administrator
+    share_name:
+      description: Examples C$, IPC$, Admin$
+      type: String
+      default: C$
+    password:
+      description: Password
+      type: String
+      default: P@ssw0rd1
+    computer_name:
+      description: Target Computer Name
+      type: String
+      default: Target
+  executor:
+    command: |
+      1. Open explorer.exe
+      2. 네트워크 탭에서 다른 시스템의 공유폴더 탐색
+    name: manual
