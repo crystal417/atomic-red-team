@@ -234,6 +234,17 @@ invoke-atomictest T1547.009 -testnumber 1 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
+##############################################################
+# Persistence - Create Account(T1136)
+# T1136.001 - Local Account
+#invoke-atomictest T1136.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1136.001 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+#invoke-atomictest T1136.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1136.001 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+#invoke-atomictest T1136.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1136.001 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 
 #Persistence - Create or Modify System Process(T1543)
