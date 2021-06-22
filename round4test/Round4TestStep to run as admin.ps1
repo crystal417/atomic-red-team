@@ -66,6 +66,11 @@ invoke-atomictest T1136.001 -testnumber 4 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1136.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1136.001 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+# Persistence - Create Account(T1136) : T1136.002 - Domain Account
+invoke-atomictest T1136.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1136.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한 
+
+
 #Persistence - Create or Modify System Process(T1543)
 
 invoke-atomictest T1543.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
