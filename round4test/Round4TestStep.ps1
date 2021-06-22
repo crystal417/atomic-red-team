@@ -1,9 +1,9 @@
 
 $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="c:\round4test\atomics"}
 $ExecutionLogPath = "C:\round4test\atomictest.log"
- Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
+Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
   
- # Execution - Command and Scripting Interpreter(T1059) - Powershell
+# Execution - Command and Scripting Interpreter(T1059) - Powershell
 invoke-atomictest t1059.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
  
 
@@ -165,23 +165,37 @@ invoke-atomictest T1204.002 -testnumber 8 -Cleanup -ExecutionLogPath $Execution
 
 # Execution - Windows Management Instrumentation
 
+# Atomic Test #1 - WMI Reconnaissance Users
 invoke-atomictest T1047 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
+# Atomic Test #2 - WMI Reconnaissance Processes
 invoke-atomictest T1047 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
+# Atomic Test #3 - WMI Reconnaissance Software
 invoke-atomictest T1047 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
+#Atomic Test #4 - WMI Reconnaissance List Remote Services
 invoke-atomictest T1047 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 
+#Atomic Test #5 - WMI Execute Local Process
 invoke-atomictest T1047 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1047 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
+#Atomic Test #6 - WMI Execute Remote Process
 invoke-atomictest T1047 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1047 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
+#Atomic Test #7 - Create a Process using WMI Query and an Encoded Command
 invoke-atomictest T1047 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 
+#Atomic Test #8 - Create a Process using obfuscated Win32_Process
 invoke-atomictest T1047 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+
+
+
+
+
 
 
