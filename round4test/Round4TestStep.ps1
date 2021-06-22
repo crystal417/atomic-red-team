@@ -194,6 +194,45 @@ invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPa
 
 
 
+#Persistence - BITS Jobs
+invoke-atomictest T1197 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1197 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1197 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1197 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1197 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1197 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1197 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1197 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#Persistence - Boot or Logon Autostart Execution(T1547)
+invoke-atomictest T1547.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1547.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1547.001 -testnumber 7 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+
+invoke-atomictest T1547.004 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.004 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.004 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.004 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.004 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.004 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#invoke-atomictest T1547.005 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+
+invoke-atomictest T1547.009 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.009 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 
 
@@ -208,9 +247,18 @@ invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPa
 #invoke-atomictest T1543.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1543.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+
+#Persistence - Hijack Execution Flow(T1574)
 #invoke-atomictest T1574.010A -testnumber 1  -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1574.010A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1574.010A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+
+#invoke-atomictest T1574.009 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1574.009 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+
+#invoke-atomictest T1574.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+
 
 
 #Credential Access - Credentials from Password Stores
