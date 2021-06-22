@@ -3,12 +3,13 @@ $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="c:\round4
 $ExecutionLogPath = "C:\round4test\atomictest.log"
 Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
   
+##############################################################
 # Execution - Command and Scripting Interpreter(T1059) - Powershell
 invoke-atomictest t1059.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
  
 
 invoke-atomictest t1059.001 -testnumber 2 -getprereq -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest t1059.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath   # AD 에서 테스트해야 함.
+invoke-atomictest t1059.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath   # AD에서 테스트해야 함.
 invoke-atomictest t1059.001 -testnumber 2 -cleanup -ExecutionLogPath $ExecutionLogPath
  
 invoke-atomictest t1059.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
@@ -73,17 +74,13 @@ invoke-atomictest t1059.005 -testnumber 3 -getprereq -ExecutionLogPath $Executio
 invoke-atomictest t1059.005 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.005 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath
  
-##############################################################
 # Execution - Command and Scripting Interpreter(T1059) - Python
 ## 테스트방법 연구 필요
 invoke-atomictest t1059.006 -testnumber 1 -getprereq -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.006 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.006 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
  
-##############################################################
 # Execution - Command and Scripting Interpreter(T1059) - JavaScript
-
- 
 invoke-atomictest t1059.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.007A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
 
@@ -135,8 +132,8 @@ invoke-atomictest T1569.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #
 
 
 #----
-
-#User Exection (T1204)
+##############################################################
+# Execution - User Execution (T1204)
 invoke-atomictest T1204.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
@@ -163,7 +160,8 @@ invoke-atomictest T1204.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
-# Execution - Windows Management Instrumentation
+##############################################################
+# Execution - Windows Management Instrumentation (T1047)
 
 # Atomic Test #1 - WMI Reconnaissance Users
 invoke-atomictest T1047 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -193,8 +191,8 @@ invoke-atomictest T1047 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 
-
-#Persistence - BITS Jobs
+##############################################################
+#Persistence - BITS Jobs (T1197)
 invoke-atomictest T1197 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1197 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1197 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
@@ -204,7 +202,9 @@ invoke-atomictest T1197 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogP
 invoke-atomictest T1197 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1197 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
+##############################################################
 #Persistence - Boot or Logon Autostart Execution(T1547)
+
 invoke-atomictest T1547.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1547.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1547.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자  권한
