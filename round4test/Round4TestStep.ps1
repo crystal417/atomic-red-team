@@ -182,15 +182,15 @@ invoke-atomictest T1047 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1047 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #6 - WMI Execute Remote Process
-invoke-atomictest T1047 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1047 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #계정정보입력 필요
 invoke-atomictest T1047 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #7 - Create a Process using WMI Query and an Encoded Command
 invoke-atomictest T1047 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #8 - Create a Process using obfuscated Win32_Process
-invoke-atomictest T1047 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1047 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 
 
