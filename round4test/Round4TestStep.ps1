@@ -536,6 +536,25 @@ invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $Executio
 #------------------------------------------------------------
 # Defense Evasion - Signed Binary Proxy Execution(T1218) T1218.011 - Rundll32
 
+invoke-atomictest T1218.011 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #테스트 시 긴 시간 소요됨, rundll32.exe 프로세스가 종료되지 않음. 
+invoke-atomictest T1218.011 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #테스트 시 긴 시간 소요됨
+
+invoke-atomictest T1218.011 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1218.011 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1218.011 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 5 -ExecutionLogPath $ExecutionLogPath # inf 설치시 에러가 발생되나, 테스트 가능
+
+invoke-atomictest T1218.011 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #에러가 발생되나, 테스트 가능
+
+invoke-atomictest T1218.011 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1218.011 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+
 #------------------------------------------------------------
 # Defense Evasion - Subvert Trust Controls(T1553) T1553.002 Code Signing
 
@@ -563,7 +582,59 @@ invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $Executio
 ##############################################################
 
 #------------------------------------------------------------
-# Credential Access - Credentials from Password Stores
+# Credential Access - Brute Force(T1110) T1110.001 - Password Guessing
+
+#------------------------------------------------------------
+# Credential Access - Brute Force(T1110) T1110.004 - Credential Stuffing
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555)
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555) T1555.003 - Credentials from Web Browsers
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555) T1555.004 - Windows Credential Manager
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555) T1555.004 - Password Managers
+
+#------------------------------------------------------------
+# Credential Access - Input Capture(T1056) T1056.001 - Keylogging
+
+#------------------------------------------------------------
+# Credential Access - Man-in-the-Middle(T1557) T1557.001 - LLMNR/NBT-NS Poisoning and SMB Relay
+
+#------------------------------------------------------------
+# Credential Access - Network Sniffing(T1040)
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003)
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.001 - LSASS Memory
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.002 - Security Account Manager
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.003 - NTDS
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.004- LSA Secrets
+
+#------------------------------------------------------------
+# Credential Access - Steal or Forge Kerberos Tickets(T1558) T1558.003 - Kerberoasting
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.001 - Credentials In Files
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.002 - Credentials in Registry
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.004 - Private Keys
+
 
 #------------------------------------------------------------
 # Process Injection(T1055) - T1055.001 - Dynamic-link Library Injection
@@ -615,8 +686,8 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 ##invoke-atomictest T1003.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #GUI 테스트 #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자  권한
-#invoke-atomictest T1003.001 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
-#invoke-atomictest T1003.001 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+##invoke-atomictest T1003.001 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #python3 수동 설치 필요., pip업그레이드 필요. python -m pip install --upgrade pip, 설치가 제대로안되서 테스트 실패. #관리자  권한
+##invoke-atomictest T1003.001 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 9 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
@@ -632,8 +703,8 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 #invoke-atomictest T1003.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
-#invoke-atomictest T1003.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
-#invoke-atomictest T1003.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
+##invoke-atomictest T1003.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #python3 필요. 수동설치 #관리자  권한
+##invoke-atomictest T1003.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
