@@ -108,6 +108,7 @@ invoke-atomictest T1055.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $Execut
 invoke-atomictest T1055.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 
+
 #Credential Access - Network Sniffing
 invoke-atomictest T1040 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 240 #wireshark 설치 url변경됨, 다운로드 속도 오래걸림. 타임아웃 증가. #관리자  권한
 invoke-atomictest T1040 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자  권한
