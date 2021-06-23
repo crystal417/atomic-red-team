@@ -290,6 +290,14 @@ invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 #invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 
+<<<<<<< HEAD
+#Persistence - Server Software Component(T1505)
+invoke-atomictest T1505.003 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1505.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
+invoke-atomictest T1505.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+
+=======
 ##############################################################
 # Privilege Escalation
 ##############################################################
@@ -300,7 +308,23 @@ invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 # Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
-# 공통, 중복
+##invoke-atomictest T1548.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #반응 없음
+##invoke-atomictest T1548.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+##invoke-atomictest T1548.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #권한 상승 안됨.
+##invoke-atomictest T1548.002 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1548.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1548.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1548.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1548.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1548.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1548.002 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1548.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1548.002 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+invoke-atomictest T1548.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1548.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1548.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+##invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨
 
 #------------------------------------------------------------
 # Privilege Escalation - Access Token Manipulation(T1134) - T1134.005 - SID-History Injection
@@ -506,6 +530,7 @@ invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 # Process Hollowing
+>>>>>>> 55b513288f718b7fe41f4d0208978843a649d55c
 
 
 
