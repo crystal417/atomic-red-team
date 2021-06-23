@@ -2,8 +2,11 @@
 $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="c:\round4test\atomics"}
 $ExecutionLogPath = "C:\round4test\atomictest.log"
 Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
-  
+
 ##############################################################
+# Execution
+##############################################################
+
 # Execution - Command and Scripting Interpreter(T1059) - Powershell
 invoke-atomictest t1059.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
  
@@ -86,11 +89,11 @@ invoke-atomictest t1059.007A -testnumber 1 -cleanup -ExecutionLogPath $Execution
 
 invoke-atomictest t1059.007A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
-##############################################################
+#------------------------------------------------------------
 # Execution - Native API (T1106 )- Execution through API - CreateProcess
 invoke-atomictest T1106 -testnumber 1   -ExecutionLogPath $ExecutionLogPath
 
-##############################################################
+#------------------------------------------------------------
 # Execution - Scheduled Task/Job(T1053)  
 
 ## Scheduled Task Startup Script
@@ -117,7 +120,7 @@ invoke-atomictest T1053.005 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
 invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
 
-##############################################################
+#------------------------------------------------------------
 # Execution - System Services(T1569)	Service Execution
 #invoke-atomictest T1569.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1569.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -130,9 +133,7 @@ invoke-atomictest T1569.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #
 # invoke-atomictest T1543.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 # invoke-atomictest T1543.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자권한
 
-
-#----
-##############################################################
+#------------------------------------------------------------
 # Execution - User Execution (T1204)
 invoke-atomictest T1204.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -160,7 +161,7 @@ invoke-atomictest T1204.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
-##############################################################
+#------------------------------------------------------------
 # Execution - Windows Management Instrumentation (T1047)
 
 # Atomic Test #1 - WMI Reconnaissance Users
@@ -192,18 +193,25 @@ invoke-atomictest T1047 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 
 
 ##############################################################
-#Persistence - BITS Jobs (T1197)
+# Persistence
+##############################################################
+
+#------------------------------------------------------------
+# Persistence - BITS Jobs (T1197)
 invoke-atomictest T1197 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1197 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
 invoke-atomictest T1197 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1197 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
 invoke-atomictest T1197 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1197 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
 invoke-atomictest T1197 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1197 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
-##############################################################
-#Persistence - Boot or Logon Autostart Execution(T1547)
+#------------------------------------------------------------
+# Persistence - Boot or Logon Autostart Execution(T1547)
 
 invoke-atomictest T1547.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1547.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
@@ -234,7 +242,7 @@ invoke-atomictest T1547.009 -testnumber 1 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
-##############################################################
+#------------------------------------------------------------
 # Persistence - Create Account(T1136) : T1136.001 - Local Account
 #invoke-atomictest T1136.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #invoke-atomictest T1136.001 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -256,8 +264,8 @@ invoke-atomictest T1136.002 -testnumber 2 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1136.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
-
-#Persistence - Create or Modify System Process(T1543)
+#------------------------------------------------------------
+# Persistence - Create or Modify System Process(T1543)
 
 #invoke-atomictest T1543.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1543.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
@@ -269,7 +277,8 @@ invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 #invoke-atomictest T1543.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 
-#Persistence - Hijack Execution Flow(T1574)
+#------------------------------------------------------------
+# Persistence - Hijack Execution Flow(T1574)
 #invoke-atomictest T1574.010A -testnumber 1  -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1574.010A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1574.010A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
@@ -281,8 +290,114 @@ invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 #invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 
+##############################################################
+# Privilege Escalation
+##############################################################
 
-#Credential Access - Credentials from Password Stores
+#------------------------------------------------------------
+# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.001 - Setuid and Setgid
+# 리처치 필요
+
+#------------------------------------------------------------
+# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
+# 공통, 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Access Token Manipulation(T1134) - T1134.005 - SID-History Injection
+# 공통, 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Boot or Logon Autostart Execution(T1547) - T1134-001 Registry Run Keys / Startup Folder
+# 공통, 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Boot or Logon Autostart Execution(T1547) - T1134-004 Winlogon Helper DLL
+# 공통, 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Boot or Logon Autostart Execution(T1547) - T1134-005 Security Support Provider
+# 공통, 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Boot or Logon Autostart Execution(T1547) - T1134-006 Kernel Modules and Extensions
+# 공통, 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Boot or Logon Autostart Execution(T1547) - T1134-009 Shortcut Modification
+# 공통, 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Create or Modify System Process(T1543) T1153.003 Windows Service
+
+#------------------------------------------------------------
+# Privilege Escalation - Domain Policy Modification(T1484) T1484-001 Group Policy Modification
+# DC에서 테스트
+
+#------------------------------------------------------------
+# Privilege Escalation - Hijack Execution Flow(T1574) T1574.001 DLL Search Order Hijacking
+# 공통 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Hijack Execution Flow(T1574) T1574.007 Path Interception by PATH Environment Variable
+# 공통 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Hijack Execution Flow(T1574) T1574.008 Path Interception by Search Order Hijacking
+# 공통 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Hijack Execution Flow(T1574) T1574.009 Path Interception by Unquoted Path
+# 공통 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Hijack Execution Flow(T1574) T1574.010 Services File Permissions Weakness
+# 공통 중복
+
+
+
+#------------------------------------------------------------
+# Privilege Escalation - Process Injection(T1055) T1055.001 Dynamic-link Library Injection
+
+#------------------------------------------------------------
+# Privilege Escalation - Process Injection(T1055) T1055.002 Portable Executable Injection
+
+#------------------------------------------------------------
+# Privilege Escalation - Process Injection(T1055) T1055.012 Process Hollowing
+
+#------------------------------------------------------------
+# Privilege Escalation - Scheduled Task/Job(T1053)	T1053.005 Scheduled Task
+# 공통 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Valid Accounts(T1078) T1078.001 Default Accounts
+ # 공통 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Valid Accounts(T1078) T1078.002 Domain Accounts
+# 공통 중복
+
+#------------------------------------------------------------
+# Privilege Escalation - Valid Accounts(T1078) T1078.003 Local Accounts
+# 공통 중복
+
+
+##############################################################
+# Credential Access
+##############################################################
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores
+
+#------------------------------------------------------------
+# Process Injection(T1055) - T1055.001 - Dynamic-link Library Injection
+
+#------------------------------------------------------------
+# Portable Executable Injection - T1055.002
+
+#------------------------------------------------------------
+# Process Hollowing
+
+
 
 invoke-atomictest T1555 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1555 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -297,12 +412,14 @@ invoke-atomictest T1555.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $Execut
 invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 
+#------------------------------------------------------------
 #Credential Access - Network Sniffing
 #invoke-atomictest T1040 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 240 #wireshark 설치 url변경됨, 다운로드 속도 오래걸림. 타임아웃 증가. #관리자  권한
 #invoke-atomictest T1040 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1040 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1040 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 60 #프로그램 실행종료후 입력대기 문제로 120초 타임아웃 발생. 60초로 제한시간 수정
 
+#------------------------------------------------------------
 #Credential Access - OS Credential Dumping
 #invoke-atomictest T1003 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
