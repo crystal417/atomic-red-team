@@ -709,3 +709,43 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1003.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+
+
+#------------------------------------------------------------
+#Impact - Data Destruction(T1485) T1485 - Data Destruction
+
+invoke-atomictest T1485 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1485 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1485 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+#Impact - Inhibit System Recovery(T1490) T1490 - Inhibit System Recovery
+#관리자 권한 필요
+
+#invoke-atomictest T1490 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
+#invoke-atomictest T1490 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
+#invoke-atomictest T1490 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
+#invoke-atomictest T1490 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
+#invoke-atomictest T1490 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 실행 #관리자 권한
+#invoke-atomictest T1490 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1490 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1490 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1490 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
+#invoke-atomictest T1490 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 실행 #관리자 권한
+#invoke-atomictest T1490 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1490 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #제외. 해당 Windows 버전에서 미지원
+
+
+#------------------------------------------------------------
+#Impact - Service Stop(T1489) T1489 - Service Stop
+
+invoke-atomictest T1489 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1489 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1489 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+#Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
+invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
