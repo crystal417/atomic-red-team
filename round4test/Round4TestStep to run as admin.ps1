@@ -107,6 +107,10 @@ invoke-atomictest T1548.002 -testnumber 8 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1055.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1055.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
+# Defense Evasion - File and Directory Permissions Modification(T1222) T1222.001 Windows File and Directory Permissions Modification
+invoke-atomictest T1222.001 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
+invoke-atomictest T1222.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+invoke-atomictest T1222.001 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 
 #Credential Access - Network Sniffing

@@ -432,6 +432,18 @@ invoke-atomictest T1140 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogP
 
 #------------------------------------------------------------
 # Defense Evasion - File and Directory Permissions Modification(T1222) T1222.001 Windows File and Directory Permissions Modification
+invoke-atomictest T1222.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1222.001 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1222.001 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1222.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1222.001 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 #------------------------------------------------------------
 # Defense Evasion - Hijack Execution Flow(T1574) T1574.001 DLL Search Order Hijacking
