@@ -103,6 +103,9 @@ invoke-atomictest T1548.002 -testnumber 6 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1548.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 invoke-atomictest T1548.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+#Privilege Escalation - Process Injection(T1055)
+invoke-atomictest T1055.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1055.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 
 #Credential Access - Network Sniffing
