@@ -291,6 +291,7 @@ invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 #Persistence - Server Software Component(T1505)
+# Persistence - Server Software Component(T1505)
 invoke-atomictest T1505.003 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1505.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
 invoke-atomictest T1505.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
@@ -402,6 +403,116 @@ invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $Execution
 # Privilege Escalation - Valid Accounts(T1078) T1078.003 Local Accounts
 # 공통 중복
 
+##############################################################
+# Defense Evasion
+##############################################################
+
+#------------------------------------------------------------
+# Defense Evasion - Abuse Elevation Control Mechanism(T1548) T1548.002 Bypass User Account Contro
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Access Token Manipulation(T1134) T1134.005 SID-History Injection
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - BITS Jobs(T1197) 
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Deobfuscate/Decode Files or Information(T1140)
+
+#------------------------------------------------------------
+# Defense Evasion - Domain Policy Modification(T1484) T1484.001 Group Policy Modification
+# 공통 중복
+
+#------------------------------------------------------------
+# Defense Evasion - File and Directory Permissions Modification(T1222) T1222.001 Windows File and Directory Permissions Modification
+
+#------------------------------------------------------------
+# Defense Evasion - Hijack Execution Flow(T1574) T1574.001 DLL Search Order Hijacking
+# 공통 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Hijack Execution Flow(T1574) T1574.007 Path Interception by PATH Environment Variable
+# 공통 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Hijack Execution Flow(T1574) T1574.008 Path Interception by Search Order Hijacking
+# 공통 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Hijack Execution Flow(T1574) T1574.009 Path Interception by Unquoted Path
+# 공통 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Hijack Execution Flow(T1574) T1574.010 Services File Permissions Weakness
+# 공통 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Impair Defenses(T1562) T1562.001 Disable or Modify Tools
+
+#------------------------------------------------------------
+# Defense Evasion - Impair Defenses(T1562) T1562.002 Disable Windows Event Logging
+
+#------------------------------------------------------------
+# Defense Evasion - Indicator Removal on Host(T1070) T1070.001 Clear Windows Event Logs
+
+#------------------------------------------------------------
+# Defense Evasion - Indicator Removal on Host(T1070) T1070.004 File Deletion
+
+#------------------------------------------------------------
+# Defense Evasion - Masquerading(T1036) T1036.004 - Masquerade Task or Service
+
+#------------------------------------------------------------
+# Defense Evasion - Masquerading(T1036) T1036.005 - Match Legitimate Name or Location
+# 대체 테스트  T1574.008A - Path Interception by Search Order Hijacking
+
+#------------------------------------------------------------
+# Defense Evasion - Modify Registry T1112 - Modify Registry
+
+#------------------------------------------------------------
+# Defense Evasion - Obfuscated Files or Information(T1027) T1027.002 - Software Packing
+
+#------------------------------------------------------------
+# Defense Evasion - Obfuscated Files or Information(T1027) T1027.005 - Indicator Removal from Tools
+
+
+#------------------------------------------------------------
+# Defense Evasion - Process Injection(T1055) T1055.001 Dynamic-link Library Injection
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Process Injection(T1055) T1055.002 Portable Executable Injection
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Process Injection(T1055) T1055.012 Process Hollowing
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Signed Binary Proxy Execution(T1218) T1218.011 - Rundll32
+
+#------------------------------------------------------------
+# Defense Evasion - Subvert Trust Controls(T1553) T1553.002 Code Signing
+
+#------------------------------------------------------------
+# Defense Evasion - Subvert Trust Controls(T1553) T1553.006 Code Signing Policy Modification
+
+#------------------------------------------------------------
+# Defense Evasion - Use Alternate Authentication Material(T1550) T1550.002 - Pass the Hash
+
+#------------------------------------------------------------
+# Defense Evasion - Valid Accounts(T1078) T1078.001 Default Accounts
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Valid Accounts(T1078) T1078.002 Domain Accounts
+# 공통, 중복
+
+#------------------------------------------------------------
+# Defense Evasion - Valid Accounts(T1078) T1078.003 Local Accounts
+# 공통, 중복
 
 ##############################################################
 # Defense Evasion
@@ -430,6 +541,7 @@ invoke-atomictest T1140 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogP
 
 #------------------------------------------------------------
 # Process Hollowing
+
 
 
 invoke-atomictest T1555 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
