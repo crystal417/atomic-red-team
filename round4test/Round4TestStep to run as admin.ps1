@@ -187,7 +187,14 @@ invoke-atomictest T1003.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #
 invoke-atomictest T1003.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
-
+#------------------------------------------------------------
+#Command and Control - Remote Access Software - T1219 - Remote Access Software
+invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #Teamviewer.exe 실행 전 start-sleep 10 추가
+invoke-atomictest T1219 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1219 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1219 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1219 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #Start-Process $file1 /quiet 변경 #Start-Sleep 10 추가 #C:\Program Files (x86)\LogMeIn Ignition 변경
+invoke-atomictest T1219 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 #Impact - Inhibit System Recovery(T1490) T1490 - Inhibit System Recovery
