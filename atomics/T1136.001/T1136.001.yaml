@@ -57,11 +57,11 @@ atomic_tests:
     username:
       description: Username of the user to create
       type: String
-      default: T1136.001_CMD
+      default: T1136.001
     password:
       description: Password of the user to create
       type: String
-      default: T1136.001_CMD!
+      default: T1136.001!
   executor:
     command: |
       net user /add "#{username}" "#{password}"
