@@ -254,7 +254,7 @@ invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $Execution
 #invoke-atomictest T1136.001 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 # Persistence - Create Account(T1136) : T1136.002 - Domain Account
-// 여기부터 다시 테스트 ( 2021.06.22 이명수)
+# 여기부터 다시 테스트 ( 2021.06.22 이명수)
 invoke-atomictest T1136.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1136.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한 
 
@@ -289,15 +289,13 @@ invoke-atomictest T1136.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 #invoke-atomictest T1574.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
-
-<<<<<<< HEAD
-#Persistence - Server Software Component(T1505)
+#------------------------------------------------------------
+# Persistence - Server Software Component(T1505)
 invoke-atomictest T1505.003 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1505.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
 invoke-atomictest T1505.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 
-=======
 ##############################################################
 # Privilege Escalation
 ##############################################################
@@ -530,7 +528,6 @@ invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 # Process Hollowing
->>>>>>> 55b513288f718b7fe41f4d0208978843a649d55c
 
 
 
