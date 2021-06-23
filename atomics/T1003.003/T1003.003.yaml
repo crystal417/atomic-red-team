@@ -150,7 +150,7 @@ atomic_tests:
     drive_letter:
       description: Drive letter to source VSC (including colon)
       type: String
-      default: 'C:'
+      default: 'C:\\'
   executor:
     command: |
       (gwmi -list win32_shadowcopy).Create(#{drive_letter},'ClientAccessible')
