@@ -467,6 +467,33 @@ invoke-atomictest T1222.001 -testnumber 4 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 # Defense Evasion - Impair Defenses(T1562) T1562.001 Disable or Modify Tools
+#invoke-atomictest T1562.001 -testnumber 10 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 10 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 11 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 12 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 12 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+##invoke-atomictest T1562.001 -testnumber 13 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
+##invoke-atomictest T1562.001 -testnumber 13 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
+#invoke-atomictest T1562.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 14 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+##invoke-atomictest T1562.001 -testnumber 15 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #windows defender atp. 설치 필요
+##invoke-atomictest T1562.001 -testnumber 15 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한 #windows defender atp. 설치 필요
+##invoke-atomictest T1562.001 -testnumber 16 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #Windwos Defender disable, access denied
+##invoke-atomictest T1562.001 -testnumber 16 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한 #Windwos Defender disable, access denied
+#invoke-atomictest T1562.001 -testnumber 17 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 17 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+invoke-atomictest T1562.001 -testnumber 18 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $ExecutionLogPath
+##invoke-atomictest T1562.001 -testnumber 19 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #테스트 실패
+##invoke-atomictest T1562.001 -testnumber 20 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #McAfeeDLPAgentService 서비스 필요.
+#invoke-atomictest T1562.001 -testnumber 21 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 22 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 22 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 23 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 23 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 24 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1562.001 -testnumber 24 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 #------------------------------------------------------------
 # Defense Evasion - Impair Defenses(T1562) T1562.002 Disable Windows Event Logging
@@ -509,6 +536,25 @@ invoke-atomictest T1222.001 -testnumber 4 -Cleanup -ExecutionLogPath $Execution
 #------------------------------------------------------------
 # Defense Evasion - Signed Binary Proxy Execution(T1218) T1218.011 - Rundll32
 
+invoke-atomictest T1218.011 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #테스트 시 긴 시간 소요됨, rundll32.exe 프로세스가 종료되지 않음. 
+invoke-atomictest T1218.011 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #테스트 시 긴 시간 소요됨
+
+invoke-atomictest T1218.011 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1218.011 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1218.011 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 5 -ExecutionLogPath $ExecutionLogPath # inf 설치시 에러가 발생되나, 테스트 가능
+
+invoke-atomictest T1218.011 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1218.011 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #에러가 발생되나, 테스트 가능
+
+invoke-atomictest T1218.011 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1218.011 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+
 #------------------------------------------------------------
 # Defense Evasion - Subvert Trust Controls(T1553) T1553.002 Code Signing
 
@@ -536,7 +582,59 @@ invoke-atomictest T1222.001 -testnumber 4 -Cleanup -ExecutionLogPath $Execution
 ##############################################################
 
 #------------------------------------------------------------
-# Credential Access - Credentials from Password Stores
+# Credential Access - Brute Force(T1110) T1110.001 - Password Guessing
+
+#------------------------------------------------------------
+# Credential Access - Brute Force(T1110) T1110.004 - Credential Stuffing
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555)
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555) T1555.003 - Credentials from Web Browsers
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555) T1555.004 - Windows Credential Manager
+
+#------------------------------------------------------------
+# Credential Access - Credentials from Password Stores(T1555) T1555.004 - Password Managers
+
+#------------------------------------------------------------
+# Credential Access - Input Capture(T1056) T1056.001 - Keylogging
+
+#------------------------------------------------------------
+# Credential Access - Man-in-the-Middle(T1557) T1557.001 - LLMNR/NBT-NS Poisoning and SMB Relay
+
+#------------------------------------------------------------
+# Credential Access - Network Sniffing(T1040)
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003)
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.001 - LSASS Memory
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.002 - Security Account Manager
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.003 - NTDS
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.004- LSA Secrets
+
+#------------------------------------------------------------
+# Credential Access - Steal or Forge Kerberos Tickets(T1558) T1558.003 - Kerberoasting
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.001 - Credentials In Files
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.002 - Credentials in Registry
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.004 - Private Keys
+
 
 #------------------------------------------------------------
 # Process Injection(T1055) - T1055.001 - Dynamic-link Library Injection
