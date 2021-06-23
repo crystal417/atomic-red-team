@@ -560,6 +560,9 @@ invoke-atomictest T1218.011 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Subvert Trust Controls(T1553) T1553.006 Code Signing Policy Modification
+# invoke-atomictest T1553.006A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 필요
+# invoke-atomictest T1553.006A -Cleanup -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 필요
+
 
 #------------------------------------------------------------
 # Defense Evasion - Use Alternate Authentication Material(T1550) T1550.002 - Pass the Hash
@@ -583,15 +586,29 @@ invoke-atomictest T1218.011 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Credential Access - Brute Force(T1110) T1110.001 - Password Guessing
+invoke-atomictest T1110.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1110.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+
 
 #------------------------------------------------------------
 # Credential Access - Brute Force(T1110) T1110.004 - Credential Stuffing
 
 #------------------------------------------------------------
 # Credential Access - Credentials from Password Stores(T1555)
+invoke-atomictest T1555 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1555 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1555 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+# Test#2, #3 추가되야함.
 
 #------------------------------------------------------------
 # Credential Access - Credentials from Password Stores(T1555) T1555.003 - Credentials from Web Browsers
+invoke-atomictest T1555.003 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1555.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 10 #프로그램 실행종료후 입력대기 문제로 120초 타임아웃 발생. -TimeoutSeconds 로 제한시간 수정.
+invoke-atomictest T1555.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+invoke-atomictest T1555.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Credential Access - Credentials from Password Stores(T1555) T1555.004 - Windows Credential Manager
@@ -607,74 +624,21 @@ invoke-atomictest T1218.011 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Credential Access - Network Sniffing(T1040)
-
-#------------------------------------------------------------
-# Credential Access - OS Credential Dumping(T1003)
-
-#------------------------------------------------------------
-# Credential Access - OS Credential Dumping(T1003) T1003.001 - LSASS Memory
-
-#------------------------------------------------------------
-# Credential Access - OS Credential Dumping(T1003) T1003.002 - Security Account Manager
-
-#------------------------------------------------------------
-# Credential Access - OS Credential Dumping(T1003) T1003.003 - NTDS
-
-#------------------------------------------------------------
-# Credential Access - OS Credential Dumping(T1003) T1003.004- LSA Secrets
-
-#------------------------------------------------------------
-# Credential Access - Steal or Forge Kerberos Tickets(T1558) T1558.003 - Kerberoasting
-
-#------------------------------------------------------------
-# Credential Access - Unsecured Credentials(T1552) T1552.001 - Credentials In Files
-
-#------------------------------------------------------------
-# Credential Access - Unsecured Credentials(T1552) T1552.002 - Credentials in Registry
-
-#------------------------------------------------------------
-# Credential Access - Unsecured Credentials(T1552) T1552.004 - Private Keys
-
-
-#------------------------------------------------------------
-# Process Injection(T1055) - T1055.001 - Dynamic-link Library Injection
-
-#------------------------------------------------------------
-# Portable Executable Injection - T1055.002
-
-#------------------------------------------------------------
-# Process Hollowing
-
-
-
-invoke-atomictest T1555 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1555 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1555 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-# Test#2, #3 추가되야함.
-
-
-invoke-atomictest T1555.003 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1555.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 10 #프로그램 실행종료후 입력대기 문제로 120초 타임아웃 발생. -TimeoutSeconds 로 제한시간 수정.
-invoke-atomictest T1555.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1555.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
-
-
-#------------------------------------------------------------
-#Credential Access - Network Sniffing
 #invoke-atomictest T1040 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 240 #wireshark 설치 url변경됨, 다운로드 속도 오래걸림. 타임아웃 증가. #관리자  권한
 #invoke-atomictest T1040 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1040 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1040 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 60 #프로그램 실행종료후 입력대기 문제로 120초 타임아웃 발생. 60초로 제한시간 수정
 
 #------------------------------------------------------------
-#Credential Access - OS Credential Dumping
+# Credential Access - OS Credential Dumping(T1003)
 #invoke-atomictest T1003 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #테스트 후 로그아웃 해야지 파일이 생성됨.  loclk 안됨.  #관리자  권한
 #invoke-atomictest T1003 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.001 - LSASS Memory
 #invoke-atomictest T1003.001 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
@@ -701,6 +665,8 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1003.001 -testnumber 12 -ExecutionLogPath $ExecutionLogPath #실행시 에러발생하나 실행은 완료됨. #관리자  권한
 #invoke-atomictest T1003.001 -testnumber 12 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.002 - Security Account Manager
 #invoke-atomictest T1003.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 ##invoke-atomictest T1003.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #python3 필요. 수동설치 #관리자  권한
@@ -710,6 +676,53 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1003.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.003 - NTDS
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.004- LSA Secrets
+
+#------------------------------------------------------------
+# Credential Access - Steal or Forge Kerberos Tickets(T1558) T1558.003 - Kerberoasting
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.001 - Credentials In Files
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.002 - Credentials in Registry
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.004 - Private Keys
+
+
+
+##############################################################
+# Discovery 
+##############################################################
+
+
+##############################################################
+# Lateral Movement
+##############################################################
+
+##############################################################
+# Collection
+##############################################################
+
+
+##############################################################
+# Command and Control
+##############################################################
+
+
+##############################################################
+# Exfiltration
+##############################################################
+
+
+##############################################################
+# Impact
+##############################################################
 
 #------------------------------------------------------------
 #Impact - Data Destruction(T1485) T1485 - Data Destruction
