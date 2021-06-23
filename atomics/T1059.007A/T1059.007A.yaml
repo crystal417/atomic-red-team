@@ -21,9 +21,8 @@ atomic_tests:
 - name: Javascript execution to gather local computer information - wscript
   auto_generated_guid: 8df71742-cd7f-11eb-b8bc-0242ac130003
   description: |
-    Javascript execution test, execute Javascript via PowerShell.
-    
-    When successful, system information will be written to $env:TEMP\T1059.007A.out.txt.
+    Javascript execution test, execute Javascript with wscript.
+    When successful, system information will be pop up. after that user should click the OK button 4 times. 
   supported_platforms:
   - windows
   input_arguments:        
@@ -33,7 +32,5 @@ atomic_tests:
       default: PathToAtomicsFolder\T1059.007A\src\sys_info.js
   executor:
     command: |      
-      cmd /c wscript #{javascript}
-    cleanup_command: |-      
-      Remove-Item $env:TEMP\T1059.007A.out.txt -ErrorAction Ignore
+      cmd /c wscript #{javascript}    
     name: powershell
