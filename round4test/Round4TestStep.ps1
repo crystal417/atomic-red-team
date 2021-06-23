@@ -421,6 +421,10 @@ invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 # Defense Evasion - Deobfuscate/Decode Files or Information(T1140)
+invoke-atomictest T1140 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1140 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1140 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1140 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Domain Policy Modification(T1484) T1484.001 Group Policy Modification
@@ -513,17 +517,6 @@ invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $Execution
 #------------------------------------------------------------
 # Defense Evasion - Valid Accounts(T1078) T1078.003 Local Accounts
 # 공통, 중복
-
-##############################################################
-# Defense Evasion
-##############################################################
-
-#------------------------------------------------------------
-# Defense Evasion - Deobfuscate/Decode Files or Information(T1140)
-invoke-atomictest T1140 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1140 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1140 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1140 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 
 ##############################################################
