@@ -297,7 +297,17 @@ invoke-atomictest T1505.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
 invoke-atomictest T1505.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 
-#Privilege Escalation - Abuse Elevation Control Mechanism(T1548)
+=======
+##############################################################
+# Privilege Escalation
+##############################################################
+
+#------------------------------------------------------------
+# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.001 - Setuid and Setgid
+# 리처치 필요
+
+#------------------------------------------------------------
+# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
 ##invoke-atomictest T1548.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #반응 없음
 ##invoke-atomictest T1548.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 ##invoke-atomictest T1548.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #권한 상승 안됨.
@@ -315,18 +325,6 @@ invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $Execution
 #invoke-atomictest T1548.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1548.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 ##invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨
-=======
-##############################################################
-# Privilege Escalation
-##############################################################
-
-#------------------------------------------------------------
-# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.001 - Setuid and Setgid
-# 리처치 필요
-
-#------------------------------------------------------------
-# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
-# 공통, 중복
 
 #------------------------------------------------------------
 # Privilege Escalation - Access Token Manipulation(T1134) - T1134.005 - SID-History Injection
