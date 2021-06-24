@@ -165,7 +165,7 @@ atomic_tests:
       default: '192.168.1.100'      
   executor:
     command: |
-      #{psexec} -u #{AD_ID} -p #{password} \\#{DC_IP} "powershell (gwmi -list win32_shadowcopy).Create('#{drive_letter}','ClientAccessible')"
+      #{psexec} -d -u #{AD_ID} -p #{password} -accepteula \\#{DC_IP} powershell -Command "(gwmi -list win32_shadowcopy).Create('#{drive_letter}','ClientAccessible')"
     name: command_prompt
 
 - name: Create Symlink to Volume Shadow Copy
