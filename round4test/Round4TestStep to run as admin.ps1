@@ -164,6 +164,13 @@ invoke-atomictest T1562.001 -testnumber 23 -Cleanup -ExecutionLogPath $Executio
 invoke-atomictest T1562.001 -testnumber 24 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 invoke-atomictest T1562.001 -testnumber 24 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+
+#------------------------------------------------------------
+# Defense Evasion - Indicator Removal on Host(T1070) T1070.004 File Deletion
+# Atomic Test #9 - Delete Prefetch File
+invoke-atomictest T1070.004 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+
 #------------------------------------------------------------
 # Defense Evasion - Subvert Trust Controls(T1553) T1553.006 Code Signing Policy Modification
 invoke-atomictest T1553.006A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 필요

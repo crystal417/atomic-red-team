@@ -289,7 +289,7 @@ invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 # Persistence - Create Account(T1136) : T1136.002 - Domain Account
-# 여기부터 다시 테스트 ( 2021.06.22 이명수)
+# 다시 테스트 ( 2021.06.22 이명수)
 invoke-atomictest T1136.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1136.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한 
 
@@ -572,6 +572,30 @@ invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $Executio
 
 #------------------------------------------------------------
 # Defense Evasion - Indicator Removal on Host(T1070) T1070.004 File Deletion
+# 2021.06.24 이명수 테스트 중 
+
+# Atomic Test #4 - Delete a single file - Windows cmd 
+invoke-atomictest T1070.004 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1070.004 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+
+# Atomic Test #5 - Delete an entire folder - Windows cmd
+invoke-atomictest T1070.004 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1070.004 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+
+# Atomic Test #6 - Delete a single file - Windows PowerShell
+invoke-atomictest T1070.004 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1070.004 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+
+# Atomic Test #7 - Delete an entire folder - Windows PowerShell
+invoke-atomictest T1070.004 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1070.004 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+
+# Atomic Test #9 - Delete Prefetch File
+#invoke-atomictest T1070.004 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+# Atomic Test #10 - Delete TeamViewer Log Files
+invoke-atomictest T1070.004 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1070.004 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Masquerading(T1036) T1036.004 - Masquerade Task or Service
