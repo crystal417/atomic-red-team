@@ -676,7 +676,19 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1003.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
-# Credential Access - OS Credential Dumping(T1003) T1003.003 - NTDS
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.003A - NTDS
+invoke-atomictest T1003.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1003.003 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Credential Access - OS Credential Dumping(T1003) T1003.004- LSA Secrets
