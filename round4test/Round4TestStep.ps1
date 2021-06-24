@@ -572,7 +572,6 @@ invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $Executio
 
 #------------------------------------------------------------
 # Defense Evasion - Indicator Removal on Host(T1070) T1070.004 File Deletion
-# 2021.06.24 이명수 테스트 중 
 
 # Atomic Test #4 - Delete a single file - Windows cmd 
 invoke-atomictest T1070.004 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
@@ -610,6 +609,30 @@ invoke-atomictest T1070.004 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Modify Registry T1112 - Modify Registry
+
+#Atomic Test #1 - Modify Registry of Current User Profile - cmd
+invoke-atomictest T1112 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1112 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#Atomic Test #2 - Modify Registry of Local Machine - cmd
+#invoke-atomictest T1112 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1112 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+#Atomic Test #3 - Modify registry to store logon credentials
+#invoke-atomictest T1112 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1112 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+#Atomic Test #4 - Add domain to Trusted sites Zone
+invoke-atomictest T1112 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1112 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#Atomic Test #5 - Javascript in registry
+invoke-atomictest T1112 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1112 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+# T1112 - Atomic Test #6 - Change Powershell Execution Policy to Bypass
+# invoke-atomictest T1112 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+# invoke-atomictest T1112 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Defense Evasion - Obfuscated Files or Information(T1027) T1027.002 - Software Packing

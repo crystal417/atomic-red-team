@@ -179,6 +179,21 @@ invoke-atomictest T1036.004 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #
 invoke-atomictest T1036.004 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
+# Defense Evasion - Modify Registry T1112 - Modify Registry
+#Atomic Test #2 - Modify Registry of Local Machine - cmd
+invoke-atomictest T1112 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1112 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+#Atomic Test #3 - Modify registry to store logon credentials
+invoke-atomictest T1112 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1112 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+# T1112 - Atomic Test #6 - Change Powershell Execution Policy to Bypass
+invoke-atomictest T1112 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1112 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+
+#------------------------------------------------------------
 # Defense Evasion - Subvert Trust Controls(T1553) T1553.006 Code Signing Policy Modification
 invoke-atomictest T1553.006A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 필요
 invoke-atomictest T1553.006A -Cleanup -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 필요
