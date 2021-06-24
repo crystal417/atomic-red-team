@@ -193,6 +193,12 @@ invoke-atomictest T1003.002 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 #------------------------------------------------------------
+#Command and Control - Ingress Tool Transfer - T1105 - Ingress Tool Transfer
+invoke-atomictest T1105 -testnumber 11 -ExecutionLogPath $ExecutionLogPath #echo 뒤에 ' 추가  #관리자 권한
+invoke-atomictest T1105 -testnumber 12 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1105 -testnumber 12 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+#------------------------------------------------------------
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
 invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #Teamviewer.exe 실행 전 start-sleep 10 추가 #관리자 권한
 invoke-atomictest T1219 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
