@@ -12,6 +12,10 @@ Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Fo
 invoke-atomictest t1059.001 -testnumber 14 -getprereq -ExecutionLogPath $ExecutionLogPath
 
 
+##############################################################
+# Execution
+##############################################################
+
 # Execution - Scheduled Task/Job(T1053)  
 ## Scheduled Task Startup Script
 invoke-atomictest T1053.005 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -38,6 +42,10 @@ invoke-atomictest T1543.003 -testnumber 3 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1047 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+
+##############################################################
+# Persistence
+##############################################################
 
 
 #Persistence - Boot or Logon Autostart Execution(T1547)
@@ -95,6 +103,18 @@ invoke-atomictest T1574.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #
 invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
 
+
+#------------------------------------------------------------
+# Persistence - Valid Accounts(T1078) T1078.003A - Local Accounts
+# 1078.001과 동일 
+#invoke-atomictest T1078.003A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1078.003A -testnumber 1 -Cleanup -ExecutionLogPath $Executio #관리자 권한
+
+
+##############################################################
+# Privilege Escalation
+##############################################################
+
 #Privilege Escalation - Abuse Elevation Control Mechanism(T1548)
 invoke-atomictest T1548.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 invoke-atomictest T1548.002 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
@@ -106,6 +126,11 @@ invoke-atomictest T1548.002 -testnumber 8 -Cleanup -ExecutionLogPath $Execution
 #Privilege Escalation - Process Injection(T1055)
 invoke-atomictest T1055.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1055.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+
+##############################################################
+# Defense Evasion
+##############################################################
 
 # Defense Evasion - File and Directory Permissions Modification(T1222) T1222.001 Windows File and Directory Permissions Modification
 invoke-atomictest T1222.001 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
@@ -139,10 +164,21 @@ invoke-atomictest T1562.001 -testnumber 23 -Cleanup -ExecutionLogPath $Executio
 invoke-atomictest T1562.001 -testnumber 24 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 invoke-atomictest T1562.001 -testnumber 24 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+
+#------------------------------------------------------------
+# Defense Evasion - Indicator Removal on Host(T1070) T1070.004 File Deletion
+# Atomic Test #9 - Delete Prefetch File
+invoke-atomictest T1070.004 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+
 #------------------------------------------------------------
 # Defense Evasion - Subvert Trust Controls(T1553) T1553.006 Code Signing Policy Modification
 invoke-atomictest T1553.006A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 필요
 invoke-atomictest T1553.006A -Cleanup -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 필요
+
+##############################################################
+# credential Access
+##############################################################
 
 #Credential Access - Network Sniffing
 #invoke-atomictest T1040 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 240 #wireshark 설치 url변경됨, 다운로드 속도 오래걸림. 타임아웃 증가, 사전 설치로 변경 #관리자  권한
@@ -192,6 +228,33 @@ invoke-atomictest T1003.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #
 invoke-atomictest T1003.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 
+
+##############################################################
+# Discovery
+##############################################################
+
+
+##############################################################
+# Lateral Movement
+##############################################################
+
+
+##############################################################
+# Collection
+##############################################################
+
+
+##############################################################
+# Command and Controll
+##############################################################
+invoke-atomictest T1003.004 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
+invoke-atomictest T1003.004 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+invoke-atomictest T1003.004 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath  #관리자  권한
+
+#------------------------------------------------------------
+# Credential Access - Unsecured Credentials(T1552) T1552.001 - Credentials In Files
+invoke-atomictest T1552.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath  #관리자  권한
+
 #------------------------------------------------------------
 #Command and Control - Ingress Tool Transfer - T1105 - Ingress Tool Transfer
 invoke-atomictest T1105 -testnumber 11 -ExecutionLogPath $ExecutionLogPath #echo 뒤에 ' 추가  #관리자 권한
@@ -206,6 +269,15 @@ invoke-atomictest T1219 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관�
 invoke-atomictest T1219 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1219 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #Start-Process $file1 /quiet 변경 #Start-Sleep 10 추가 #C:\Program Files (x86)\LogMeIn Ignition 변경 #관리자 권한
 invoke-atomictest T1219 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+##############################################################
+# Exfiltration
+##############################################################
+
+
+##############################################################
+# Impact
+##############################################################
 
 #------------------------------------------------------------
 #Impact - Inhibit System Recovery(T1490) T1490 - Inhibit System Recovery
