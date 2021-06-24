@@ -692,9 +692,12 @@ invoke-atomictest T1003.003 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Credential Access - OS Credential Dumping(T1003) T1003.004- LSA Secrets
-
+#invoke-atomictest T1003.004 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1003.004 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
+#invoke-atomictest T1003.004 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath  #관리자  권한
 #------------------------------------------------------------
 # Credential Access - Steal or Forge Kerberos Tickets(T1558) T1558.003 - Kerberoasting
+invoke-atomictest T1558.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Credential Access - Unsecured Credentials(T1552) T1552.001 - Credentials In Files
