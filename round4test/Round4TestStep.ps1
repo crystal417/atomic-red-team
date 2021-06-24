@@ -7,7 +7,8 @@ Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Fo
 # Execution
 ##############################################################
 
-# Execution - Command and Scripting Interpreter(T1059) - Powershell
+#------------------------------------------------------------
+# Execution - Command and Scripting Interpreter(T1059) T1059.001 - PowerShell
 invoke-atomictest t1059.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
  
 
@@ -22,7 +23,7 @@ invoke-atomictest t1059.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
  
 invoke-atomictest t1059.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
  
- invoke-atomictest t1059.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath   # IP/PW 요구
+invoke-atomictest t1059.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath   # IP/PW 요구
  
 invoke-atomictest t1059.001 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
  
@@ -55,7 +56,8 @@ invoke-atomictest t1059.001A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 invoke-atomictest t1059.001A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
  
-# Execution - Command and Scripting Interpreter(T1059) - Windows Command Shell
+#------------------------------------------------------------
+# Execution - Command and Scripting Interpreter(T1059) T1059.003 - Windows Command Shell
  
 invoke-atomictest t1059.003 -testnumber 1 -getprereq -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -64,7 +66,8 @@ invoke-atomictest t1059.003 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionL
 invoke-atomictest t1059.003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.003 -testnumber 2 -cleanup -ExecutionLogPath $ExecutionLogPath
  
-# Execution - Command and Scripting Interpreter(T1059) - Visual Basic
+#------------------------------------------------------------
+# Execution - Command and Scripting Interpreter(T1059) T1509.005 - Visual Basic
 invoke-atomictest t1059.005 -testnumber 1 -getprereq -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.005 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.005 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
@@ -77,24 +80,30 @@ invoke-atomictest t1059.005 -testnumber 3 -getprereq -ExecutionLogPath $Executio
 invoke-atomictest t1059.005 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.005 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath
  
-# Execution - Command and Scripting Interpreter(T1059) - Python
+#------------------------------------------------------------
+# Execution - Command and Scripting Interpreter(T1059) T1509.006 - Python
 ## 테스트방법 연구 필요
 invoke-atomictest t1059.006 -testnumber 1 -getprereq -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.006 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.006 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
- 
-# Execution - Command and Scripting Interpreter(T1059) - JavaScript
+
+#------------------------------------------------------------
+# Execution - Command and Scripting Interpreter(T1059) T1509.007A - JavaScript
 invoke-atomictest t1059.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.007A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
 
 invoke-atomictest t1059.007A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
+# Execution - Command and Scripting Interpreter(T1559) Inter-Process Communication(T1559)
+
+
+#------------------------------------------------------------
 # Execution - Native API (T1106 )- Execution through API - CreateProcess
 invoke-atomictest T1106 -testnumber 1   -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
-# Execution - Scheduled Task/Job(T1053)  
+# Execution - Scheduled Task/Job(T1053)  T1053.005 - Scheduled Task
 
 ## Scheduled Task Startup Script
 #invoke-atomictest T1053.005 -testnumber 1 -ExecutionLogPath $ExecutionLogPath     #관리자 권한 
@@ -121,7 +130,11 @@ invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
 invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
 
 #------------------------------------------------------------
-# Execution - System Services(T1569)	Service Execution
+# Execution - Software Deployment Tools(T1072)
+# 테스트 생략
+
+#------------------------------------------------------------
+# Execution - System Services(T1569)	T1569.002 - Service Execution
 #invoke-atomictest T1569.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1569.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
@@ -134,7 +147,10 @@ invoke-atomictest T1569.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #
 # invoke-atomictest T1543.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자권한
 
 #------------------------------------------------------------
-# Execution - User Execution (T1204)
+# Execution - User Execution (T1204) T1204.001 - Malicious Link 
+
+#------------------------------------------------------------
+# Execution - User Execution (T1204) T1204.002 - Malicious File
 invoke-atomictest T1204.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
@@ -162,7 +178,7 @@ invoke-atomictest T1204.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1204.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
-# Execution - Windows Management Instrumentation (T1047)
+# Execution - Windows Management Instrumentation (T1047) Windows Management Instrumentation(T1047)
 
 # Atomic Test #1 - WMI Reconnaissance Users
 invoke-atomictest T1047 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -192,12 +208,13 @@ invoke-atomictest T1047 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1047 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 
+
 ##############################################################
 # Persistence
 ##############################################################
 
 #------------------------------------------------------------
-# Persistence - Account Manipulation(T1098)
+# Persistence - Account Manipulation(T1098) T1098.004 - SSH Authorized Keys
 
 
 #------------------------------------------------------------

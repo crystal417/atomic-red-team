@@ -112,7 +112,7 @@ invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $Execution
 
 
 ##############################################################
-# Privilege
+# Privilege Escalation
 ##############################################################
 
 #Privilege Escalation - Abuse Elevation Control Mechanism(T1548)
