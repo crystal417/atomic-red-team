@@ -16,7 +16,7 @@ atomic_tests:
     server_ip:
       description: IP of the external server
       type: String
-      default: 127.0.0.1
+      default: 142.250.206.238
     server_port:
       description: The port to connect to on the external server
       type: String

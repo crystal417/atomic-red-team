@@ -707,11 +707,47 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 ##############################################################
 # Collection
 ##############################################################
-
+invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1560 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 ##############################################################
 # Command and Control
 ##############################################################
+#------------------------------------------------------------
+#Command and Control - Application Layer Protocol(T1071) - T1071.001 - Web Protocols
+invoke-atomictest T1071.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #출력 없음
+invoke-atomictest T1071.001 -testnumber 2 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1071.001 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1071.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #출력 없음
+
+#------------------------------------------------------------
+#Command and Control - Encrypted Channel(T1573) - T1573 - Encrypted Channel
+#Encrypted Channel(T1573) - T1573 - Encrypted Channel
+invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
+
+#------------------------------------------------------------
+#Command and Control - Ingress Tool Transfer - T1105 - Ingress Tool Transfer
+invoke-atomictest T1105 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #https://raw.githubusercontent.com/crav3r/atomic-red-team/round4test/LICENSE.txt 변경
+invoke-atomictest T1105 -testnumber 7 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1105 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #https://raw.githubusercontent.com/crav3r/atomic-red-team/round4test/LICENSE.txt 변경 #오류가 발생하지만 파일 다운로드 됨
+invoke-atomictest T1105 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1105 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #https://raw.githubusercontent.com/crav3r/atomic-red-team/round4test/LICENSE.txt 변경
+invoke-atomictest T1105 -testnumber 10 -ExecutionLogPath $ExecutionLogPath #https://raw.githubusercontent.com/crav3r/atomic-red-team/round4test/LICENSE.txt 변경 
+invoke-atomictest T1105 -testnumber 10 -Cleanup -ExecutionLogPath $ExecutionLogPath 
+#invoke-atomictest T1105 -testnumber 11 -ExecutionLogPath $ExecutionLogPath #echo 뒤에 ' 추가  #관리자 권한
+#invoke-atomictest T1105 -testnumber 12 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1105 -testnumber 12 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1105 -testnumber 13 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath #Windows defender 버전 상이 (제외)
+#invoke-atomictest T1105 -testnumber 13 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #Windows defender 버전 상이 (제외)
+#invoke-atomictest T1105 -testnumber 13 -ExecutionLogPath $ExecutionLogPath #Windows defender 버전 상이 (제외) #https://raw.githubusercontent.com/crav3r/atomic-red-team/round4test/LICENSE.txt 변경
+#invoke-atomictest T1105 -testnumber 13 -Cleanup -ExecutionLogPath $ExecutionLogPath #Windows defender 버전 상이 (제외)
+
+
+#------------------------------------------------------------
+#Command and Control - Non-Standard Port - T1571 - Non-Standard Port
+invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
 #------------------------------------------------------------
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
 #invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #Teamviewer.exe 실행 전 start-sleep 10 추가 #관리자 권한
@@ -720,6 +756,7 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1219 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #invoke-atomictest T1219 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #Start-Process $file1 /quiet 변경 #Start-Sleep 10 추가 #C:\Program Files (x86)\LogMeIn Ignition 변경 #관리자 권한
 #invoke-atomictest T1219 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
 
 
 ##############################################################
