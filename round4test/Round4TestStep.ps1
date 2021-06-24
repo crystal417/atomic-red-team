@@ -707,9 +707,29 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 ##############################################################
 # Collection
 ##############################################################
-invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1560 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#------------------------------------------------------------
+# Collection - Archive Collected Data - T1560 - Archive Collected Data
+#invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #YamlDotNet.dll 사용중인 프로세스 에러
+#invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Collection - Data Staged(T1074) - T1074.001 - Local Data Staging
+invoke-atomictest T1074.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1074.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1074.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1074.001 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Collection - Email Collection(T1114) - T1114.001 - Local Email Collection
+invoke-atomictest T1114.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1114.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1114.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1114.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Collection - Screen Capture - T1113 - Screen Capture
+invoke-atomictest T1113 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #사용자 행위 필요
+invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 ##############################################################
 # Command and Control
