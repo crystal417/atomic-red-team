@@ -761,7 +761,7 @@ invoke-atomictest T1552.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1552.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 # Credential Access - Unsecured Credentials(T1552) T1552.004 - Private Keys
-
+invoke-atomictest T1552.004 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 
 ##############################################################
