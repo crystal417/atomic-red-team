@@ -599,6 +599,10 @@ invoke-atomictest T1070.004 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Masquerading(T1036) T1036.004 - Masquerade Task or Service
+#invoke-atomictest T1036.004 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1036.004 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1036.004 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1036.004 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Defense Evasion - Masquerading(T1036) T1036.005 - Match Legitimate Name or Location
