@@ -808,7 +808,12 @@ invoke-atomictest T1552.004 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 ##############################################################
 # Discovery 
 ##############################################################
-
+#------------------------------------------------------------
+# Discovery - Account Discovery(T1087) T1087.001 - Local Account
+invoke-atomictest T1087.001 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.001 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.001 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 
 ##############################################################
 # Lateral Movement
