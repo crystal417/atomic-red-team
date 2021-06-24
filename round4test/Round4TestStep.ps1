@@ -707,7 +707,9 @@ invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 ##############################################################
 # Collection
 ##############################################################
-
+invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1560 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 ##############################################################
 # Command and Control
