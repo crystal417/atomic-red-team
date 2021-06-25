@@ -11,7 +11,7 @@ atomic_tests:
     user_name:
       description: Username
       type: String
-      default: DOMAIN\Administrator
+      default: contoso.com\Administrator
     share_name:
       description: Examples C$, IPC$, Admin$
       type: String
@@ -19,11 +19,11 @@ atomic_tests:
     password:
       description: Password
       type: String
-      default: P@ssw0rd1
+      default: Password123!
     computer_name:
       description: Target Computer Name
       type: String
-      default: Target
+      default: COMPANYDC1
   executor:
     command: |
       cmd.exe /c "net use \\#{computer_name}\#{share_name} #{password} /u:#{user_name}"
@@ -46,7 +46,7 @@ atomic_tests:
     computer_name:
       description: Target Computer Name
       type: String
-      default: Target
+      default: COMPANYDC1
   executor:
     command: |
       New-PSDrive -name #{map_name} -psprovider filesystem -root \\#{computer_name}\#{share_name}
