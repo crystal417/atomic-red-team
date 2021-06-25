@@ -1014,6 +1014,10 @@ invoke-atomictest T1016 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - System Network Connections Discovery(T1049) T1049 - System Network Connections Discovery
+invoke-atomictest T1049 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1049 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1049 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath  #관리자 권한
+#invoke-atomictest T1049 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Discovery - System Owner/User Discovery (T1033) T1033 - System Owner/User Discovery
