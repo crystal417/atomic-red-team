@@ -589,6 +589,16 @@ invoke-atomictest T1562.002 -testnumber 4 -Cleanup -ExecutionLogPath $Execution
 
 #------------------------------------------------------------
 # Defense Evasion - Indicator Removal on Host(T1070) T1070.001 Clear Windows Event Logs
+#Atomic Test #1 - Clear Logs
+#invoke-atomictest T1070.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 
+
+#Atomic Test #2 - Delete System Logs Using Clear-EventLog
+#invoke-atomictest T1070.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+#Atomic Test #3 - Clear Event Logs via VBA
+#invoke-atomictest T1070.001 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1070.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
 
 
 
