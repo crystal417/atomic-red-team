@@ -855,6 +855,7 @@ invoke-atomictest T1558.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 # Credential Access - Unsecured Credentials(T1552) T1552.001 - Credentials In Files
 invoke-atomictest T1552.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1552.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath  #관리자  권한
+
 #------------------------------------------------------------
 # Credential Access - Unsecured Credentials(T1552) T1552.002 - Credentials in Registry
 invoke-atomictest T1552.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -873,6 +874,11 @@ invoke-atomictest T1087.001 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1087.001 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1087.001 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Discovery - System Owner/User Discovery (T1033) T1033 - System Owner/User Discovery
+invoke-atomictest T1033 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
 
 ##############################################################
 # Lateral Movement
