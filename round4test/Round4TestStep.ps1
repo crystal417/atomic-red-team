@@ -1003,6 +1003,14 @@ invoke-atomictest T1082 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1082 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 # Discovery - System Network Configuration Discovery(T1016) T1016 - System Network Configuration Discovery
+invoke-atomictest T1016 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - System Network Connections Discovery(T1049) T1049 - System Network Connections Discovery
