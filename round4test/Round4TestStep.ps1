@@ -877,48 +877,56 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Account Discovery(T1087) T1087.002 - Domain Account
+invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
+invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+#invoke-atomictest T1087.002 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Account Discovery(T1087) T1087.003
-# 테스트 방법 연구 필요
+
 
 #------------------------------------------------------------
 # Discovery - Domain Trust Discovery(T1482) T1482 - Domain Trust Discovery
-
-#Atomic Test #1 - Windows - Discover domain trusts with dsquery
-
-#Atomic Test #2 - Windows - Discover domain trusts with nltest
-
-#Atomic Test #3 - Powershell enumerate domains and forests
-
-#Atomic Test #4 - Adfind - Enumerate Active Directory OUs
-
-#Atomic Test #5 - Adfind - Enumerate Active Directory Trusts
+#invoke-atomictest T1482 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+invoke-atomictest T1482 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1482 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+#invoke-atomictest T1482 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - File and Directory Discovery(T1083) T1083 - File and Directory Discovery
-
-#Atomic Test #1 - File and Directory Discovery (cmd.exe)
-
-#Atomic Test #2 - File and Directory Discovery (PowerShell)
+invoke-atomictest T1083 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1083 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Network Service Scanning(T1046) T1046 - Network Service Scanning
-
-#Atomic Test #3 - Port Scan NMap for Windows
-
-#Atomic Test #4 - Port Scan using python
+invoke-atomictest T1046 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1046 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Network Share Discovery(1135) T1135 - Network Share Discovery
-
-#Atomic Test #3 - Network Share Discovery command prompt
-
-#Atomic Test #4 - Network Share Discovery PowerShell
-
-#Atomic Test #5 - View available share drives
-
-#Atomic Test #6 - Share Discovery with PowerView
+invoke-atomictest T1135 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1135 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1135 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1135 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Network Sniffing(T1040)
@@ -926,65 +934,73 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Password Policy Discovery(T1201) T1201 - Password Policy Discovery
-
-#Atomic Test #5 - Examine local password policy - Windows
-
-#Atomic Test #6 - Examine domain password policy - Windows
+invoke-atomictest T1201 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1201 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Peripheral Device Discovery(T1120) T1120 - Peripheral Device Discovery
-
-#Atomic Test #1 - Win32_PnPEntity Hardware Inventory
+invoke-atomictest T1120 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1120 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Permission Groups Discovery(T1069) T1069.001 - Local Groups
-
-#Atomic Test #2 - Basic Permission Groups Discovery Windows (Local)
-
-#Atomic Test #3 - Permission Groups Discovery PowerShell (Local)
+invoke-atomictest T1069.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1069.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 
 #------------------------------------------------------------
 # Discovery - Permission Groups Discovery(T1069) T1069.002 - Domain Groups
-
-#Atomic Test #1 - Basic Permission Groups Discovery Windows (Domain)
-
-#Atomic Test #2 - Permission Groups Discovery PowerShell (Domain)
-
-#Atomic Test #3 - Elevated group enumeration using net group (Domain)
-
-#Atomic Test #4 - Find machines where user has local admin access (PowerView)
-
-#Atomic Test #5 - Find local admins on all machines in domain (PowerView)
-
-#Atomic Test #6 - Find Local Admins via Group Policy (PowerView)
-
-#Atomic Test #7 - Enumerate Users Not Requiring Pre Auth (ASRepRoast)
-
-#Atomic Test #8 - Adfind - Query Active Directory Groups
+invoke-atomictest T1069.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1069.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+#invoke-atomictest T1069.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #에러
+invoke-atomictest T1069.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #타임아웃 발생하나 정상
+invoke-atomictest T1069.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1069.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #에러
+#invoke-atomictest T1069.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+#invoke-atomictest T1069.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1069.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1069.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Process Discovery(T1057) T1057 - Process Discovery
-
-# Atomic Test #2 - Process Discovery - tasklist
+invoke-atomictest T1057 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Query Registry(T1012) T1012 - Query Registry
+invoke-atomictest T1012 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Remote System Discovery(T1018) T1018 - Remote System Discovery
-
+#invoke-atomictest T1018 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #에러
+invoke-atomictest T1018 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1018 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #에러
+invoke-atomictest T1018 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1018 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1018 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #에러
+#invoke-atomictest T1018 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #에러 관리자, DC에서해야함
+invoke-atomictest T1018 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1018 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1018 -testnumber 11 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1018 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 # Discovery - Software Discovery(T1518) T1518 - Software Discovery
-
+invoke-atomictest T1518 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1518 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Software Discovery(T1518) T1518.001 - Security Software Discovery
-
+invoke-atomictest T1518.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1518.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #해당되는 프로세스 없음.
+invoke-atomictest T1518.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #해당되는 프로세스 없음.
+invoke-atomictest T1518.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - System Information Discovery(T1082) T1082 - System Information Discovery
-
+invoke-atomictest T1082 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1082 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1082 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1082 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1082 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 # Discovery - System Network Configuration Discovery(T1016) T1016 - System Network Configuration Discovery
 
