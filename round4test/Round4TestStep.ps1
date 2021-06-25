@@ -849,9 +849,29 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 ##############################################################
 # Collection
 ##############################################################
-invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1560 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#------------------------------------------------------------
+# Collection - Archive Collected Data - T1560 - Archive Collected Data
+#invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #YamlDotNet.dll 사용중인 프로세스 에러
+#invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Collection - Data Staged(T1074) - T1074.001 - Local Data Staging
+invoke-atomictest T1074.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1074.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1074.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1074.001 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Collection - Email Collection(T1114) - T1114.001 - Local Email Collection
+invoke-atomictest T1114.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1114.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1114.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1114.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Collection - Screen Capture - T1113 - Screen Capture
+invoke-atomictest T1113 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #사용자 행위 필요
+invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 ##############################################################
 # Command and Control
@@ -887,7 +907,9 @@ invoke-atomictest T1105 -testnumber 10 -Cleanup -ExecutionLogPath $ExecutionLogP
 
 #------------------------------------------------------------
 #Command and Control - Non-Standard Port - T1571 - Non-Standard Port
-invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath#------------------------------------------------------------
+invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
 #invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #Teamviewer.exe 실행 전 start-sleep 10 추가 #관리자 권한
 #invoke-atomictest T1219 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -940,13 +962,9 @@ invoke-atomictest T1485 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 #Impact - Service Stop(T1489) T1489 - Service Stop
 
-invoke-atomictest T1489 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1489 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1489 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1489 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1489 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1489 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
-#------------------------------------------------------------
-#Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
-invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
