@@ -876,6 +876,63 @@ invoke-atomictest T1087.001 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
+# Discovery - Account Discovery(T1087) T1087.002 - Domain Account
+
+#------------------------------------------------------------
+# Discovery - Account Discovery(T1087) T1087.003
+# 테스트 방법 연구 필요
+
+#------------------------------------------------------------
+# Discovery - Domain Trust Discovery(T1482) T1482 - Domain Trust Discovery
+
+#Atomic Test #1 - Windows - Discover domain trusts with dsquery
+
+#Atomic Test #2 - Windows - Discover domain trusts with nltest
+
+#Atomic Test #3 - Powershell enumerate domains and forests
+
+#Atomic Test #4 - Adfind - Enumerate Active Directory OUs
+
+#Atomic Test #5 - Adfind - Enumerate Active Directory Trusts
+
+#------------------------------------------------------------
+# Discovery - File and Directory Discovery(T1083) T1083 - File and Directory Discovery
+
+#Atomic Test #1 - File and Directory Discovery (cmd.exe)
+
+#Atomic Test #2 - File and Directory Discovery (PowerShell)
+
+#------------------------------------------------------------
+# Discovery - Network Service Scanning(T1046) T1046 - Network Service Scanning
+
+#Atomic Test #3 - Port Scan NMap for Windows
+
+#Atomic Test #4 - Port Scan using python
+
+#------------------------------------------------------------
+# Discovery - Network Share Discovery(1135) T1135 - Network Share Discovery
+
+#Atomic Test #3 - Network Share Discovery command prompt
+
+#Atomic Test #4 - Network Share Discovery PowerShell
+
+#Atomic Test #5 - View available share drives
+
+#Atomic Test #6 - Share Discovery with PowerView
+
+#------------------------------------------------------------
+# Discovery - Network Sniffing(T1040)
+# 공통, 중복
+
+Password Policy Discovery(T1201)
+T1201 - Password Policy Discovery
+
+Atomic Test #5 - Examine local password policy - Windows
+
+Atomic Test #6 - Examine domain password policy - Windows
+
+
+#------------------------------------------------------------
 # Discovery - System Owner/User Discovery (T1033) T1033 - System Owner/User Discovery
 invoke-atomictest T1033 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
