@@ -62,6 +62,8 @@ invoke-atomictest T1547.001 -testnumber 6 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1547.001 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1547.001 -testnumber 7 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+#------------------------------------------------------------
+# Persistence - Boot or Logon Autostart Execution(T1547) T1547.005 - Security Support Provider
 invoke-atomictest T1547.005 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 # T1136.001 - Local Account
@@ -90,17 +92,17 @@ invoke-atomictest T1543.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $Execut
 invoke-atomictest T1543.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1543.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+#------------------------------------------------------------
+# Persistence - Hijack Execution Flow(T1574) T1574.009 - Path Interception by Unquoted Path
+invoke-atomictest T1574.009 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1574.009 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
-#Persistence - Hijack Execution Flow(T1574)
+#------------------------------------------------------------
+# Persistence - Hijack Execution Flow(T1574) T1574.010A - Service File Permissions Weakness
 invoke-atomictest T1574.010A -testnumber 1  -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1574.010A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1574.010A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
-invoke-atomictest T1574.009 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-invoke-atomictest T1574.009 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
-
-invoke-atomictest T1574.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 
 
@@ -123,15 +125,18 @@ invoke-atomictest T1548.002 -testnumber 6 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1548.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1548.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
-#Privilege Escalation - Process Injection(T1055)
-invoke-atomictest T1055.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1055.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+# Privilege Escalation - Process Injection(T1055) T1055.001 Dynamic-link Library Injection
+invoke-atomictest T1055.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1055.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 
 ##############################################################
 # Defense Evasion
 ##############################################################
 
+#------------------------------------------------------------
 # Defense Evasion - File and Directory Permissions Modification(T1222) T1222.001 Windows File and Directory Permissions Modification
 invoke-atomictest T1222.001 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1222.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -281,6 +286,7 @@ invoke-atomictest T1021.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 # Lateral Movement - Remote Services(T1021) - T1021.006 - Windows Remote Management
 invoke-atomictest T1021.006 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1021.006 -testnumber 3 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
 #invoke-atomictest T1021.006 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한 #get_prereq_command 실행 안됨
 #invoke-atomictest T1021.006 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
@@ -327,29 +333,51 @@ invoke-atomictest T1219 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPa
 #------------------------------------------------------------
 #Impact - Inhibit System Recovery(T1490) T1490 - Inhibit System Recovery
 
-invoke-atomictest T1490 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
+# Atomic Test #1 - Windows - Delete Volume Shadow Copies
 invoke-atomictest T1490 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
 invoke-atomictest T1490 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
-invoke-atomictest T1490 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
-invoke-atomictest T1490 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 실행 #관리자 권한
+
+# Atomic Test #2 - Windows - Delete Volume Shadow Copies via WMI
+invoke-atomictest T1490 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
+invoke-atomictest T1490 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 
+
+# Atomic Test #3 - Windows - wbadmin Delete Windows Backup Catalog
 invoke-atomictest T1490 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+# Atomic Test #4 - Windows - Disable Windows Recovery Console Repair
 invoke-atomictest T1490 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1490 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
-invoke-atomictest T1490 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
+
+# Atomic Test #5 - Windows - Delete Volume Shadow Copies via WMI with PowerShell
+invoke-atomictest T1490 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
 invoke-atomictest T1490 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 실행 #관리자 권한
+
+# Atomic Test #6 - Windows - Delete Backup Files
 invoke-atomictest T1490 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-#invoke-atomictest T1490 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #제외. 해당 Windows 버전에서 미지원
+
+# Atomic Test #7 - Windows - wbadmin Delete systemstatebackup
+invoke-atomictest T1490 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #제외. 해당 Windows 버전에서 미지원
 
 #------------------------------------------------------------
 #Impact - Service Stop(T1489) T1489 - Service Stop
 
+# Atomic Test #1 - Windows - Stop service using Service Controller
 invoke-atomictest T1489 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1489 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+# Atomic Test #2 - Windows - Stop service using net.exe
 invoke-atomictest T1489 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+# Atomic Test #3 - Windows - Stop service by killing process
+invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+
+
 #------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
-invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+# Atomic Test #1 - Shutdown System - Windows
+ invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+# Atomic Test #2 - Restart System - Windows
+ invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 원한
