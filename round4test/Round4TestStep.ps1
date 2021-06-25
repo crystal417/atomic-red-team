@@ -924,22 +924,93 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 # Discovery - Network Sniffing(T1040)
 # 공통, 중복
 
-Password Policy Discovery(T1201)
-T1201 - Password Policy Discovery
+#------------------------------------------------------------
+# Discovery - Password Policy Discovery(T1201) T1201 - Password Policy Discovery
 
-Atomic Test #5 - Examine local password policy - Windows
+#Atomic Test #5 - Examine local password policy - Windows
 
-Atomic Test #6 - Examine domain password policy - Windows
+#Atomic Test #6 - Examine domain password policy - Windows
 
+#------------------------------------------------------------
+# Discovery - Peripheral Device Discovery(T1120) T1120 - Peripheral Device Discovery
+
+#Atomic Test #1 - Win32_PnPEntity Hardware Inventory
+
+#------------------------------------------------------------
+# Discovery - Permission Groups Discovery(T1069) T1069.001 - Local Groups
+
+#Atomic Test #2 - Basic Permission Groups Discovery Windows (Local)
+
+#Atomic Test #3 - Permission Groups Discovery PowerShell (Local)
+
+
+#------------------------------------------------------------
+# Discovery - Permission Groups Discovery(T1069) T1069.002 - Domain Groups
+
+#Atomic Test #1 - Basic Permission Groups Discovery Windows (Domain)
+
+#Atomic Test #2 - Permission Groups Discovery PowerShell (Domain)
+
+#Atomic Test #3 - Elevated group enumeration using net group (Domain)
+
+#Atomic Test #4 - Find machines where user has local admin access (PowerView)
+
+#Atomic Test #5 - Find local admins on all machines in domain (PowerView)
+
+#Atomic Test #6 - Find Local Admins via Group Policy (PowerView)
+
+#Atomic Test #7 - Enumerate Users Not Requiring Pre Auth (ASRepRoast)
+
+#Atomic Test #8 - Adfind - Query Active Directory Groups
+
+#------------------------------------------------------------
+# Discovery - Process Discovery(T1057) T1057 - Process Discovery
+
+# Atomic Test #2 - Process Discovery - tasklist
+
+#------------------------------------------------------------
+# Discovery - Query Registry(T1012) T1012 - Query Registry
+
+#------------------------------------------------------------
+# Discovery - Remote System Discovery(T1018) T1018 - Remote System Discovery
+
+#------------------------------------------------------------
+# Discovery - Software Discovery(T1518) T1518 - Software Discovery
+
+
+#------------------------------------------------------------
+# Discovery - Software Discovery(T1518) T1518.001 - Security Software Discovery
+
+
+#------------------------------------------------------------
+# Discovery - System Information Discovery(T1082) T1082 - System Information Discovery
+
+#------------------------------------------------------------
+# Discovery - System Network Configuration Discovery(T1016) T1016 - System Network Configuration Discovery
+
+#------------------------------------------------------------
+# Discovery - System Network Connections Discovery(T1049) T1049 - System Network Connections Discovery
 
 #------------------------------------------------------------
 # Discovery - System Owner/User Discovery (T1033) T1033 - System Owner/User Discovery
 invoke-atomictest T1033 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
+#------------------------------------------------------------
+# Discovery - System Service Discovery(T1007) T1007 - System Service Discovery
+
+
 
 ##############################################################
 # Lateral Movement
 ##############################################################
+
+#------------------------------------------------------------
+# Lateral Movement - Internal Spearphishing(T1534)
+
+#------------------------------------------------------------
+# Lateral Movement - Lateral Tool Transfer(T1570)
+
+
 #------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021) - T1021.001 - Remote Desktop Protocol
 
@@ -961,6 +1032,10 @@ invoke-atomictest T1201.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #
 #invoke-atomictest T1021.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
+# Lateral Movement - Remote Services(T1021)
+# 추가 연구 필요 
+
+#------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021) - T1021.006 - Windows Remote Management
 invoke-atomictest T1021.006 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #서버 honstname 추가
 #invoke-atomictest T1021.006 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -973,8 +1048,13 @@ invoke-atomictest T1021.006 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #�
 ##############################################################
 #------------------------------------------------------------
 # Collection - Archive Collected Data - T1560 - Archive Collected Data
+# 실패 
 #invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #YamlDotNet.dll 사용중인 프로세스 에러
 #invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
+
+#------------------------------------------------------------
+# Collection - Data from Local System(T1005)
 
 #------------------------------------------------------------
 # Collection - Data Staged(T1074) - T1074.001 - Local Data Staging
@@ -991,13 +1071,27 @@ invoke-atomictest T1114.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1114.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
+# Collection - Input Capture(T1056)
+# 공통, 중복
+
+#------------------------------------------------------------
+# Collection - Man in the Browser(T1185)
+
+#------------------------------------------------------------
+# Collection - Man-in-the-Middle(T1557) T1557.001
+# 공통, 중복
+
+#------------------------------------------------------------
 # Collection - Screen Capture - T1113 - Screen Capture
 invoke-atomictest T1113 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #사용자 행위 필요
 invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
+
 ##############################################################
 # Command and Control
-###############################################################------------------------------------------------------------
+##############################################################
+
+#------------------------------------------------------------
 #Command and Control - Application Layer Protocol(T1071) - T1071.001 - Web Protocols
 invoke-atomictest T1071.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #출력 없음
 invoke-atomictest T1071.001 -testnumber 2 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
@@ -1005,9 +1099,18 @@ invoke-atomictest T1071.001 -testnumber 2 -GetPrereqs -ExecutionLogPath $Executi
 invoke-atomictest T1071.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #출력 없음
 
 #------------------------------------------------------------
-#Command and Control - Encrypted Channel(T1573) - T1573 - Encrypted Channel
-#Encrypted Channel(T1573) - T1573 - Encrypted Channel
+#Command and Control - Data Encoding(T1132)
+# 다른 테스트에 포함 
+
+#------------------------------------------------------------
+#Command and Control -Encrypted Channel(T1573) T1573.001 - Encrypted Channel
 invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
+
+#------------------------------------------------------------
+#Command and Control -Encrypted Channel(T1573) T1573.002 - Asymmetric Cryptography 
+
+#------------------------------------------------------------
+#Command and Control - Fallback Channels(T1008)
 
 #------------------------------------------------------------
 #Command and Control - Ingress Tool Transfer - T1105 - Ingress Tool Transfer
@@ -1032,6 +1135,13 @@ invoke-atomictest T1105 -testnumber 10 -Cleanup -ExecutionLogPath $ExecutionLogP
 invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
+#Command and Control - Protocol Tunneling(T1572)
+
+
+#------------------------------------------------------------
+#Command and Control - Proxy(T1090)
+
+#------------------------------------------------------------
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
 #invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #Teamviewer.exe 실행 전 start-sleep 10 추가 #관리자 권한
 #invoke-atomictest T1219 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -1039,6 +1149,10 @@ invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1219 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #invoke-atomictest T1219 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #Start-Process $file1 /quiet 변경 #Start-Sleep 10 추가 #C:\Program Files (x86)\LogMeIn Ignition 변경 #관리자 권한
 #invoke-atomictest T1219 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
+
+#------------------------------------------------------------
+#Command and Control - Web Service(T1102) T1102.002 Bidirectional Communication
 
 
 ##############################################################
@@ -1052,6 +1166,10 @@ invoke-atomictest T1048.003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1048.003 -testnumber 4 -ExecutionLogPath $ExecutionLogPath # ip_address DC 주소로 변경
 #invoke-atomictest T1048.003 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #SMTP 서버, 계정 필요
 
+#------------------------------------------------------------
+#Exfiltration - Exfiltration Over C2 Channel(T1041)
+
+
 ##############################################################
 # Impact
 ##############################################################
@@ -1062,6 +1180,16 @@ invoke-atomictest T1048.003 -testnumber 4 -ExecutionLogPath $ExecutionLogPath # 
 invoke-atomictest T1485 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1485 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1485 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+
+#------------------------------------------------------------
+#Impact - Data Encrypted for Impact(T1486)
+
+#------------------------------------------------------------
+#Impact - Disk Wipe(T1561) T1561.002 Disk Structure Wipe
+
+#------------------------------------------------------------
+#Impact - Endpoint Denial of Service(T1499
 
 #------------------------------------------------------------
 #Impact - Inhibit System Recovery(T1490) T1490 - Inhibit System Recovery
@@ -1090,3 +1218,7 @@ invoke-atomictest T1485 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
+#------------------------------------------------------------
+#Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
+# invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+# invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 원한

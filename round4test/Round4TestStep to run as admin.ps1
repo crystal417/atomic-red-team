@@ -350,6 +350,6 @@ invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogP
 
 #------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
-
 invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
