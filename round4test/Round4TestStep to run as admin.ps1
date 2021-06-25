@@ -270,7 +270,10 @@ invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #
 ##############################################################
 # Discovery
 ##############################################################
-
+#------------------------------------------------------------
+# Discovery - System Network Connections Discovery(T1049) T1049 - System Network Connections Discovery
+invoke-atomictest T1049 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath  #관리자 권한
+invoke-atomictest T1049 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 ##############################################################
 # Lateral Movement

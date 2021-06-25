@@ -901,6 +901,23 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Account Discovery(T1087) T1087.002 - Domain Account
+invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
+invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+#invoke-atomictest T1087.002 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #1 - Enumerate all accounts (Domain)
 invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -942,7 +959,7 @@ invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Account Discovery(T1087) T1087.003
-# 테스트 방법 연구 필요
+
 
 #------------------------------------------------------------
 # Discovery - Domain Trust Discovery(T1482) T1482 - Domain Trust Discovery
@@ -1145,6 +1162,14 @@ invoke-atomictest T1082 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - System Network Configuration Discovery(T1016) T1016 - System Network Configuration Discovery
+invoke-atomictest T1016 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1016 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #1 - System Network Configuration Discovery on Windows
 invoke-atomictest T1016 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
@@ -1168,6 +1193,10 @@ invoke-atomictest T1016 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - System Network Connections Discovery(T1049) T1049 - System Network Connections Discovery
+invoke-atomictest T1049 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1049 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1049 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath  #관리자 권한
+#invoke-atomictest T1049 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Discovery - System Owner/User Discovery (T1033) T1033 - System Owner/User Discovery
