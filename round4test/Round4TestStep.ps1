@@ -880,7 +880,9 @@ invoke-atomictest T1105 -testnumber 10 -Cleanup -ExecutionLogPath $ExecutionLogP
 
 #------------------------------------------------------------
 #Command and Control - Non-Standard Port - T1571 - Non-Standard Port
-invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath#------------------------------------------------------------
+invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
 #invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #Teamviewer.exe 실행 전 start-sleep 10 추가 #관리자 권한
 #invoke-atomictest T1219 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -933,13 +935,9 @@ invoke-atomictest T1485 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 #Impact - Service Stop(T1489) T1489 - Service Stop
 
-invoke-atomictest T1489 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1489 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1489 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1489 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1489 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1489 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
-#------------------------------------------------------------
-#Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
-invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
