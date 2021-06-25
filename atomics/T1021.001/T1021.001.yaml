@@ -23,7 +23,7 @@ atomic_tests:
     password:
       description: Password
       type: String
-      default: 1password2!
+      default: At0micStrong
   dependencies:
   - description: |
       Computer must be domain joined
@@ -53,7 +53,7 @@ atomic_tests:
     logonserver:
       description: ComputerName
       type: String
-      default: WIN-DC
+      default: COMPANYDC1
     username:
       description: Username
       type: String
@@ -61,7 +61,7 @@ atomic_tests:
     password:
       description: Password
       type: String
-      default: 1password2!
+      default: Password123!
   executor:
     command: |
       $Server="#{logonserver}"
