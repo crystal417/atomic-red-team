@@ -1021,7 +1021,9 @@ invoke-atomictest T1033 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - System Service Discovery(T1007) T1007 - System Service Discovery
-
+invoke-atomictest T1007 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1007 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1007 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 
 ##############################################################
