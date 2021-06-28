@@ -65,7 +65,7 @@ atomic_tests:
     remote_host:
       description: Remote computer to receive the copy and execute the file
       type: String
-      default: '\\localhost'
+      default: '\\192.168.1.100'
     psexec_exe:
       description: Path to PsExec
       type: string
