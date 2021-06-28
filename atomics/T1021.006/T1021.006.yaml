@@ -26,7 +26,7 @@ atomic_tests:
     host_name:
       description: Remote Windows Host Name
       type: String
-      default: localhost
+      default: COMPANYDC1
     remote_command:
       description: Command to execute on remote Host
       type: String
