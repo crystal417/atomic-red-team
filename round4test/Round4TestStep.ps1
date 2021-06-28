@@ -1090,14 +1090,14 @@ invoke-atomictest T1012 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 # Discovery - Remote System Discovery(T1018) T1018 - Remote System Discovery
 
 # Atomic Test #1 - Remote System Discovery - net
-#invoke-atomictest T1018 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1018 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #2 - Remote System Discovery - net group Domain Computers
 invoke-atomictest T1018 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1018 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #3 - Remote System Discovery - nltest
-#invoke-atomictest T1018 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1018 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #4 - Remote System Discovery - ping sweep
 invoke-atomictest T1018 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
@@ -1106,7 +1106,7 @@ invoke-atomictest T1018 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1018 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #8 - Remote System Discovery - nslookup
-#invoke-atomictest T1018 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1018 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #9 - Remote System Discovery - adidnsdump
 #invoke-atomictest T1018 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #관리자, DC에서해야함
