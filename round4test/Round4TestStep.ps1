@@ -1088,10 +1088,10 @@ invoke-atomictest T1018 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1018 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #8 - Remote System Discovery - nslookup
-invoke-atomictest T1018 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1018 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자
 
 # Atomic Test #9 - Remote System Discovery - adidnsdump
-#invoke-atomictest T1018 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #관리자, DC에서해야함
+#invoke-atomictest T1018 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #관리자
 
 # Atomic Test #10 - Adfind - Enumerate Active Directory Computer Objects
 invoke-atomictest T1018 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath

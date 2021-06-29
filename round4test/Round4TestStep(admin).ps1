@@ -271,9 +271,18 @@ invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #�
 # Discovery
 ##############################################################
 #------------------------------------------------------------
+# Discovery - Remote System Discovery(T1018) T1018 - Remote System Discovery
+# Atomic Test #8 - Remote System Discovery - nslookup
+invoke-atomictest T1018 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+
+# Atomic Test #9 - Remote System Discovery - adidnsdump
+invoke-atomictest T1018 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #관리자
+
+#------------------------------------------------------------
 # Discovery - System Network Connections Discovery(T1049) T1049 - System Network Connections Discovery
 invoke-atomictest T1049 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath  #관리자 권한
 invoke-atomictest T1049 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
 
 ##############################################################
 # Lateral Movement
