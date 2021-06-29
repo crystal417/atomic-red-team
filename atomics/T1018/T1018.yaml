@@ -144,15 +144,15 @@ atomic_tests:
     user_name:
       description: username including domain.
       type: string
-      default: 'domain\user'
+      default: 'contoso\user'
     acct_pass:
       description: Account password.
       type: string
-      default: "password"
+      default: "At0micStrong"
     host_name:
       description: hostname or ip address to connect to.
       type: string
-      default: "192.168.1.1"
+      default: "192.168.1.100"
   dependency_executor_name: powershell
   dependencies:
   - description: |
