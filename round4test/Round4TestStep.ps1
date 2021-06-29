@@ -901,29 +901,11 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Account Discovery(T1087) T1087.002 - Domain Account
-invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-#invoke-atomictest T1087.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
-invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
-#invoke-atomictest T1087.002 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
-#invoke-atomictest T1087.002 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
-
 # Atomic Test #1 - Enumerate all accounts (Domain)
 invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #2 - Enumerate all accounts via PowerShell (Domain)
-#invoke-atomictest T1087.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath dc에서 해야함, 테스트 수정
+invoke-atomictest T1087.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
 
 # Atomic Test #3 - Enumerate logged on users via CMD (Domain)
 invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
@@ -953,8 +935,8 @@ invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #10 - Enumerate Active Directory for Unconstrained Delegation
-#invoke-atomictest T1087.002 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
-#invoke-atomictest T1087.002 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+invoke-atomictest T1087.002A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 
 #------------------------------------------------------------
@@ -965,15 +947,15 @@ invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 # Discovery - Domain Trust Discovery(T1482) T1482 - Domain Trust Discovery
 
 #Atomic Test #1 - Windows - Discover domain trusts with dsquery
-# invoke-atomictest T1482 -testnumber 1 -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+invoke-atomictest T1482A -testnumber 1 -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
 
 #Atomic Test #2 - Windows - Discover domain trusts with nltest
 invoke-atomictest T1482 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1482 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
-#Atomic Test #3 - Powershell enumerate domains and forests
-# invoke-atomictest T1482 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
-# invoke-atomictest T1482 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+#Atomic Test #3 - Powershell enumerate domains and forests #테스트 대체
+invoke-atomictest T1482A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+invoke-atomictest T1482A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #4 - Adfind - Enumerate Active Directory OUs
 invoke-atomictest T1482 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
