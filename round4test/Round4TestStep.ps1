@@ -1394,7 +1394,7 @@ invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1048.003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #4 - Exfiltration Over Alternative Protocol - HTTP
-invoke-atomictest T1048.003 -testnumber 4 -ExecutionLogPath $ExecutionLogPath # ip_address DC 주소로 변경
+#invoke-atomictest T1048.003 -testnumber 4 -ExecutionLogPath $ExecutionLogPath # ip_address DC 주소로 변경
 
 # Atomic Test #5 - Exfiltration Over Alternative Protocol - SMTP
 #invoke-atomictest T1048.003 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #SMTP 서버, 계정 필요
