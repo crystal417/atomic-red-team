@@ -1212,7 +1212,6 @@ invoke-atomictest T1007 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPa
 #------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021) - T1021.001 - Remote Desktop Protocol
 
-invoke-atomictest T1021.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
 invoke-atomictest T1021.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1021.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #파라미터(패스워드) 변경
 invoke-atomictest T1021.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath 
@@ -1224,7 +1223,6 @@ invoke-atomictest T1021.001 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionL
 invoke-atomictest T1021.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #파라미터 (domain, passwd, computername) 변경
 invoke-atomictest T1021.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #파라미터 (hostname )변경
 invoke-atomictest T1201.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #수동 테스트
-#invoke-atomictest T1021.002 -testnumber 3 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #invoke-atomictest T1021.002 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #invoke-atomictest T1021.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #timeout #관리자 권한
 #invoke-atomictest T1021.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -1243,7 +1241,6 @@ invoke-atomictest T1201.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #
 invoke-atomictest T1021.006 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #서버 honstname 추가
 
 # Atomic Test #3 - WinRM Access with Evil-WinRM
-#invoke-atomictest T1021.006 -testnumber 3 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #invoke-atomictest T1021.006 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한 #get_prereq_command 실행 안됨
 #invoke-atomictest T1021.006 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
