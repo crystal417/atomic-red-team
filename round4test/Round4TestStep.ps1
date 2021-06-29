@@ -738,6 +738,10 @@ invoke-atomictest T1218.011 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Use Alternate Authentication Material(T1550) T1550.002 - Pass the Hash
+invoke-atomictest T1550.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1550.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1550.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1550.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Valid Accounts(T1078) T1078.001 Default Accounts
