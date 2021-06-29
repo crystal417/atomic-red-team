@@ -968,20 +968,20 @@ invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1482A -testnumber 1 -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
 
 #Atomic Test #2 - Windows - Discover domain trusts with nltest
-invoke-atomictest T1482A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+
+#Atomic Test #3 - Powershell enumerate domains and forests #테스트 대체
+invoke-atomictest T1482A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
 invoke-atomictest T1482A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
-#Atomic Test #3 - Powershell enumerate domains and forests
-invoke-atomictest T1482A -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
-invoke-atomictest T1482A -testnumber 3 -ExecutionLogPath $ExecutionLogPath
-
 #Atomic Test #4 - Adfind - Enumerate Active Directory OUs
-invoke-atomictest T1482A -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1482A -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #5 - Adfind - Enumerate Active Directory Trusts
-invoke-atomictest T1482A -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1482A -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1482 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - File and Directory Discovery(T1083) T1083 - File and Directory Discovery
