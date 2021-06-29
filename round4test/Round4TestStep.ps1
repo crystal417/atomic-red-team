@@ -1035,7 +1035,7 @@ invoke-atomictest T1069.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1069.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #2 - Permission Groups Discovery PowerShell (Domain)
-# invoke-atomictest T1069.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+invoke-atomictest T1069.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
 
 #Atomic Test #3 - Elevated group enumeration using net group (Domain)
 # invoke-atomictest T1069.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #에러
@@ -1050,8 +1050,8 @@ invoke-atomictest T1069.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1069.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #에러
 
 #Atomic Test #7 - Enumerate Users Not Requiring Pre Auth (ASRepRoast)
-#invoke-atomictest T1069.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
-#invoke-atomictest T1069.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1069.002A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+invoke-atomictest T1069.002A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #8 - Adfind - Query Active Directory Groups
 invoke-atomictest T1069.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath

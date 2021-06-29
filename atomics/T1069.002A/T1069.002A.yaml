@@ -1,0 +1,47 @@
+attack_technique: T1069.002A
+display_name: 'Permission Groups Discovery: Domain Groups'
+atomic_tests:
+- name: Permission Groups Discovery PowerShell (Domain)
+  auto_generated_guid: 46ac1e53-0dcb-4a21-9051-fad549995c3e
+  description: |
+    Permission Groups Discovery utilizing PowerShell. This test will display some errors if run on a computer not connected to a domain. Upon execution, domain
+    information will be displayed.
+  supported_platforms:
+  - windows
+  input_arguments:
+    user:
+      description: User to identify what groups a user is a member of
+      type: string
+      default: administrator
+  input_arguments:
+    DC_IP:
+      description: DC Address
+      type: String
+      default: '192.168.1.100'        
+  executor:
+    command: |
+      wmic /node:#{DC_IP} process call create "powershell get-ADPrincipalGroupMembership #{user} | select name"
+    name: powershell
+- name: Enumerate Users Not Requiring Pre Auth (ASRepRoast)
+  auto_generated_guid: 08f8a9e0-d8ae-11eb-b8bc-0242ac130003
+  description: |
+    When successful, accounts that do not require kerberos pre-auth will be returned
+  supported_platforms:
+    - windows
+  input_arguments:
+    DC_IP:
+      description: DC Address
+      type: String
+      default: '192.168.1.100'      
+  dependency_executor_name: powershell
+  - description: |
+      Requires the Active Directory module for powershell to be installed.
+    prereq_command: |
+      if(Get-Module -ListAvailable -Name ActiveDirectory) {exit 0} else {exit 1}
+    get_prereq_command: |
+      wmic /node:#{DC_IP} process call create "powershell Add-WindowsCapability -Online -Name 'Rsat.ActiveDirectory.DS-LDS.Tools~~~~0.0.1.0'"
+  executor:
+    name: powershell
+    elevation_required: false
+    command: |
+      wmic /node:#{DC_IP} process call create "powershell get-aduser -f * -pr DoesNotRequirePreAuth | where {$_.DoesNotRequirePreAuth -eq $TRUE}"
