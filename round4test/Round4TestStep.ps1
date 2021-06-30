@@ -9,7 +9,7 @@ Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Fo
 
 #------------------------------------------------------------
 # Execution - Command and Scripting Interpreter(T1059) T1059.001 - PowerShell
-invoke-atomictest t1059.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest t1059.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
 
 invoke-atomictest t1059.001 -testnumber 2 -getprereq -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath   # AD에서 테스트해야 함.
@@ -20,7 +20,7 @@ invoke-atomictest t1059.001 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionL
  
 invoke-atomictest t1059.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
  
-invoke-atomictest t1059.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest t1059.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
  
 invoke-atomictest t1059.001 -testnumber 6 -ExecutionLogPath $ExecutionLogPath   # IP/PW 요구
  
@@ -30,14 +30,14 @@ invoke-atomictest t1059.001 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
  
 invoke-atomictest t1059.001 -testnumber 9 -ExecutionLogPath $ExecutionLogPath   # Enter 입력 필요
  
-invoke-atomictest t1059.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest t1059.001 -testnumber 11 -cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest t1059.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
+#invoke-atomictest t1059.001 -testnumber 11 -cleanup -ExecutionLogPath $ExecutionLogPath # 관리자 권한
  
 invoke-atomictest t1059.001 -testnumber 13 -getprereq -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.001 -testnumber 13 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.001 -testnumber 13 -cleanup -ExecutionLogPath $ExecutionLogPath
  
-invoke-atomictest t1059.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest t1059.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
  
 invoke-atomictest t1059.001 -testnumber 15 -getprereq -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.001 -testnumber 15 -ExecutionLogPath $ExecutionLogPath
