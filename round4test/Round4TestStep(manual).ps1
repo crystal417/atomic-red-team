@@ -19,6 +19,11 @@ invoke-atomictest T1003.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #G
 invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨 #manual 테스트
 
 #------------------------------------------------------------
+# Collection - Screen Capture - T1113 - Screen Capture
+# Atomic Test #5 - Windows Screencapture
+invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
+
+#------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
 # Atomic Test #1 - Shutdown System - Windows
 invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #수동 실행
