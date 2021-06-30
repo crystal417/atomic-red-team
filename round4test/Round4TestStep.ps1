@@ -786,8 +786,8 @@ invoke-atomictest T1555.003 -testnumber 1 -GetPrereqs -ExecutionLogPath $Executi
 invoke-atomictest T1555.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 10 #프로그램 실행종료후 입력대기 문제로 120초 타임아웃 발생. -TimeoutSeconds 로 제한시간 수정.
 invoke-atomictest T1555.003 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
-invoke-atomictest T1555.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1555.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1555.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Credential Access - Credentials from Password Stores(T1555) T1555.004 - Windows Credential Manager
