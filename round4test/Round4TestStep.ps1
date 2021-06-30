@@ -121,6 +121,9 @@ invoke-atomictest T1106 -testnumber 1   -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1053.005 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1053.005 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
+#invoke-atomictest T1053.005 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1053.005 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+
 ## Powershell Cmdlet Scheduled Task  #관리자 권한 
 #invoke-atomictest T1053.005 -testnumber 4 -ExecutionLogPath $ExecutionLogPath      #관리자 권한 
 #invoke-atomictest T1053.005 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath     #관리자 권한 
@@ -132,10 +135,6 @@ invoke-atomictest T1053.005 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 ##WMI Invoke-CimMethod Scheduled Task
 #invoke-atomictest T1053.005 -testnumber 6 -ExecutionLogPath $ExecutionLogPath     #관리자 권한 
 #invoke-atomictest T1053.005 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath     #관리자 권한 
-
-## Scheduled task Remote
-invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
-invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
 
 #------------------------------------------------------------
 # Execution - Software Deployment Tools(T1072)
