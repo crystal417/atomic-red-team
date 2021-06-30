@@ -25,7 +25,7 @@ invoke-atomictest t1059.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath # 
 invoke-atomictest t1059.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
 invoke-atomictest t1059.001 -testnumber 11 -cleanup -ExecutionLogPath $ExecutionLogPath # 관리자 권한
 
-#invoke-atomictest t1059.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath # 관리자 권한 #추후 제공 예정
+invoke-atomictest t1059.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
 #------------------------------------------------------------
 
 # Execution - Scheduled Task/Job(T1053)  

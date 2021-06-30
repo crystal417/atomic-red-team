@@ -238,7 +238,7 @@ atomic_tests:
     hostname_to_connect:
       description: The host to connect to, by default it will connect to the local machine
       type: String
-      default: $env:COMPUTERNAME
+      default: localhost
 
   dependencies:
   - description: |
