@@ -394,10 +394,10 @@ invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionL
 
 #------------------------------------------------------------
 # Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
-##invoke-atomictest T1548.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #반응 없음
-##invoke-atomictest T1548.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-##invoke-atomictest T1548.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #권한 상승 안됨.
-##invoke-atomictest T1548.002 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1548.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1548.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1548.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1548.002 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1548.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1548.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1548.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
