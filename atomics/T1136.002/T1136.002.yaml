@@ -38,7 +38,7 @@ atomic_tests:
     username:
       description: Username of the user to create
       type: String
-      default: ANONYMOUS  LOGON
+      default: ANONYMUOS  LOGON
     password:
       description: Password of the user to create
       type: String
