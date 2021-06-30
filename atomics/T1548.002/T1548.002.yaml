@@ -16,7 +16,7 @@ atomic_tests:
   executor:
     command: |
       reg.exe add hkcu\software\classes\mscfile\shell\open\command /ve /d "#{executable_binary}" /f
-      cmd.exe /c eventvwr.msc
+      cmd.exe /c eventvwr
     cleanup_command: |
       reg.exe delete hkcu\software\classes\mscfile /f >nul 2>&1
     name: command_prompt
@@ -36,7 +36,7 @@ atomic_tests:
     command: |
       New-Item "HKCU:\software\classes\mscfile\shell\open\command" -Force
       Set-ItemProperty "HKCU:\software\classes\mscfile\shell\open\command" -Name "(default)" -Value "#{executable_binary}" -Force
-      Start-Process "C:\Windows\System32\eventvwr.msc"
+      Start-Process "C:\Windows\System32\eventvwr"
     cleanup_command: |
       Remove-Item "HKCU:\software\classes\mscfile" -force -Recurse -ErrorAction Ignore
     name: powershell
