@@ -16,6 +16,18 @@ invoke-atomictest t1059.001 -testnumber 14 -getprereq -ExecutionLogPath $Executi
 # Execution
 ##############################################################
 
+#------------------------------------------------------------
+# Execution - Command and Scripting Interpreter(T1059) T1059.001 - PowerShell
+invoke-atomictest t1059.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
+
+invoke-atomictest t1059.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
+
+invoke-atomictest t1059.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
+invoke-atomictest t1059.001 -testnumber 11 -cleanup -ExecutionLogPath $ExecutionLogPath # 관리자 권한
+
+invoke-atomictest t1059.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
+#------------------------------------------------------------
+
 # Execution - Scheduled Task/Job(T1053)  
 ## Scheduled Task Startup Script
 invoke-atomictest T1053.005 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
