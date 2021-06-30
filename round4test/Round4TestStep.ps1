@@ -96,7 +96,7 @@ invoke-atomictest t1059.006 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionL
 invoke-atomictest t1059.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.007A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
 
-invoke-atomictest t1059.007A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest t1059.007A -testnumber 2 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 10 
 
 #------------------------------------------------------------
 # Execution - Command and Scripting Interpreter(T1559) Inter-Process Communication(T1559)
