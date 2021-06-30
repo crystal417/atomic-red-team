@@ -64,9 +64,9 @@ atomic_tests:
       type: String
       default: localhost
     user_name:
-      description: 'Username to authenticate with, format: DOMAIN\User'
+      description: 'Username to authenticate with, format: contoso\User'
       type: String
-      default: DOMAIN\user
+      default: contoso\user
     password:
       description: Password to authenticate with
       type: String
