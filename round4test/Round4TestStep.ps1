@@ -176,7 +176,7 @@ invoke-atomictest T1204.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $Executi
 invoke-atomictest T1204.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 
 invoke-atomictest T1204.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1204.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1204.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 30 
 invoke-atomictest T1204.002 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 invoke-atomictest T1204.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
