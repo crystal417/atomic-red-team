@@ -19,6 +19,10 @@ invoke-atomictest T1003.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #G
 invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨 #manual 테스트
 
 #------------------------------------------------------------
+# Lateral Movement - Remote Services(T1021) - T1021.002 - SMB/Windows Admin Shares
+invoke-atomictest T1021.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #수동 테스트
+
+#------------------------------------------------------------
 # Collection - Screen Capture - T1113 - Screen Capture
 # Atomic Test #5 - Windows Screencapture
 invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
