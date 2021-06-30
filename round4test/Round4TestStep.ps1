@@ -1314,7 +1314,7 @@ invoke-atomictest T1071.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #�
 
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.001 - Encrypted Channel
-#invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
+invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
 
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.002 - Asymmetric Cryptography 
