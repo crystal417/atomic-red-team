@@ -64,7 +64,7 @@ atomic_tests:
     password:
       description: "Password of the Account to be created"
       type: String
-      default: T1136_pass123!
+      default: At0micStrong
   executor:
     command: |
       $SamAccountName = '#{username}'
@@ -81,6 +81,6 @@ atomic_tests:
       $User.Save()
       $User
     cleanup_command: |
-      net user "#{username}" >nul 2>&1 /del /domain
+      net user "#{username}" /del /domain
     name: powershell
     elevation_required: false  # Requires a user to be a Domain Admin!
