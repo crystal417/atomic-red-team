@@ -1292,7 +1292,7 @@ invoke-atomictest T1114.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionL
 
 # Atomic Test #5 - Windows Screencapture
 invoke-atomictest T1113 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #사용자 행위 필요
-invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
 
 
 ##############################################################
