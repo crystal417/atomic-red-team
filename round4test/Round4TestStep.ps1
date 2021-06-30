@@ -1466,7 +1466,7 @@ invoke-atomictest T1485 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 # Atomic Test #3 - Windows - Stop service by killing process
-invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #재확인 필요
 
 #------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
