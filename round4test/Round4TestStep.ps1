@@ -1222,7 +1222,7 @@ invoke-atomictest T1021.001 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionL
 # Lateral Movement - Remote Services(T1021) - T1021.002 - SMB/Windows Admin Shares
 invoke-atomictest T1021.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #파라미터 (domain, passwd, computername) 변경
 invoke-atomictest T1021.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #파라미터 (hostname )변경
-invoke-atomictest T1201.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #수동 테스트
+#invoke-atomictest T1201.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #수동 테스트
 #invoke-atomictest T1021.002 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #invoke-atomictest T1021.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #timeout #관리자 권한
 #invoke-atomictest T1021.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -1466,7 +1466,7 @@ invoke-atomictest T1485 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1489 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 # Atomic Test #3 - Windows - Stop service by killing process
-#invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #재확인 필요
+#invoke-atomictest T1489 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
