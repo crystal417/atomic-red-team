@@ -411,7 +411,7 @@ invoke-atomictest T1548.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1548.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #invoke-atomictest T1548.002 -testnumber 8 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
-##invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨
+##invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨 #manual 테스트
 
 #------------------------------------------------------------
 # Privilege Escalation - Access Token Manipulation(T1134) - T1134.005 - SID-History Injection
