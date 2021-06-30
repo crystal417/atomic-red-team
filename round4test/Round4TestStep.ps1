@@ -96,7 +96,7 @@ invoke-atomictest t1059.006 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionL
 invoke-atomictest t1059.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.007A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
 
-invoke-atomictest t1059.007A -testnumber 2 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 10 
+invoke-atomictest t1059.007A -testnumber 2 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 10 
 
 #------------------------------------------------------------
 # Execution - Command and Scripting Interpreter(T1559) Inter-Process Communication(T1559)
@@ -738,10 +738,10 @@ invoke-atomictest T1218.011 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Use Alternate Authentication Material(T1550) T1550.002 - Pass the Hash
-invoke-atomictest T1550.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1550.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1550.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1550.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1550.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1550.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1550.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1550.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Defense Evasion - Valid Accounts(T1078) T1078.001 Default Accounts
@@ -909,7 +909,7 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #2 - Enumerate all accounts via PowerShell (Domain)
-#invoke-atomictest T1087.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
+invoke-atomictest T1087.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
 
 # Atomic Test #3 - Enumerate logged on users via CMD (Domain)
 invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
@@ -939,8 +939,9 @@ invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #10 - Enumerate Active Directory for Unconstrained Delegation
-invoke-atomictest T1087.002A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
-invoke-atomictest T1087.002A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정 #에러.
+#invoke-atomictest T1087.002A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+
 
 
 #------------------------------------------------------------
