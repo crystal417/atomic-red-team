@@ -42,7 +42,7 @@ atomic_tests:
       description: DC Address
       type: String
       default: '192.168.1.100' 
-  dependency_executor_name: powershell
+  dependency_executor_name: command_prompt
   dependencies:
   - description: |
       Create volume shadow copy of C:\ . This prereq command only works on Windows Server or Windows 8.
@@ -69,7 +69,7 @@ atomic_tests:
       description: DC Address
       type: String
       default: '192.168.1.100' 
-  dependency_executor_name: powershell
+  dependency_executor_name: command_prompt
   dependencies:
   - description: |
       Create volume shadow copy of C:\ . This prereq command only works on Windows Server or Windows 8.
