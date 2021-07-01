@@ -389,6 +389,13 @@ invoke-atomictest T1490 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #관�
 # Atomic Test #7 - Windows - wbadmin Delete systemstatebackup
 #invoke-atomictest T1490 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #제외. 해당 Windows 버전에서 미지원
 
+invoke-atomictest T1490A -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 2 -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
+invoke-atomictest T1490A -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
 #------------------------------------------------------------
 #Impact - Service Stop(T1489) T1489 - Service Stop
 
