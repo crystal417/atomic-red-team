@@ -136,6 +136,10 @@ invoke-atomictest T1053.005 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 #invoke-atomictest T1053.005 -testnumber 6 -ExecutionLogPath $ExecutionLogPath     #관리자 권한 
 #invoke-atomictest T1053.005 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath     #관리자 권한 
 
+## Scheduled task Remote
+invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
+invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
+
 #------------------------------------------------------------
 # Execution - Software Deployment Tools(T1072)
 # 테스트 생략
@@ -372,6 +376,11 @@ invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionL
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.001 - Default Accounts
+# 이명수 테스트 중 2021.06.25
+
+invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1078.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.002 - Domain Accounts
@@ -904,6 +913,24 @@ invoke-atomictest T1087.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Discovery - Account Discovery(T1087) T1087.002 - Domain Account
+invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
+invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+#invoke-atomictest T1087.002 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
+
 # Atomic Test #1 - Enumerate all accounts (Domain)
 invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
@@ -1212,6 +1239,7 @@ invoke-atomictest T1007 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPa
 #------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021) - T1021.001 - Remote Desktop Protocol
 
+invoke-atomictest T1021.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
 invoke-atomictest T1021.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1021.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #파라미터(패스워드) 변경
 invoke-atomictest T1021.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath 
@@ -1314,7 +1342,7 @@ invoke-atomictest T1071.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #�
 
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.001 - Encrypted Channel
-#invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
+invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
 
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.002 - Asymmetric Cryptography 
