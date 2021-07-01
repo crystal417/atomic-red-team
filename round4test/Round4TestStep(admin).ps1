@@ -189,6 +189,9 @@ invoke-atomictest T1562.001 -testnumber 24 -Cleanup -ExecutionLogPath $Execution
 invoke-atomictest T1562.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1562.002 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+invoke-atomictest T1562.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1562.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+
 #------------------------------------------------------------
 # Defense Evasion - Indicator Removal on Host(T1070) T1070.001 Clear Windows Event Logs
 #Atomic Test #1 - Clear Logs
