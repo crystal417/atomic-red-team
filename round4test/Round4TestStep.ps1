@@ -1078,7 +1078,7 @@ invoke-atomictest T1069.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #�
 invoke-atomictest T1069.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #6 - Find Local Admins via Group Policy (PowerView)
-#invoke-atomictest T1069.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath #에러
+invoke-atomictest T1069.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath 
 
 #Atomic Test #7 - Enumerate Users Not Requiring Pre Auth (ASRepRoast)
 invoke-atomictest T1069.002A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
