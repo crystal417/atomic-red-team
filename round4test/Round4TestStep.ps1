@@ -1069,7 +1069,7 @@ invoke-atomictest T1069.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest T1069.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
 
 #Atomic Test #3 - Elevated group enumeration using net group (Domain)
-# invoke-atomictest T1069.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #에러
+invoke-atomictest T1069.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
 
 #Atomic Test #4 - Find machines where user has local admin access (PowerView)
 invoke-atomictest T1069.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #타임아웃 발생하나 정상
