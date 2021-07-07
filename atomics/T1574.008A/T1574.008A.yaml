@@ -1,0 +1,23 @@
+attack_technique: T1574.008A
+display_name: 'Path Interception by Search Order Hijacking'
+atomic_tests:
+- name: Path Interception by Search Order Hijacking
+  auto_generated_guid: 243005d6-dee5-11eb-ba80-0242ac130004
+  description: |
+    Example
+  supported_platforms:
+  - Windows
+  input_arguments:
+    Atomic_PATH:
+      description: Path to a shared library source code
+      type: String
+      default: PathToAtomicsFolder/T1574.008A/src/write.exe
+  - description: |
+      example
+  executor:
+    command: |
+      copy {hijack_file} net.exe
+      cmd /c net.exe
+    cleanup_command: |
+      del net.exe
+    name: command_prompt

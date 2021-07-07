@@ -1,0 +1,24 @@
+attack_technique: T1574.007A
+display_name: 'Path Interception by PATH Environment Variable'
+atomic_tests:
+- name: Enviroment Variables Path Interception - PATH
+  auto_generated_guid: 3081d503-6620-414a-a424-cc6897227df0
+  description: |
+    Example
+  supported_platforms:
+  - Windows
+  input_arguments:
+    Atomic_PATH:
+      description: Path to a shared library source code
+      type: String
+      default: PathToAtomicsFolder/T1574.007A/src/
+  - description: |
+      example
+  executor:
+    command: |
+      set pathtemp=%PATH%
+      set PATH=#{Atomic_PATH};%PATH%
+      write.exe
+      set PATH=%pathtemp%
+    name: command_prompt
+    elevation_required: true
