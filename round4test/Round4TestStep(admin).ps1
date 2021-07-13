@@ -108,6 +108,10 @@ invoke-atomictest T1543.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #�
 invoke-atomictest T1543.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
+# Persistence - Hijack Execution Flow(T1574) T1574.007A - Path Interception by PATH Environment Variable
+invoke-atomictest T1574.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
 # Persistence - Hijack Execution Flow(T1574) T1574.009 - Path Interception by Unquoted Path
 invoke-atomictest T1574.009 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1574.009 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -325,9 +329,8 @@ invoke-atomictest T1021.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021) - T1021.006 - Windows Remote Management
 invoke-atomictest T1021.006 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-
-#invoke-atomictest T1021.006 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한 #get_prereq_command 실행 안됨 #manual
-#invoke-atomictest T1021.006 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #manual
+invoke-atomictest T1021.006 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한 #get_prereq_command 실행 안됨 
+invoke-atomictest T1021.006 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한 
 
 ##############################################################
 # Collection

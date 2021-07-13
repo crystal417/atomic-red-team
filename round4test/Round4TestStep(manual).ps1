@@ -23,11 +23,6 @@ invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #�
 invoke-atomictest T1021.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #수동 테스트
 
 #------------------------------------------------------------
-# Lateral Movement - Remote Services(T1021) - T1021.006 - Windows Remote Management
-invoke-atomictest T1021.006 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한 #get_prereq_command 실행 안됨 #manual
-invoke-atomictest T1021.006 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #manual
-
-#------------------------------------------------------------
 # Collection - Screen Capture - T1113 - Screen Capture
 # Atomic Test #5 - Windows Screencapture
 invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
