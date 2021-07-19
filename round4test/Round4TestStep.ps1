@@ -347,10 +347,12 @@ invoke-atomictest T1574.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionL
 
 #------------------------------------------------------------
 # Persistence - Hijack Execution Flow(T1574) T1574.007A - Path Interception by PATH Environment Variable
+#invoke-atomictest T1574.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Persistence - Hijack Execution Flow(T1574) T1574.008A - Path Interception by Search Order Hijacking
-
+invoke-atomictest T1574.008A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1574.008A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
 #------------------------------------------------------------
 # Persistence - Hijack Execution Flow(T1574) T1574.009 - Path Interception by Unquoted Path
 #invoke-atomictest T1574.009 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자  권한
