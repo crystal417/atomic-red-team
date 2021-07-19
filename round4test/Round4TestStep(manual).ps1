@@ -26,6 +26,7 @@ invoke-atomictest T1021.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #
 # Collection - Screen Capture - T1113 - Screen Capture
 # Atomic Test #5 - Windows Screencapture
 invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
+#invoke-atomictest T1185A -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
 
 #------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
