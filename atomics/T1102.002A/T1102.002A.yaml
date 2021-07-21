@@ -8,7 +8,7 @@ atomic_tests:
   supported_platforms:
   - windows
   executor:
-    command: |
+    steps: |
       클라이언트 
       1. Open cmd.exe 
       2. cd <implant.py 위치>

@@ -8,7 +8,7 @@ atomic_tests:
   supported_platforms:
   - windows
   executor:
-    command: |
+    steps: |
       공격자 서버
       1. Open cmd.exe 
       2. cd /home/kali/Desktop/beef/beef
