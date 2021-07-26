@@ -484,6 +484,8 @@ invoke-atomictest T1548.002 -testnumber 7 -Cleanup -ExecutionLogPath $ExecutionL
 
 #------------------------------------------------------------
 # Privilege Escalation - Process Injection(T1055) T1055.012 Process Hollowing
+invoke-atomictest T1055.012 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1055.012 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath 
 
 #------------------------------------------------------------
 # Privilege Escalation - Scheduled Task/Job(T1053)	T1053.005 Scheduled Task
