@@ -85,11 +85,8 @@ invoke-atomictest t1059.005 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 invoke-atomictest t1059.005 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath
  
 #------------------------------------------------------------
-# Execution - Command and Scripting Interpreter(T1059) T1509.006 - Python
-## 테스트방법 연구 필요
-invoke-atomictest t1059.006 -testnumber 1 -getprereq -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest t1059.006 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest t1059.006 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
+# Execution - Excute python script(T1059) T1509.006A - Python
+invoke-atomictest t1059.006A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Execution - Command and Scripting Interpreter(T1059) T1509.007A - JavaScript
