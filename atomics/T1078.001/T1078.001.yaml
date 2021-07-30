@@ -20,7 +20,7 @@ atomic_tests:
     remove_rdp_access_during_cleanup:
       description: Set to 1 if you want the cleanup to remove RDP access to machine
       type: Integer
-      default: 0
+      default: 1
   executor:
     command: |-
       net user #{guest_user} /active:yes
