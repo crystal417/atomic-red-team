@@ -1,0 +1,16 @@
+attack_technique: T1204.001A
+display_name: 'Malicious Link'
+atomic_tests:
+- name: Malicious Link
+  auto_generated_guid: 95f55a73-b403-446c-aee8-72801389ef00
+  description: |
+    Malicious Link
+  supported_platforms:
+  - windows
+  executor:
+    steps: |
+      1. Open outlook
+      2. 임시보관함에 있는 악성 링크 클릭
+
+    name: manual
+    elevation_required: false

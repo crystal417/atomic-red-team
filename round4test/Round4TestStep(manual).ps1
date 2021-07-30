@@ -1,4 +1,8 @@
 #------------------------------------------------------------
+#User Excution - Malicious Link
+invoke-atomictest T1204.001A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #manual #악성링크 클릭
+
+#------------------------------------------------------------
 #Credential Access - Network Sniffing
 # Atomic Test #4 - Windows Internal Packet Capture 
 invoke-atomictest T1040 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #수동 테스트 
