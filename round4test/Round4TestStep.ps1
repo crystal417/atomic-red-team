@@ -1094,6 +1094,9 @@ invoke-atomictest T1069.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 
 # Atomic Test #2 - Process Discovery - tasklist
 invoke-atomictest T1057 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1057A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1057A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1057A -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 
 
 #------------------------------------------------------------
