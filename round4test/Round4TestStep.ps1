@@ -375,11 +375,8 @@ invoke-atomictest T1574.008A -testnumber 1 -cleanup -ExecutionLogPath $Executio
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.001 - Default Accounts
-# 이명수 테스트 중 2021.06.25
-
-invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-invoke-atomictest T1078.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.002 - Domain Accounts

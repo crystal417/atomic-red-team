@@ -12,15 +12,15 @@ atomic_tests:
     user_name:
       description: username
       type: string
-      default: Administrator
+      default: USER
     ntlm:
       description: ntlm hash
       type: string
-      default: cc36cf7a8514893efccd3324464tkg1a
+      default: 7a0c0f0bd4f14d50f17227cd0206a385
     domain:
       description: domain
       type: string
-      default: atomic.local
+      default: contoso
     mimikatz_path:
       description: mimikatz windows executable
       type: Path
@@ -52,7 +52,7 @@ atomic_tests:
     user_name:
       description: username
       type: string
-      default: Administrator
+      default: USER
     crackmapexec_exe:
       description: crackmapexec windows executable
       type: Path
@@ -64,11 +64,11 @@ atomic_tests:
     ntlm:
       description: command
       type: string
-      default: cc36cf7a8514893efccd3324464tkg1a
+      default: 7a0c0f0bd4f14d50f17227cd0206a385
     domain:
       description: domain
       type: string
-      default: atomic.local
+      default: contoso
   dependency_executor_name: powershell
   dependencies:
   - description: |

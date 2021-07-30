@@ -122,8 +122,11 @@ invoke-atomictest T1574.010A -testnumber 1  -GetPrereqs -ExecutionLogPath $Execu
 invoke-atomictest T1574.010A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 invoke-atomictest T1574.010A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
-
-
+#------------------------------------------------------------
+# Persistence - Valid Accounts(T1078) T1078.001 - Default Accounts
+T1078.001 - Default Accounts
+invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.003A - Local Accounts
