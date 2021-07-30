@@ -595,8 +595,8 @@ invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $Execution
 
 #Atomic Test #1 - Disable Windows IIS HTTP Logging
 # 재테스트필요
-#invoke-atomictest T1562.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-#invoke-atomictest T1562.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1562.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1562.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #Atomic Test #2 - Kill Event Log Service Threads
 #재태스트 필요
@@ -605,8 +605,8 @@ invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $Execution
 
 #Atomic Test #3 - Impair Windows Audit Log Policy
 #재태스트 필요
-#invoke-atomictest T1562.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
-#invoke-atomictest T1562.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1562.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1562.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
 #Atomic Test #4 - Clear Windows Audit Policy Config
 invoke-atomictest T1562.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
