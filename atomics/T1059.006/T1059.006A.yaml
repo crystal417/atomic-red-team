@@ -1,0 +1,19 @@
+attack_technique: T1059.006A
+display_name: 'Command and Scripting Interpreter: Python'
+atomic_tests: 
+  - name: execute Python script
+    auto_generated_guid: 2540a37c-3264-4e3b-8af7-f2e543f25f4f
+    description: execute Python script
+    supported_platforms: 
+      - Windows
+    input_arguments: 
+      getHostInfo.py: 
+        description: getHostInfo.py path
+        type: String
+        default: C:\round4test\atomics\T1059.006\src\getHostInfo.py
+    executor: 
+      command: |
+        python #{getHostInfo.py}
+      name: command_prompt
+
+ 
