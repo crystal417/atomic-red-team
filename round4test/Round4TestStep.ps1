@@ -1278,10 +1278,15 @@ invoke-atomictest T1021.006 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #�
 ##############################################################
 #------------------------------------------------------------
 # Collection - Archive Collected Data - T1560 - Archive Collected Data
-# 실패 
-#invoke-atomictest T1560 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #YamlDotNet.dll 사용중인 프로세스 에러
-#invoke-atomictest T1560 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
-
+invoke-atomictest T1560.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath 
 
 #------------------------------------------------------------
 # Collection - Data from Local System(T1005)
