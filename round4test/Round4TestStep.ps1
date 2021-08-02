@@ -694,7 +694,8 @@ invoke-atomictest T1112 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPa
 
 #------------------------------------------------------------
 # Defense Evasion - Obfuscated Files or Information(T1027) T1027.002 - Software Packing
-
+invoke-atomictest T1027.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1027.002A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath 
 #------------------------------------------------------------
 # Defense Evasion - Obfuscated Files or Information(T1027) T1027.005 - Indicator Removal from Tools
 
