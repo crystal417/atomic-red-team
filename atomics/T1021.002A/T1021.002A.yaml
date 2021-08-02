@@ -9,6 +9,6 @@ atomic_tests:
   - windows
   executor:
     command: |
-      1. Open explorer.exe
-      2. Explore shared folders on the "network"
+      echo 1. Open explorer.exe
+      echo 2. Explore shared folders on the "network"
     name: command_prompt
