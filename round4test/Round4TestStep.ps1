@@ -371,7 +371,9 @@ invoke-atomictest T1574.008A -testnumber 1 -cleanup -ExecutionLogPath $Executio
 
 
 #------------------------------------------------------------
-# Persistence - Server Software Component(T1505) T1505.003 - Web Shell
+# Persistence - Server Software Component(T1505) T1505.003A - Web Shell
+invoke-atomictest T1505.003A -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
+invoke-atomictest T1505.003A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.001 - Default Accounts
