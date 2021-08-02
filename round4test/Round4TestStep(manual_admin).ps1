@@ -14,17 +14,15 @@ invoke-atomictest T1003 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPa
 pause
 
 #------------------------------------------------------------
-# Credential Access - OS Credential Dumping(T1003) T1003.001 - LSASS Memory
-invoke-atomictest T1003.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #GUI 테스트 #관리자  권한 #manual
+#Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
+echo "At the next step, the system is restart...."
+pause
+# Atomic Test #2 - Restart System - Windows
+invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 원한 #수동 실행
 pause
 
-#------------------------------------------------------------
-#Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
 # Atomic Test #1 - Shutdown System - Windows
 invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #수동 실행
 pause
 
-# Atomic Test #2 - Restart System - Windows
-invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 원한 #수동 실행
-pause
 

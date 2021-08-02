@@ -55,5 +55,7 @@ pause
 
 #------------------------------------------------------------
 # Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
+echo "At the next step, powershell is shutdown.."
+pause
 invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨 #manual 테스트
 pause
