@@ -1259,6 +1259,11 @@ invoke-atomictest T1021.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #�
 #invoke-atomictest T1021.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #timeout #관리자 권한
 #invoke-atomictest T1021.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 
+
+# Lateral Movement - Remote Services(T1021) - T1021.002 - SSH
+invoke-atomictest T1021.004A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+
+
 #------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021)
 # 추가 연구 필요 
