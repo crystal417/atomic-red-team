@@ -371,7 +371,9 @@ invoke-atomictest T1574.008A -testnumber 1 -cleanup -ExecutionLogPath $Executio
 
 
 #------------------------------------------------------------
-# Persistence - Server Software Component(T1505) T1505.003 - Web Shell
+# Persistence - Server Software Component(T1505) T1505.003A - Web Shell
+invoke-atomictest T1505.003A -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
+invoke-atomictest T1505.003A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.001 - Default Accounts
@@ -694,7 +696,8 @@ invoke-atomictest T1112 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPa
 
 #------------------------------------------------------------
 # Defense Evasion - Obfuscated Files or Information(T1027) T1027.002 - Software Packing
-
+invoke-atomictest T1027.002A -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1027.002A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath 
 #------------------------------------------------------------
 # Defense Evasion - Obfuscated Files or Information(T1027) T1027.005 - Indicator Removal from Tools
 
