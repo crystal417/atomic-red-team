@@ -30,6 +30,7 @@ pause
 #------------------------------------------------------------
 # Collection - Screen Capture - T1113 - Screen Capture
 # Atomic Test #5 - Windows Screencapture
+invoke-atomictest T1113 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #manual
 invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
 pause
 
