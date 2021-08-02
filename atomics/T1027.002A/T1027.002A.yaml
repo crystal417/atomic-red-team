@@ -13,15 +13,14 @@ atomic_tests:
       description: Packed binary
       type: Path
       default: PathToAtomicsFolder/T1027.002A/src/upx.exe
-  input_arguments:
     file_path:
       description: Packed binary
       type: Path
       default: PathToAtomicsFolder/T1027.002A/src/PsExec.exe      
   executor:
     command: |
-      #{bin_paht} -1 #{file_path}
+      #{bin_path} -1 #{file_path}
       #{file_path}
     cleanup_command: |
-      #{bin_paht} -d #{file_path}
+      #{bin_path} -d #{file_path}
     name: command_prompt
