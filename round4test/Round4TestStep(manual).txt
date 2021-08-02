@@ -23,6 +23,13 @@ step3. 다음 항목을 Powershell 관리자 권한으로 실행
 invoke-atomictest T1003 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath 
 
 #------------------------------------------------------------
+# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
+
+step1. 다음 항목을 Powershell로 실행 - Powershell이 종료됨
+invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath 
+
+#------------------------------------------------------------
+
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
 # Atomic Test #1 - Shutdown System - Windows
 
