@@ -1401,6 +1401,10 @@ invoke-atomictest T1571 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 
 #------------------------------------------------------------
 #Command and Control - Proxy(T1090)
+T1090.001 - Internal Proxy - Atomic Test #3 - portproxy reg key
+invoke-atomictest T1090.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1090.001 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath 
+
 
 #------------------------------------------------------------
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
