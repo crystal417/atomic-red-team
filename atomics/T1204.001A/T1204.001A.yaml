@@ -8,9 +8,8 @@ atomic_tests:
   supported_platforms:
   - windows
   executor:
-    steps: |
-      1. Open outlook
-      2. 임시보관함에 있는 악성 링크 클릭
-
+    command: |
+      echo 1. Open outlook
+      echo 2. Click Malicious Link in temporary
     name: manual
     elevation_required: false
