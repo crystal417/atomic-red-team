@@ -1,0 +1,41 @@
+자동 스크립트로 테스트 진행하기 어려운 항목들을 따로 모은 가이드 문서입니다. 
+아래 step에 맞춰 테스트를 진행 해주세요.
+
+#------------------------------------------------------------
+# Credential Access - Network Sniffing
+# Atomic Test #4 - Windows Internal Packet Capture 
+
+step1. 다음 항목을 Powershell 관리자 권한으로 실행 
+invoke-atomictest T1040 -testnumber 4 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1040 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 60 #프로그램 실행 후 50초 Timeout 발생
+
+#------------------------------------------------------------
+#Credential Access - OS Credential Dumping(T1003)
+# Atomic Test #2 - Credential Dumping with NPPSpy
+
+step1. 다음 항목을 Powershell 관리자 권한으로 실행
+invoke-atomictest T1003 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath 
+
+step2. 윈도우 계정 로그아웃 후 로그인 하면, C:\NPPSpy.txt 파일이 생성됨
+
+step3. 다음 항목을 Powershell 관리자 권한으로 실행
+invoke-atomictest T1003 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath 
+
+#------------------------------------------------------------
+#Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
+# Atomic Test #1 - Shutdown System - Windows
+
+step1. 다음 항목을 Powershell 관리자 권한으로 실행 - 시스템 종료
+invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+
+
+#------------------------------------------------------------
+#Impact - System Shutdown/Reboot(T1529) T1529 
+# Atomic Test #2 - Restart System - Windows
+
+step1. 다음 항목을 Powershell 관리자 권한으로 실행 - 시스템 재시작
+invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+
+#------------------------------------------------------------
+
