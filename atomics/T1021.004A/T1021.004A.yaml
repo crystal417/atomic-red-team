@@ -1,0 +1,18 @@
+attack_technique: T1021.004A
+display_name: 'Remote Services: SSH'
+atomic_tests:
+- name: SSH
+  auto_generated_guid: 9aeda2ec-fb2f-44c2-aa4b-e3275532e6f1
+  description: |
+    SSH
+  supported_platforms:
+  - windows
+  input_arguments:
+    plnk:
+      description: Target Computer Name
+      type: String
+      default: PathToAtomicsFolder/T1021.004A/src/plink.exe
+  executor:
+    command: |
+      #{plink} 192.168.1.100 -P 2222 -m ipconfig -pw At0micStrong
+    name: command_prompt
