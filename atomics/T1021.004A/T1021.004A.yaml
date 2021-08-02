@@ -1,4 +1,4 @@
-attack_technique: T1021.002A
+attack_technique: T1021.004A
 display_name: 'Remote Services: SSH'
 atomic_tests:
 - name: SSH
