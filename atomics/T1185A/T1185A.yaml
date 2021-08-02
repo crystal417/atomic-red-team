@@ -9,19 +9,17 @@ atomic_tests:
   - windows
   executor:
     command: |
-      echo 공격자 서버 (in kali Linux)
+      echo Attacker (in kali Linux)
       echo 1. Open shell 
       echo 2. cd /home/kali/Desktop/beef/beef
       echo 3. ./beef
-
-      echo 클라이언트 (Windows)
+      echo client (Windows)
       echo 4. http://192.168.1.129:3000/demos/basic.html
-
-      echo 공격자 서버 (in kali Linux)
-      echo 5. http://127.0.0.1:3000/ui/panel 접속 (beef1/beef1)
-      echo 6. 접속 된 클라이언트 클릭 - 오른쪽 패널에서 proxy 클릭 - Forge Request 
-        echo GET / HTTP/1.1 Host: www.naver.com
+      echo Attacker (in kali Linux)
+      echo 5. http://127.0.0.1:3000/ui/panel (beef1/beef1)
+      echo 6. Connected client click - In the right panel, click proxy - Forge Request 
+      echo GET / HTTP/1.1 Host: www.naver.com
       echo 7. send
-      echo 8. history에서 정상 요청 확인
+      echo 8. Verify requests in 'history'
     name: command_prompt
     elevation_required: true
