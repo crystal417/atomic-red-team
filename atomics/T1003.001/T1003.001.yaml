@@ -150,18 +150,16 @@ atomic_tests:
   supported_platforms:
   - windows
   executor:
-    steps: |
-      1. Open Task Manager:
-        On a Windows system this can be accomplished by pressing CTRL-ALT-DEL and selecting Task Manager or by right-clicking
-        on the task bar and selecting "Task Manager".
-
-      2. Select lsass.exe:
-        If lsass.exe is not visible, select "Show processes from all users". This will allow you to observe execution of lsass.exe
-        and select it for manipulation.
-
-      3. Dump lsass.exe memory:
-        Right-click on lsass.exe in Task Manager. Select "Create Dump File". The following dialog will show you the path to the saved file.
-    name: manual
+    command: |
+      echo 1. Open Task Manager:
+      echo  On a Windows system this can be accomplished by pressing CTRL-ALT-DEL and selecting Task Manager or by right-clicking
+      echo  on the task bar and selecting 'Task Manager'.
+      echo 2. Select lsass.exe:
+      echo  If lsass.exe is not visible, select Show 'processes from all users'. This will allow you to observe execution of lsass.exe
+      echo  and select it for manipulation. 
+      echo 3. Dump lsass.exe memory:
+      echo  Right-click on lsass.exe in Task Manager. Select 'Create Dump File'. The following dialog will show you the path to the saved file.
+    name: command_prompt
 
 - name: Offline Credential Theft With Mimikatz
   auto_generated_guid: 453acf13-1dbd-47d7-b28a-172ce9228023
