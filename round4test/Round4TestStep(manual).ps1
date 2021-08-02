@@ -21,10 +21,6 @@
 invoke-atomictest T1003.001 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #GUI 테스트 #manual
 pause
 
-#------------------------------------------------------------
-# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
-invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨 #manual 테스트
-pause
 
 #------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021) - T1021.002 - SMB/Windows Admin Shares
@@ -34,16 +30,18 @@ pause
 #------------------------------------------------------------
 # Collection - Screen Capture - T1113 - Screen Capture
 # Atomic Test #5 - Windows Screencapture
+invoke-atomictest T1113 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #manual
 invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath #manual
 pause
 
 # Collection - Man in the Browser(T1185)
-#invoke-atomictest T1185A -testnumber 1 -ExecutionLogPath -ExecutionLogPath $ExecutionLogPath #manual
-#pause
+invoke-atomictest T1185A -testnumber 1 -ExecutionLogPath -ExecutionLogPath $ExecutionLogPath #manual
+pause
 
 #------------------------------------------------------------
 #Command and Control - Web Service: Bidirectional Communication(T1102.002A)
-#invoke-atomictest T1102.002A -testnumber 1 -ExecutionLogPath -ExecutionLogPath $ExecutionLogPath #manual
+invoke-atomictest T1102.002A -testnumber 1 -ExecutionLogPath -ExecutionLogPath $ExecutionLogPath #manual
+pause
 
 #------------------------------------------------------------
 #Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
@@ -55,3 +53,10 @@ pause
 #invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 원한 #수동 실행
 #pause
 
+
+#------------------------------------------------------------
+# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) - T1548.002 - Bypass User Account Control
+echo "At the next step, powershell is shutdown.."
+pause
+invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath #실행은 성공되나 파워쉘이 종료됨 #manual 테스트
+pause

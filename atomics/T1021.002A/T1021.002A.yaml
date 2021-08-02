@@ -7,25 +7,8 @@ atomic_tests:
     Connecting To Remote Shares
   supported_platforms:
   - windows
-  input_arguments:
-    user_name:
-      description: Username
-      type: String
-      default: DOMAIN\Administrator
-    share_name:
-      description: Examples C$, IPC$, Admin$
-      type: String
-      default: C$
-    password:
-      description: Password
-      type: String
-      default: P@ssw0rd1
-    computer_name:
-      description: Target Computer Name
-      type: String
-      default: Target
   executor:
     command: |
-      1. Open explorer.exe
-      2. 네트워크 탭에서 다른 시스템의 공유폴더 탐색
-    name: manual
+      echo 1. Open explorer.exe
+      echo 2. Explore shared folders on the "network"
+    name: command_prompt
