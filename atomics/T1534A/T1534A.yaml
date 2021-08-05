@@ -1,0 +1,35 @@
+attack_technique: T1534A
+display_name: 'Internal Spearphishing'
+atomic_tests: 
+- name: Internal Spearphishing
+  auto_generated_guid: ea2dea76-3251-45e9-9144-fac2598bbd6d
+  description: |
+    Adversaries may use internal spearphishing to gain access to additional information or exploit other users within the same organization after they already have access to accounts or systems within the environment. Internal spearphishing is multi-staged attack where an email account is owned either by controlling the user's device with previously installed malware or by compromising the account credentials of the user. Adversaries attempt to take advantage of a trusted internal account to increase the likelihood of tricking the target into falling for the phish attempt.[1]
+    Adversaries may leverage Spearphishing Attachment or Spearphishing Link as part of internal spearphishing to deliver a payload or redirect to an external site to capture credentials through Input Capture on sites that mimic email login interfaces.
+    There have been notable incidents where internal spearphishing has been used. The Eye Pyramid campaign used phishing emails with malicious attachments for lateral movement between victims, compromising nearly 18,000 email accounts in the process.[1] The Syrian Electronic Army (SEA) compromised email accounts at the Financial Times (FT) to steal additional account credentials. Once FT learned of the attack and began warning employees of the threat, the SEA sent phishing emails mimicking the Financial Times IT department and were able to compromise even more users.[2]
+  supported_platforms:
+  - windows
+  input_arguments:
+    password:
+      description: gmail password
+      type: string
+      default: "afirst1!"
+    id:
+      description: gmail id
+      type: string
+      default: "iceamericano.team@gmail.com"
+    SmtpServer:
+      description: smtpserver
+      type: string
+      default: smtp.gmail.com  
+    Port:
+      description: Port
+      type: string
+      default: 587
+  executor:
+    command: |
+     $password = ConvertTo-SecureString #{password} -AsPlainText -Force
+     $Cred = New-Object System.Management.Automation.PSCredential (#{id}, $password) 
+     Send-MailMessage -SmtpServer #{SmtpServer} -port #{Port} -Credential $Cred -UseSsl -From #{id} -To #{id} -Subject 'Test mail' -body https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1204.002/src/Invoke-MalDoc.ps1
+
+    name: powershell
