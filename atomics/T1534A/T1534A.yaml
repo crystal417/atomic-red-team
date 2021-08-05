@@ -28,8 +28,8 @@ atomic_tests:
       default: 587
   executor:
     command: |
-     $password = ConvertTo-SecureString #{password} -AsPlainText -Force
-     $Cred = New-Object System.Management.Automation.PSCredential (#{id}, $password) 
+     $password = ConvertTo-SecureString "#{password}" -AsPlainText -Force
+     $Cred = New-Object System.Management.Automation.PSCredential ("#{id}", $password) 
      Send-MailMessage -SmtpServer #{SmtpServer} -port #{Port} -Credential $Cred -UseSsl -From #{id} -To #{id} -Subject 'Test mail' -body https://raw.githubusercontent.com/redcanaryco/atomic-red-team/master/atomics/T1204.002/src/Invoke-MalDoc.ps1
 
     name: powershell
