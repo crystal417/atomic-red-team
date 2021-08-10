@@ -14,6 +14,6 @@ atomic_tests:
       default: '%USERPROFILE%\T1560.001-data.rar'
   executor:
     command: |
-      C:\Users\USER.CONTOSO\Desktop\tools\gdrive.exe upload {output_file}
+      C:\Users\USER.CONTOSO\Desktop\tools\gdrive.exe upload #{output_file}
      
     name: powershell
