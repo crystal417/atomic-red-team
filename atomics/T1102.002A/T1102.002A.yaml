@@ -1,10 +1,10 @@
 attack_technique: T1102.002A
-display_name: 'C2 using gamil - Gcat'
+display_name: 'C2 using gmail - Gcat'
 atomic_tests:
-- name: C2 using gamil - Gcat
+- name: C2 using gmail - Gcat
   auto_generated_guid: fef79867-4d3a-4d7f-a409-d3eec184a9c5
   description: |
-    C2 using gamil - Gcat
+    C2 using gmail - Gcat
   supported_platforms:
   - windows
   executor:

@@ -11,5 +11,5 @@ atomic_tests:
     command: |
       echo 1. Open outlook
       echo 2. Click Malicious Link in temporary
-    name: manual
+    name: command_prompt
     elevation_required: false

