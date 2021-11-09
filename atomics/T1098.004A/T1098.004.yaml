@@ -1,0 +1,17 @@
+---
+attack_technique: T1098.004
+display_name: SSH Authorized Keys
+
+atomic_tests:
+- name: Modify SSH Authorized Keys
+  auto_generated_guid: 63edcc7d-4e54-43ad-a739-3b42d37f051a
+  description: |
+    Modify contents of <user-home>/.ssh/authorized_keys to maintain persistence on victim host. 
+    If the user is able to save the same contents in the authorized_keys file, it shows user can modify the file.
+  supported_platforms:
+    - windows
+  executor:
+    elevation_required: false 
+    command: | 
+      type ~/.ssh/authorized_keys
+    name: command_prompt
