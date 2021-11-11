@@ -6,16 +6,16 @@ atomic_tests:
   description: |
     Example
   supported_platforms:
-  - Windows
+  - windows
   input_arguments:
-    Atomic_PATH:
+    hijack_file:
       description: Path to a shared library source code
       type: String
       default: PathToAtomicsFolder/T1574.008A/src/write.exe
   executor:
     command: |
-      copy #{hijack_file} ~\net.exe
-      cmd /c ~|net.exe
+      copy .\#{hijack_file} %temp%\net.exe
+      cmd /c cd
     cleanup_command: |
-      del ~|net.exe
+      del %temp%\net.exe
     name: command_prompt
