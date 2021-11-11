@@ -12,12 +12,10 @@ atomic_tests:
       description: Path to a shared library source code
       type: String
       default: PathToAtomicsFolder/T1574.008A/src/write.exe
-  - description: |
-      example
   executor:
     command: |
-      copy {hijack_file} net.exe
-      cmd /c net.exe
+      copy #{hijack_file} ~\net.exe
+      cmd /c ~|net.exe
     cleanup_command: |
-      del net.exe
+      del ~|net.exe
     name: command_prompt
