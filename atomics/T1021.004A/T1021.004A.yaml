@@ -9,5 +9,5 @@ atomic_tests:
   - windows
   executor:
     command: |
-      ssh 192.168.204.100 -P 2222 -m ipconfig
+      ssh 192.168.1.100 -P 2222 -m ipconfig
     name: command_prompt

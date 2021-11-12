@@ -11,7 +11,7 @@ atomic_tests:
     DC_IP:
       description: DC Address
       type: String
-      default: '192.168.204.100'  
+      default: '192.168.1.100'  
   executor:
     command: |
       wmic /node:#{DC_IP} process call create "net user /domain"
@@ -39,7 +39,7 @@ atomic_tests:
     DC_IP:
       description: DC Address
       type: String
-      default: '192.168.204.100'    
+      default: '192.168.1.100'    
   dependencies:
   - description: |
       PowerShell ActiveDirectory Module must be installed

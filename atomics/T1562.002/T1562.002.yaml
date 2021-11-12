@@ -18,7 +18,7 @@ atomic_tests:
     node:
       description: node address
       type: string
-      default: 192.168.204.100
+      default: '192.168.1.100'
   executor:
     command: |
       wmic /node:#{node} process call create "C:\Windows\System32\inetsrv\appcmd.exe set config '#{website_name}' /section:httplogging /dontLog:true"

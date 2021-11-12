@@ -13,7 +13,7 @@ atomic_tests:
     server:
       description: server's IP
       type: String
-      default: 192.168.204.100    
+      default: '192.168.1.100'    
     web_shells:
       description: Path of Web Shell
       type: path
