@@ -40,15 +40,15 @@ atomic_tests:
     remote_host:
       description: Remote hostname or IP address
       type: string
-      default: localhost
+      default: '192.168.204.100'
     user_name:
       description: Username
       type: String
-      default: DOMAIN\Administrator
+      default: contoso\Administrator
     password:
       description: Password
       type: String
-      default: P@ssw0rd1
+      default: Password123!
     psexec_exe:
       description: Path to PsExec
       type: string
