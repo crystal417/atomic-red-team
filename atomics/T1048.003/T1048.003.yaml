@@ -87,7 +87,7 @@ atomic_tests:
     ip_address:
       description: Destination IP address where the data should be sent
       type: String
-      default: http://192.168.1.100
+      default: http://192.168.204.100
 - name: Exfiltration Over Alternative Protocol - SMTP
   auto_generated_guid: ec3a835e-adca-4c7c-88d2-853b69c11bb9
   description: |
