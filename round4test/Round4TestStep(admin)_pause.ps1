@@ -471,6 +471,33 @@ timeout /t 10
 invoke-atomictest T1003.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 
+#------------------------------------------------------------
+# Credential Access - OS Credential Dumping(T1003) T1003.003A - NTDS
+write-host "T1003.003 Process Start, Press Any Key to Continue";read-host
+invoke-atomictest T1003.003 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1003.003 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+
+
 
 ##############################################################
 # Discovery
