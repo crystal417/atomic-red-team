@@ -425,10 +425,10 @@ timeout /t 10
 invoke-atomictest T1547.009 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
 
-invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
+#invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#timeout /t 10
+#invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#timeout /t 10
 
 #------------------------------------------------------------
 # Persistence - Create Account(T1136) : T1136.001 - Local Account
@@ -865,10 +865,10 @@ timeout /t 10
 #timeout /t 10
 
 #Atomic Test #4 - Clear Windows Audit Policy Config
-invoke-atomictest T1562.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1562.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
+#invoke-atomictest T1562.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+#timeout /t 10
+#invoke-atomictest T1562.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#timeout /t 10
 
 
 #------------------------------------------------------------
@@ -1310,7 +1310,7 @@ timeout /t 10
 #timeout /t 10
 invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
-invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
 invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
@@ -1667,23 +1667,6 @@ timeout /t 10
 #------------------------------------------------------------
 # Discovery - System Network Configuration Discovery(T1016) T1016 - System Network Configuration Discovery
 write-host "T1016 Process Start, Press Any Key to Continue";read-host
-invoke-atomictest T1016 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1016 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1016 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1016 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1016 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1016 -testnumber 5 -Cleanup -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1016 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1016 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-
 # Atomic Test #1 - System Network Configuration Discovery on Windows
 invoke-atomictest T1016 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10

@@ -120,6 +120,14 @@ write-host "T1547.005 Process Start, Press Any Key to Continue";read-host
 invoke-atomictest T1547.005 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 
+#------------------------------------------------------------
+# Persistence - Boot or Logon Autostart Execution(T1547) T1547.009 - Shortcut Modification
+write-host "T1547.009 Process Start, Press Any Key to Continue";read-host
+invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+
 
 # T1136.001 - Local Account
 write-host "T1136.001 Process Start, Press Any Key to Continue";read-host
@@ -306,6 +314,10 @@ timeout /t 10
 invoke-atomictest T1562.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 
+invoke-atomictest T1562.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1562.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
 #------------------------------------------------------------
 # Defense Evasion - Indicator Removal on Host(T1070) T1070.001 Clear Windows Event Logs
 #Atomic Test #1 - Clear Logs
