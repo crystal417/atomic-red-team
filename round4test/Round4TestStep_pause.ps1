@@ -1896,8 +1896,9 @@ timeout /t 10
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.001 - Encrypted Channel
 write-host "T1573 Process Start, Press Any Key to Continue";read-host
-invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
-timeout /t 10
+# 끝나지 않음.
+#invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
+#timeout /t 10
 
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.002 - Asymmetric Cryptography 
