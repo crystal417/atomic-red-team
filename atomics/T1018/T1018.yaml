@@ -152,7 +152,7 @@ atomic_tests:
     host_name:
       description: hostname or ip address to connect to.
       type: string
-      default: "192.168.1.100"
+      default: "192.168.204.100"
   dependency_executor_name: powershell
   dependencies:
   - description: |

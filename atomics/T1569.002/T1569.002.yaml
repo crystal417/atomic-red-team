@@ -40,7 +40,7 @@ atomic_tests:
     remote_host:
       description: Remote hostname or IP address
       type: string
-      default: '192.168.1.100'
+      default: '192.168.204.100'
     user_name:
       description: Username
       type: String
