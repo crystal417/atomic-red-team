@@ -199,10 +199,10 @@ timeout /t 10
 #timeout /t 10
 
 ## Scheduled task Remote
-invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
-timeout /t 10
-invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
-timeout /t 10
+#invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
+#timeout /t 10
+#invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
+#timeout /t 10
 
 #------------------------------------------------------------
 # Execution - Software Deployment Tools(T1072)
@@ -1055,10 +1055,10 @@ invoke-atomictest T1550.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $Executi
 timeout /t 10
 invoke-atomictest T1550.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
-invoke-atomictest T1550.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
-invoke-atomictest T1550.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-timeout /t 10
+#invoke-atomictest T1550.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t 10
+#invoke-atomictest T1550.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#timeout /t 10
 
 #------------------------------------------------------------
 # Defense Evasion - Valid Accounts(T1078) T1078.001 Default Accounts
