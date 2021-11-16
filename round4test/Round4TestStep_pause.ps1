@@ -15,7 +15,6 @@ Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Fo
 write-host "T1059.001 Process Start, Press Any Key to Continue";read-host
 invoke-atomictest t1059.001 -testnumber 2 -getprereq -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
-
 invoke-atomictest t1059.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath   # AD에서 테스트해야 함.
 timeout /t 10
 invoke-atomictest t1059.001 -testnumber 2 -cleanup -ExecutionLogPath $ExecutionLogPath
@@ -199,10 +198,10 @@ timeout /t 10
 #timeout /t 10
 
 ## Scheduled task Remote
-#invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
-#timeout /t 10
-#invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
-#timeout /t 10
+invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
+timeout /t 10
+invoke-atomictest T1053.005A -testnumber 1-Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
+timeout /t 10
 
 #------------------------------------------------------------
 # Execution - Software Deployment Tools(T1072)
@@ -425,10 +424,10 @@ timeout /t 10
 invoke-atomictest T1547.009 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
 
-#invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-#timeout /t 10
-#invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
-#timeout /t 10
+invoke-atomictest T1547.009 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1547.009 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
 
 #------------------------------------------------------------
 # Persistence - Create Account(T1136) : T1136.001 - Local Account
@@ -865,10 +864,10 @@ timeout /t 10
 #timeout /t 10
 
 #Atomic Test #4 - Clear Windows Audit Policy Config
-#invoke-atomictest T1562.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
-#timeout /t 10
-#invoke-atomictest T1562.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
-#timeout /t 10
+invoke-atomictest T1562.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1562.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
 
 
 #------------------------------------------------------------
@@ -1055,10 +1054,10 @@ invoke-atomictest T1550.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $Executi
 timeout /t 10
 invoke-atomictest T1550.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
-#invoke-atomictest T1550.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-#timeout /t 10
-#invoke-atomictest T1550.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-#timeout /t 10
+invoke-atomictest T1550.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
+invoke-atomictest T1550.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+timeout /t 10
 
 #------------------------------------------------------------
 # Defense Evasion - Valid Accounts(T1078) T1078.001 Default Accounts
@@ -1310,7 +1309,7 @@ timeout /t 10
 #timeout /t 10
 invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
-invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
 invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
@@ -1667,6 +1666,7 @@ timeout /t 10
 #------------------------------------------------------------
 # Discovery - System Network Configuration Discovery(T1016) T1016 - System Network Configuration Discovery
 write-host "T1016 Process Start, Press Any Key to Continue";read-host
+
 # Atomic Test #1 - System Network Configuration Discovery on Windows
 invoke-atomictest T1016 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
@@ -1896,9 +1896,8 @@ timeout /t 10
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.001 - Encrypted Channel
 write-host "T1573 Process Start, Press Any Key to Continue";read-host
-# 끝나지 않음.
-#invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
-#timeout /t 10
+invoke-atomictest T1573 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #T1573.001 → T1573으로 수정 #서버 주소 google로 변경 
+timeout /t 10
 
 #------------------------------------------------------------
 #Command and Control -Encrypted Channel(T1573) T1573.002 - Asymmetric Cryptography 
