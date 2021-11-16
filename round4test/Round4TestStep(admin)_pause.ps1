@@ -30,6 +30,8 @@ timeout /t 10
 invoke-atomictest t1059.001 -testnumber 11 -cleanup -ExecutionLogPath $ExecutionLogPath # 관리자 권한
 timeout /t 10
 
+invoke-atomictest t1059.001 -testnumber 14 -getprereq -ExecutionLogPath $ExecutionLogPath # 관리자 권한
+timeout /t 10
 invoke-atomictest t1059.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath # 관리자 권한
 timeout /t 10
 #------------------------------------------------------------
