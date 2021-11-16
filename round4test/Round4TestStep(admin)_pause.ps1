@@ -59,6 +59,12 @@ timeout /t 10
 invoke-atomictest T1053.005 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath     #관리자 권한 
 timeout /t 10
 
+## Scheduled task Remote
+invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
+timeout /t 10
+invoke-atomictest T1053.005A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
+timeout /t 10
+
 # Execution - System Services(T1569)	Service Execution
 write-host "T1569.002 Process Start, Press Any Key to Continue";read-host
 invoke-atomictest T1569.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
