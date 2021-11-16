@@ -198,9 +198,9 @@ timeout /t 10
 #timeout /t 10
 
 ## Scheduled task Remote
-#invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.003
+#invoke-atomictest T1053.005A -testnumber 1 -ExecutionLogPath $ExecutionLogPath   #T1053.005 3
 #timeout /t 10
-#invoke-atomictest T1053.005A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.003
+#invoke-atomictest T1053.005A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath   #T1053.005 3
 #timeout /t 10
 
 #------------------------------------------------------------
