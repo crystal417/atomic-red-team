@@ -32,7 +32,7 @@ atomic_tests:
     pslist:
       description: Path to sample script
       type: String
-      default: PathToAtomicsFolder\A1057\src\pslist.exe
+      default: PathToAtomicsFolder\T1057A\src\pslist.exe
   executor:
     command: |
       #{pslist}
