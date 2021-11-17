@@ -7,6 +7,8 @@ $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIden
 
 Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
 
+
+$sleeptime = 10
 # Prerequistes
 
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
