@@ -656,17 +656,17 @@ timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 #------------------------------------------------------------
 # Persistence - Hijack Execution Flow(T1574) T1574.007A - Path Interception by PATH Environment Variable
 #dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1574.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1574.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 
 #------------------------------------------------------------
 # Persistence - Hijack Execution Flow(T1574) T1574.008A - Path Interception by Search Order Hijacking
 write-host "T1574.008 Process Start, Press Any Key to Continue";read-host
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1574.008A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1574.008A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1574.008A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1574.008A -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 #------------------------------------------------------------
 # Persistence - Hijack Execution Flow(T1574) T1574.009 - Path Interception by Unquoted Path
@@ -702,19 +702,19 @@ timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 # Persistence - Server Software Component(T1505) T1505.003A - Web Shell
 write-host "T1505.003 Process Start, Press Any Key to Continue";read-host
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1505.003A -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
+invoke-atomictest T1505.003A -testnumber 1 -ExecutionLogPath $ExecutionLogPath  
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1505.003A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1505.003A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 
 #------------------------------------------------------------
 # Persistence - Valid Accounts(T1078) T1078.001 - Default Accounts
 #dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 #dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 #timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 
 #------------------------------------------------------------
@@ -862,10 +862,10 @@ timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 # Privilege Escalation - Process Injection(T1055) T1055.012 Process Hollowing
 write-host "T1055.012 Process Start, Press Any Key to Continue";read-host
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1055.012 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1055.012 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1055.012 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1055.012 -testnumber 1 -cleanup -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 
 #------------------------------------------------------------
@@ -1661,55 +1661,55 @@ timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 # Discovery - Account Discovery(T1087) T1087.002 - Domain Account
 write-host "T1087.002 Process Start, Press Any Key to Continue";read-host
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 #dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1087.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
+#invoke-atomictest T1087.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #dc에서 해야함, 테스트 수정
 #timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 8 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1087.002 -testnumber 9 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 #dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1087.002 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
+#invoke-atomictest T1087.002 -testnumber 10 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정
 #timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 #dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1087.002 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
+#invoke-atomictest T1087.002 -testnumber 10 -ExecutionLogPath $ExecutionLogPath
 #timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 
 # Atomic Test #1 - Enumerate all accounts (Domain)
@@ -2208,7 +2208,7 @@ timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 # Lateral Movement - Remote Services(T1021) - T1021.001 - Remote Desktop Protocol
 write-host "T1021.001 Process Start, Press Any Key to Continue";read-host
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1021.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1021.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
 invoke-atomictest T1021.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
@@ -2287,31 +2287,31 @@ timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 # Collection - Archive Collected Data - T1560 - Archive Collected Data
 write-host "T1560.001 Process Start, Press Any Key to Continue";read-host
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 2 -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1560.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1560.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 
 #------------------------------------------------------------
@@ -2483,10 +2483,10 @@ timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 write-host "T1090.001 Process Start, Press Any Key to Continue";read-host
 #T1090.001 - Internal Proxy - Atomic Test #3 - portproxy reg key
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1090.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1090.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 dt=date;write-host $dt.ToString"yyyy-MM-dd HH:mm:ss"
-invoke-atomictest T1090.001 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1090.001 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath 
 timeout /t 10;$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss");
 
 

@@ -240,7 +240,7 @@ timeout /t 10
 # Persistence - Hijack Execution Flow(T1574) T1574.007A - Path Interception by PATH Environment Variable
 write-host "T1574.007A Process Start, Press Any Key to Continue";read-host
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1574.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
+invoke-atomictest T1574.007A -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t 10
 
 #------------------------------------------------------------
@@ -271,10 +271,10 @@ timeout /t 10
 #T1078.001 - Default Accounts
 write-host "T1078.001 Process Start, Press Any Key to Continue";read-host
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1078.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1078.001 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 
 #------------------------------------------------------------
@@ -414,17 +414,17 @@ timeout /t 10
 # Defense Evasion - T1562.002 - Disable Windows Event Logging
 write-host "T1562.002 Process Start, Press Any Key to Continue";read-host
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1562.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.002 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1562.002 -testnumber 2 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1562.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1562.002 -testnumber 3 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
@@ -868,22 +868,22 @@ timeout /t 10
 #invoke-atomictest T1490 -testnumber 7 -ExecutionLogPath $ExecutionLogPath #제외. 해당 Windows 버전에서 미지원
 
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1490A -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1490A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1490A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1490A -testnumber 2 -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
+invoke-atomictest T1490A -testnumber 2 -ExecutionLogPath $ExecutionLogPath #DC에서 실행 #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1490A -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1490A -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+invoke-atomictest T1490A -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t 10
 
 #------------------------------------------------------------
