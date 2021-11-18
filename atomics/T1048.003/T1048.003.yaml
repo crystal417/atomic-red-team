@@ -107,12 +107,12 @@ atomic_tests:
     sender:
       description: The email address of the sender
       type: String
-      default: "test@corp.com"
+      default: "user@contoso.com"
     receiver:
       description: The email address of the receiver
       type: String
-      default: "test@corp.com"
+      default: "administrator@contoso.com"
     smtp_server:
       description: SMTP server to use for email transportation
       type: String
-      default: "127.0.0.1"
+      default: "192.168.204.100ap"

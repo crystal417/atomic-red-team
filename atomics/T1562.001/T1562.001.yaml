@@ -370,6 +370,8 @@ atomic_tests:
     cleanup_command: |
       Remove-ItemProperty -Path "HKCU:\Software\Microsoft\Office\16.0\Excel\Security" -Name "VBAWarnings" -ErrorAction Ignore | Out-Null
       Remove-Item -Path "HKCU:\Software\Microsoft\Office\16.0\Excel\Security\ProtectedView" -ErrorAction Ignore
+      Remove-Item -Path "HKCU:\Software\Microsoft\Office\16.0\Excel\Security" -ErrorAction Ignore
+      Remove-Item -Path "HKCU:\Software\Microsoft\Office\16.0\Excel" -ErrorAction Ignore
     name: powershell
 - name: Remove Windows Defender Definition Files
   auto_generated_guid: 3d47daaa-2f56-43e0-94cc-caf5d8d52a68

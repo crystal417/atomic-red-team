@@ -802,6 +802,17 @@ invoke-atomictest T1105 -testnumber 12 -Cleanup -ExecutionLogPath $ExecutionLogP
 timeout /t $sleeptime
 
 #------------------------------------------------------------
+#Command and Control - Proxy(T1090)
+write-host "T1090.001 Process Start, Press Any Key to Continue";read-host
+T1090.001 - Internal Proxy - Atomic Test #3 - portproxy reg key
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1090.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
+timeout /t $sleeptime
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1090.001 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath 
+timeout /t $sleeptime
+
+#------------------------------------------------------------
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
 write-host "T1219 Process Start, Press Any Key to Continue";read-host
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")

@@ -1301,7 +1301,7 @@ $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1218.011 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1218.011 -testnumber 5 -ExecutionLogPath $ExecutionLogPath # inf 설치시 에러가 발생되나, 테스트 가능
+invoke-atomictest T1218.011 -testnumber 5 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 10 # inf 설치시 에러가 발생되나, 테스트 가능
 timeout /t $sleeptime
 
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
@@ -1688,7 +1688,7 @@ timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1087.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+$dt=date;write-host $dt.ToString("yyOyy-MM-dd HH:mm:ss")
 invoke-atomictest T1087.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
@@ -1717,13 +1717,12 @@ timeout /t $sleeptime
 #timeout /t $sleeptime
 
 # Atomic Test #10 - Enumerate Active Directory for Unconstrained Delegation
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1087.002A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정 #에러.
-#timeout /t $sleeptime
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1087.002A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-#timeout /t $sleeptime
-
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1087.002A -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath # 모듈이 DC에 만 있음, dc에서 해야함, 리모트 로 수정 #에러.
+timeout /t $sleeptime
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1087.002A -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+timeout /t $sleeptime
 
 
 #------------------------------------------------------------
@@ -2148,9 +2147,9 @@ timeout /t $sleeptime
 #------------------------------------------------------------
 # Lateral Movement - Remote Services(T1021) - T1021.001 - Remote Desktop Protocol
 write-host "T1021.001 Process Start, Press Any Key to Continue";read-host
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1021.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1021.001 -testnumber 1 -CheckPrereqs -ExecutionLogPath $ExecutionLogPath 
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1021.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
@@ -2421,14 +2420,14 @@ timeout /t $sleeptime
 
 #------------------------------------------------------------
 #Command and Control - Proxy(T1090)
-write-host "T1090.001 Process Start, Press Any Key to Continue";read-host
+#write-host "T1090.001 Process Start, Press Any Key to Continue";read-host
 #T1090.001 - Internal Proxy - Atomic Test #3 - portproxy reg key
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1090.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1090.001 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath 
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1090.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1090.001 -testnumber 3 -cleanup -ExecutionLogPath $ExecutionLogPath 
+#timeout /t $sleeptime
 
 
 #------------------------------------------------------------
