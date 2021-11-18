@@ -48,7 +48,7 @@ atomic_tests:
     destination_address:
       description: Remote Host IP or Hostname
       type: string
-      default: Target
+      default: 192.168.204.100
     password:
       description: Password
       type: string

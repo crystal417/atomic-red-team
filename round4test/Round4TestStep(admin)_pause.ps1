@@ -743,7 +743,7 @@ $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1021.002 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1021.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
+invoke-atomictest T1021.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 30 
 timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1021.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
@@ -816,7 +816,7 @@ timeout /t $sleeptime
 #Command and Control - Remote Access Software - T1219 - Remote Access Software
 write-host "T1219 Process Start, Press Any Key to Continue";read-host
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #Teamviewer.exe 실행 전 start-sleep 10 추가 #관리자 권한
+invoke-atomictest T1219 -testnumber 1 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 300 #Teamviewer.exe 실행 전 start-sleep 10 추가 #관리자 권한
 timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1219 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한

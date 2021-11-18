@@ -61,7 +61,7 @@ atomic_tests:
     command_path:
       description: File to copy and execute
       type: Path
-      default: C:\Windows\System32\cmd.exe
+      default: C:\PsTools\PsExec.exe
     remote_host:
       description: Remote computer to receive the copy and execute the file
       type: String
