@@ -2469,9 +2469,9 @@ timeout /t $sleeptime
 #Exfiltration - Exfiltration Over Alternative Protocol - T1048.003 - Exfiltration Over Unencrypted/Obfuscated Non-C2 Protocol
 write-host "T1048.003 Process Start, Press Any Key to Continue";read-host
 # Atomic Test #2 - Exfiltration Over Alternative Protocol - ICMP
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1048.003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1048.003 -testnumber 2 -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 
 # Atomic Test #4 - Exfiltration Over Alternative Protocol - HTTP
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
