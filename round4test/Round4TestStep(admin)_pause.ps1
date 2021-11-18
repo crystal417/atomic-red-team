@@ -873,10 +873,11 @@ invoke-atomictest T1490 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPa
 timeout /t $sleeptime
 
 # Atomic Test #5 - Windows - Delete Volume Shadow Copies via WMI with PowerShell
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1490 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1490 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1490 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 실행 #관리자 권한
+timeout /t $sleeptime
 
 # Atomic Test #6 - Windows - Delete Backup Files
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")

