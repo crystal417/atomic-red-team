@@ -31,7 +31,7 @@ atomic_tests:
       copy #{local_file} C:\WINDOWS\system32\T1574.010A.exe
       sc start #{service_name}
     cleanup_command: |
-      del C:\WINDOWS\system32\T1574A.010.exe
+      del C:\WINDOWS\system32\T1574.010A.exe
       sc delete T1574.010
     name: command_prompt
     elevation_required: true

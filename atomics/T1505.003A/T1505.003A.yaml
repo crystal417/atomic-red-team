@@ -21,7 +21,7 @@ atomic_tests:
     psexec_exe:
       description: Path to PsExec executable
       type: Path
-      default: PathToAtomicsFolder\T1505.003A\bin\PsExec64.exe
+      default: PathToAtomicsFolder\T1505.003A\bin\PsExec.exe
   dependency_executor_name: powershell
   dependencies:
   - description: |

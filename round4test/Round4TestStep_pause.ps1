@@ -3,6 +3,8 @@ $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder"="c:\round4
 $ExecutionLogPath = "C:\round4test\atomictest.log"
 Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
 
+Stop-Transcript
+Start-Transcript "C:\round4test\Round4TestStep_pause.ps1.log"
 
 $sleeptime = 10
 ##############################################################
@@ -243,9 +245,9 @@ timeout /t $sleeptime
 #timeout /t $sleeptime
 
 ##Task Scheduler via VBA
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1053.005 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1053.005 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1053.005 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
@@ -300,9 +302,9 @@ timeout /t $sleeptime
 #------------------------------------------------------------
 # Execution - User Execution (T1204) T1204.002 - Malicious File
 write-host "T1204.002 Process Start, Press Any Key to Continue";read-host
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1204.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1204.002 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
@@ -317,30 +319,30 @@ $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002A -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #T1204.002. 2
 timeout /t $sleeptime
 
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1204.002 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1204.002 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002 -testnumber 3 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
 
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1204.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1204.002 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002 -testnumber 4 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
 
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1204.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1204.002 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
 
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1204.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1204.002 -testnumber 6 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002 -testnumber 6 -ExecutionLogPath $ExecutionLogPath -TimeoutSeconds 30 
 timeout /t $sleeptime
@@ -348,9 +350,9 @@ $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002 -testnumber 6 -Cleanup -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
 
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1204.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1204.002 -testnumber 7 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1204.002 -testnumber 7 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
@@ -1004,12 +1006,12 @@ write-host "T1562.001 Process Start, Press Any Key to Continue";read-host
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 12 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #timeout /t $sleeptime
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1562.001 -testnumber 13 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
-#timeout /t $sleeptime
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1562.001 -testnumber 13 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
-#timeout /t $sleeptime
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1562.001 -testnumber 13 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
+timeout /t $sleeptime
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1562.001 -testnumber 13 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
+timeout /t $sleeptime
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #timeout /t $sleeptime
@@ -1034,12 +1036,12 @@ write-host "T1562.001 Process Start, Press Any Key to Continue";read-host
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 17 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자  권한
 #timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 18 -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 18 -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 18 -Cleanup -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 ##$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 19 -ExecutionLogPath $ExecutionLogPath #관리자  권한 #테스트 실패
 #timeout /t $sleeptime
@@ -1380,9 +1382,9 @@ timeout /t $sleeptime
 #------------------------------------------------------------
 # Credential Access - Credentials from Password Stores(T1555)
 write-host "T1555 Process Start, Press Any Key to Continue";read-host
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1555 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1555 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1555 -testnumber 1 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
@@ -2225,9 +2227,9 @@ timeout /t $sleeptime
 #------------------------------------------------------------
 # Collection - Archive Collected Data - T1560 - Archive Collected Data
 write-host "T1560.001 Process Start, Press Any Key to Continue";read-host
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1560.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1560.001 -testnumber 1 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1560.001 -testnumber 1 -ExecutionLogPath $ExecutionLogPath 
 timeout /t $sleeptime
@@ -2246,9 +2248,9 @@ timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1560.001 -testnumber 3 -ExecutionLogPath $ExecutionLogPath 
 timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1560.001 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1560.001 -testnumber 4 -GetPrereqs -ExecutionLogPath $ExecutionLogPath 
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1560.001 -testnumber 4 -ExecutionLogPath $ExecutionLogPath 
 timeout /t $sleeptime
@@ -2596,3 +2598,6 @@ timeout /t $sleeptime
 # Atomic Test #2 - Restart System - Windows
 # invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 원한
 #timeout /t $sleeptime
+
+
+Stop-Transcript

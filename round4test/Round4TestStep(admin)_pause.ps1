@@ -6,7 +6,8 @@ $isAdmin = ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIden
 
 
 Import-Module "C:\round4test\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" -Force
-
+Stop-Transcript
+Start-Transcript "C:\round4test\Round4TestStep(admin)_pause.ps1.log"
 
 $sleeptime = 10
 # Prerequistes
@@ -345,10 +346,16 @@ timeout /t $sleeptime
 # Defense Evasion - Impair Defenses(T1562) T1562.001 Disable or Modify Tools
 write-host "T1562.001 Process Start, Press Any Key to Continue";read-host
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1562.001 -testnumber 10 -getprereq -ExecutionLogPath $ExecutionLogPath #관리자 권한
+timeout /t $sleeptime
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1562.001 -testnumber 10 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1562.001 -testnumber 10 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+timeout /t $sleeptime
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1562.001 -testnumber 11 -getprereq -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1562.001 -testnumber 11 -ExecutionLogPath $ExecutionLogPath #관리자 권한
@@ -362,16 +369,16 @@ timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1562.001 -testnumber 12 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t $sleeptime
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1562.001 -testnumber 13 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1562.001 -testnumber 13 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한 #McAfeeDLPAgentService 서비스가 설치되어야함. getprereqs를 작성해야할것으로 보임.
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
+invoke-atomictest T1562.001 -testnumber 13 -ExecutionLogPath $ExecutionLogPath #관리자 권한 
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 14 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
+invoke-atomictest T1562.001 -testnumber 13 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한 
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 14 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #McAfeeDLPAgentService 서비스 필요.
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 14 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 15 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #windows defender atp. 설치 필요
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
@@ -380,37 +387,37 @@ timeout /t $sleeptime
 #invoke-atomictest T1562.001 -testnumber 16 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #Windwos Defender disable, access denied
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 16 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한 #Windwos Defender disable, access denied
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 17 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 17 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 17 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 17 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 19 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #테스트 실패
 #$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 #invoke-atomictest T1562.001 -testnumber 20 -ExecutionLogPath $ExecutionLogPath #관리자 권한 #McAfeeDLPAgentService 서비스 필요.
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 21 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 22 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 22 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 23 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 23 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 24 -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1562.001 -testnumber 24 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 21 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 22 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 22 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 23 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 23 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 24 -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1562.001 -testnumber 24 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
 
 #------------------------------------------------------------
 # Defense Evasion - T1562.002 - Disable Windows Event Logging
@@ -644,9 +651,9 @@ timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1003.002 -testnumber 1 -Cleanup -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1003.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1003.002 -testnumber 2 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1003.002 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t $sleeptime
@@ -748,9 +755,9 @@ write-host "T1021.006 Process Start, Press Any Key to Continue";read-host
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1021.006 -testnumber 1 -ExecutionLogPath $ExecutionLogPath #관리자 권한
 timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1021.006 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한 #get_prereq_command 실행 안됨 
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1021.006 -testnumber 3 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #관리자 권한 #get_prereq_command 실행 안됨 
+#timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1021.006 -testnumber 3 -ExecutionLogPath $ExecutionLogPath #관리자 권한 
 timeout /t $sleeptime
@@ -855,10 +862,10 @@ invoke-atomictest T1490 -testnumber 4 -Cleanup -ExecutionLogPath $ExecutionLogPa
 timeout /t $sleeptime
 
 # Atomic Test #5 - Windows - Delete Volume Shadow Copies via WMI with PowerShell
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1490 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
-#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-#invoke-atomictest T1490 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 실행 #관리자 권한
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1490 -testnumber 5 -GetPrereqs -ExecutionLogPath $ExecutionLogPath #DC에서 실행 (추가) #관리자 권한
+$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+invoke-atomictest T1490 -testnumber 5 -ExecutionLogPath $ExecutionLogPath #실행 전에 SHADOW COPY 생성 필요함. #DC에서 실행 #관리자 권한
 
 # Atomic Test #6 - Windows - Delete Backup Files
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
@@ -922,3 +929,6 @@ timeout /t $sleeptime
 
 # Atomic Test #2 - Restart System - Windows
 # invoke-atomictest T1529 -testnumber 2 -ExecutionLogPath $ExecutionLogPath #관리자 원한 #수동 실행
+
+
+Stop-Transcript
