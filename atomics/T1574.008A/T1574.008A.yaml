@@ -14,7 +14,7 @@ atomic_tests:
       default: PathToAtomicsFolder/T1574.008A/src/write.exe
   executor:
     command: |
-      copy .\#{hijack_file} %temp%\net.exe
+      copy #{hijack_file} %temp%\net.exe
       cmd /c cd
     cleanup_command: |
       del %temp%\net.exe
