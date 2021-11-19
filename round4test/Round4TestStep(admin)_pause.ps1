@@ -700,9 +700,9 @@ timeout /t $sleeptime
 $dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
 invoke-atomictest T1003.003 -testnumber 5 -ExecutionLogPath $ExecutionLogPath
 timeout /t $sleeptime
-$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
-invoke-atomictest T1003.003 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
-timeout /t $sleeptime
+#$dt=date;write-host $dt.ToString("yyyy-MM-dd HH:mm:ss")
+#invoke-atomictest T1003.003 -testnumber 6 -ExecutionLogPath $ExecutionLogPath
+#timeout /t $sleeptime
 
 
 
