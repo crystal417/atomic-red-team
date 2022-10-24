@@ -68,6 +68,7 @@ atomic_tests:
       Invoke-Maldoc -macroFile "PathToAtomicsFolder\T1115\src\T1115-macrocode.txt" -officeProduct "Word" -sub "GetClipboard"
     cleanup_command: |
       Remove-Item "$env:TEMP\atomic_T1115_clipboard_data.txt" -ErrorAction Ignore
+      test
     name: powershell
 - name: Add or copy content to clipboard with xClip
   auto_generated_guid: ee363e53-b083-4230-aff3-f8d955f2d5bb
