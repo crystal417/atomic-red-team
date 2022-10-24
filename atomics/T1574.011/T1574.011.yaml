@@ -51,3 +51,4 @@ atomic_tests:
     cleanup_command: |
       sc.exe delete #{weak_service_name}
     name: command_prompt
+    aaa
