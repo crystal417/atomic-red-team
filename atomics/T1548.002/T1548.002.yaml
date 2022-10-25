@@ -119,7 +119,7 @@ atomic_tests:
     command: |
       mkdir "\\?\C:\Windows \System32\"
       copy "#{executable_binary}" "\\?\C:\Windows \System32\mmc.exe"
-      mklink c:\testbypass.exe "\\?\C:\Windows \System32\mmc.exe"
+      cmd.exe /c mklink c:\testbypass.exe "\\?\C:\Windows \System32\mmc.exe"
     cleanup_command: |
       rd "\\?\C:\Windows \" /S /Q >nul 2>nul
       del "c:\testbypass.exe" >nul 2>nul
