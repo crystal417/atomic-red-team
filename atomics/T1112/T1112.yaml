@@ -179,6 +179,7 @@ atomic_tests:
   - windows
   executor:
     command: |
+      New-Item -Path "HKCU:\Software\Policies\Microsoft\Windows" -Name "System"
       New-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\System" -Name DisableCMD -Value 1
     cleanup_command: |
       Remove-ItemProperty -Path "HKCU:\Software\Policies\Microsoft\Windows\System" -Name DisableCMD -ErrorAction Ignore

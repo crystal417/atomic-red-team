@@ -295,7 +295,7 @@ atomic_tests:
       C:\svchost.exe /c echo T1105 > \\localhost\c$\T1105.txt
     cleanup_command: |
       del C:\T1105.txt >nul 2>&1
-      del C:\\svchost.exe >nul 2>&1
+      del C:\svchost.exe >nul 2>&1
     name: command_prompt
     elevation_required: true
 - name: Download a File with Windows Defender MpCmdRun.exe
@@ -746,7 +746,7 @@ atomic_tests:
     destination_path:
       description: Destination path to file
       type: Path
-      default: $env:TEMP\Atomic-license.txt
+      default: C:\Windows\Temp\Atomic-license.txt
     local_nimgrab:
       description: Local path to nimgrab
       type: Path

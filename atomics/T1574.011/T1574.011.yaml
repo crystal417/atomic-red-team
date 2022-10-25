@@ -28,11 +28,11 @@ atomic_tests:
     weak_service_name:
       description: weak service name
       type: String
-      default: calcservice
+      default: gupdate
     weak_service_path:
       description: weak service path
       type: String
-      default: '%windir%\system32\win32calc.exe'
+      default: 'C:\Program Files (x86)\Google\Update\GoogleUpdate.exe'
     malicious_service_path:
       description: malicious service path
       type: String
@@ -51,3 +51,4 @@ atomic_tests:
     cleanup_command: |
       sc.exe delete #{weak_service_name}
     name: command_prompt
+  
