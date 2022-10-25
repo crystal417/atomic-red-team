@@ -1,0 +1,47 @@
+attack_technique: T1016.001
+display_name: 'System Network Configuration Discovery: Internet Connection Discovery'
+atomic_tests:
+- name: Ping Test
+  auto_generated_guid: 970ab6a1-0157-4f3f-9a73-ec4166754b23
+  description: |
+    QuietSieve can check C2 connectivity with a ping to 8.8.8.8 (Google public DNS).
+
+  
+  supported_platforms:
+  - windows
+  executor:
+    command: |
+      ping 8.8.8.8
+      
+    name: command_prompt
+- name: tracert Test
+  auto_generated_guid: 038263cb-00f4-4b0a-98ae-0696c67e1752
+  description: |
+    Turla has used tracert to check internet connectivity.
+
+    
+  supported_platforms:
+  - windows
+  executor:
+    command: |
+      tracert -h 10 yahoo.com
+      
+    name: command_prompt
+- name: GET requests to websites
+  auto_generated_guid: 038263cb-00f4-4b0a-98ae-0696c67e1752
+  description: |
+    Turla has used tracert to check internet connectivity.
+
+    
+  supported_platforms:
+  - windows
+  input_arguments:
+    remote_url:
+      description: Location of file to be downloaded.
+      type: url
+      default: https://www.ahnlab.com
+  executor:
+    command: |
+      powershell.exe Invoke-WebRequest -URI #{remote_url}
+      
+    name: command_prompt 
